@@ -40,10 +40,34 @@
     {
       "id": "costera",
       "name": "Costera",
-      "color": "#159ca0",
-      "status": "pending",
-      "stopCount": 0,
-      "description": "Pendiente de recorrido y paradas"
+      "color": "#087f83",
+      "status": "reference",
+      "stopCount": 29,
+      "description": "Calle 22 · Playa Norte · Malecón Costero",
+      "note": "Recorrido orientativo interpretado del cartel y 29 marcadores estimados desde la captura. Algunas ubicaciones se superponen. Los números son referencias internas, no equivalen a los nombres «Punto» de My Maps ni indican orden de paso. No se han confirmado sentidos, horarios ni la totalidad de las paradas.",
+      "streets": [
+        "Calle 22",
+        "Calle 47",
+        "Calle 26",
+        "Playa Norte",
+        "Malecón Costero",
+        "P. del Mar",
+        "Av. Amado Nervo",
+        "Av. Nardos",
+        "Av. Constelación"
+      ],
+      "sources": [
+        {
+          "id": "costera-poster-user",
+          "title": "Cartel Ruta Costera · compartido por el usuario",
+          "url": "assets/costera-recorrido.png"
+        },
+        {
+          "id": "costera-screenshot-user",
+          "title": "Captura de paradas Costera · compartida por el usuario",
+          "url": "assets/costera-paradas.png"
+        }
+      ]
     },
     {
       "id": "laguna-terminos",
@@ -77,6 +101,31 @@
         ]
       }
     },
-    "route": "Tramos OSM seleccionados según el cartel, más una conexión aproximada en Abasolo. Sin cálculo de sentidos ni horarios."
+    "route": "Tramos OSM seleccionados según el cartel, más una conexión aproximada en Abasolo. Sin cálculo de sentidos ni horarios.",
+    "costera": {
+      "stopCalibration": {
+        "chedraui": {
+          "pixel": [
+            662,
+            389
+          ],
+          "coordinate": [
+            -91.82146474,
+            18.64246032
+          ]
+        },
+        "aurrera": {
+          "pixel": [
+            1114,
+            231
+          ],
+          "coordinate": [
+            -91.7822696,
+            18.6553726
+          ]
+        }
+      },
+      "route": "Digitalización aproximada del cartel sobre la captura. Sin ajuste exacto a calles ni sentidos de circulación."
+    }
   }
 }

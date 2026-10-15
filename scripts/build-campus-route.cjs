@@ -56,6 +56,10 @@ const catalog = {
   ],
   method:{stopCalibration:anchors,route:'Tramos OSM seleccionados según el cartel, más una conexión aproximada en Abasolo. Sin cálculo de sentidos ni horarios.'}
 };
+const costera = require('./costera.cjs')();
+features.push(...costera.features);
+catalog.routes[catalog.routes.findIndex(route=>route.id==='costera')] = costera.route;
+catalog.method.costera = {stopCalibration:costera.anchors,route:'Digitalización aproximada del cartel sobre la captura. Sin ajuste exacto a calles ni sentidos de circulación.'};
 fs.writeFileSync(path.join(root,'data/transit.geojson'),JSON.stringify({type:'FeatureCollection',features}));
 fs.writeFileSync(path.join(root,'data/routes.json'),JSON.stringify(catalog,null,2));
-console.log(`${features.filter(f=>f.properties.kind==='route').length} tramos de referencia y ${pixels.length} paradas aproximadas.`);
+console.log(`${features.filter(f=>f.properties.kind==='route').length} tramos de referencia y ${features.filter(f=>f.properties.kind==='stop').length} paradas aproximadas.`);

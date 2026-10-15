@@ -28,7 +28,7 @@
     if (mobile()) showPanel('general');
     if (popup) popup.remove();
     const content = element('div');
-    content.append(element('strong', `Campus III · ${feature.properties.name}`), element('small', feature.properties.note));
+    content.append(element('strong', `${route().name} · ${feature.properties.name}`), element('small', feature.properties.note));
     popup = new maplibregl.Popup({offset: 20}).setLngLat(feature.geometry.coordinates).setDOMContent(content).addTo(map);
     map.flyTo({center: feature.geometry.coordinates, zoom: 16, padding: mobile() ? {top:100,bottom:80,left:30,right:30} : {top:80,bottom:60,left:390,right:60}});
   }
@@ -39,6 +39,9 @@
     const available = route().status === 'reference';
     const show = visible && available;
     chip.hidden = !show;
+    chip.textContent = `${route().name} · aproximada ↗`;
+    chip.setAttribute('aria-label', `Ver detalles de ${route().name}`);
+    document.body.style.setProperty('--transit-color',route().color);
     document.body.classList.toggle('transit-active', show);
     if (!map) return;
     if (!map.isStyleLoaded()) { map.once('idle',draw); return; }
@@ -51,10 +54,11 @@
       map.setFilter(id,['all',['==',['get','kind'],'route'],['==',['get','routeId'],selected]]);
       map.setLayoutProperty(id,'visibility',show?'visible':'none');
     });
+    map.setPaintProperty('amor-route','line-color',route().color);
     if (!show) return;
     stops().forEach(feature => {
       const control = button(String(feature.properties.number), event => { event.stopPropagation(); showStop(feature); }, 'transit-marker');
-      control.setAttribute('aria-label', `Campus III, ${feature.properties.name}, ubicación aproximada`);
+      control.setAttribute('aria-label', `${route().name}, ${feature.properties.name}, ubicación aproximada`);
       const marker = new maplibregl.Marker({element:control}).setLngLat(feature.geometry.coordinates).addTo(map);
       markers.push(marker);
     });
@@ -80,7 +84,7 @@
   function renderStops() {
     const list = document.querySelector('#transit-stop-list'); list.replaceChildren();
     const pending = route().status === 'pending';
-    document.querySelector('#stop-disclaimer').textContent = pending ? 'Aún no se han añadido las paradas de esta ruta.' : '12 marcadores de tu captura. Posiciones aproximadas; números de referencia, no orden de paso. Puede haber otras paradas.';
+    document.querySelector('#stop-disclaimer').textContent = pending ? 'Aún no se han añadido las paradas de esta ruta.' : `${stops().length} marcadores de tu captura. Posiciones aproximadas; números de referencia, no orden de paso. Puede haber otras paradas.`;
     if (pending) { list.append(element('p','Comparte el mapa o las ubicaciones para integrar esta ruta.','info-box')); return; }
     stops().forEach(feature => {
       const node = button('',()=>showStop(feature),'transit-stop');
@@ -106,7 +110,7 @@
     }
     detail.append(element('p',item.note,'info-box'));
     detail.append(button('Ver recorrido completo',fitRoute));
-    detail.append(button('Ver 12 paradas',()=>{ document.querySelector('#stop-route').value=selected; showPanel('stops'); },'text-button route-action'));
+    detail.append(button(`Ver ${item.stopCount} paradas`,()=>{ document.querySelector('#stop-route').value=selected; showPanel('stops'); },'text-button route-action'));
     const visibility = element('label',null,'layer-option');
     const checkbox = document.createElement('input'); checkbox.type='checkbox'; checkbox.checked=visible;
     checkbox.addEventListener('change',()=>{visible=checkbox.checked;draw();});

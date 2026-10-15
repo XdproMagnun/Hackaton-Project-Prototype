@@ -25,8 +25,8 @@ El importador admite extractos de hasta 50 MB, procesados en memoria. Para regio
 ## Alcance
 
 - Búsqueda por coordenadas con marcador.
-- Paradas de referencia de Campus III y puntos OSM independientes, con botón para ubicarlos.
-- Campus III integrado como recorrido de referencia. Costera y Laguna de Términos pendientes de datos. No se calculan recorridos de navegación.
+- Paradas de referencia de Campus III y Costera, y puntos OSM independientes, con botón para ubicarlos.
+- Campus III y Costera integrados como recorridos de referencia. Laguna de Términos pendiente de datos. No se calculan recorridos de navegación.
 - MapLibre, tipografías y fondo OpenStreetMap requieren internet; el GeoJSON se sirve desde el proyecto.
 - No se sube el PBF a servicios externos. Datos © OpenStreetMap contributors, licencia ODbL.
 
@@ -34,10 +34,10 @@ Referencias: https://github.com/tyrasd/tiny-osmpbf · https://github.com/tyrasd/
 
 ## Amor X Carmen · Campus III
 
-La ruta se integra desde dos imágenes aportadas por el usuario el 15 de octubre de 2026, guardadas en assets/. El cartel proporciona el recorrido y la captura permite identificar 12 marcadores etiquetados de Amor X Carmen. No se realizó investigación adicional para Costera ni Laguna de Términos: ambas permanecen pendientes de datos.
+La ruta se integra desde dos imágenes aportadas por el usuario el 15 de octubre de 2026, guardadas en assets/. El cartel proporciona el recorrido y la captura permite identificar 12 marcadores etiquetados de Amor X Carmen. Costera se agregó posteriormente desde sus propias imágenes; Laguna de Términos permanece pendiente.
 
 - `data/routes.json`: catálogo de las tres rutas, estado de verificación, calles del cartel y fuentes.
-- `data/transit.geojson`: 37 tramos de referencia y 12 ubicaciones aproximadas.
+- `data/transit.geojson`: 42 tramos de referencia y 41 ubicaciones aproximadas entre las dos rutas.
 - `transit.js`: selección de ruta, capas, marcadores accesibles, lista de paradas y ajuste del mapa.
 - `npm run build:route`: reconstruye los datos de referencia usando el PBF convertido; ejecutar solo si se desea reemplazar ajustes manuales de transit.geojson.
 
@@ -47,3 +47,9 @@ El trazado usa vías OSM seleccionadas según el cartel, más una conexión apro
 
 Para corregir puntos, editar las coordenadas [longitud, latitud] y propiedades en transit.geojson. Para añadir las otras rutas, incorporar geometrías con su routeId y cambiar su status de pending a reference en routes.json. Las capas de transporte son independientes de la visibilidad de los datos base del PBF.
 
+
+## Amor X Carmen · Costera
+
+Se digitalizaron 29 marcadores visibles de la captura My Maps usando la punta de los pines y una calibración aproximada con Chedraui y Bodega Aurrera. Los números internos no corresponden a los nombres Punto de My Maps ni al orden de servicio. Los pines superpuestos son especialmente imprecisos. El recorrido se interpretó del cartel en cinco secciones; no está ajustado exactamente a las calles y no se debe usar para navegación giro a giro.
+
+Las imágenes están en assets/costera-paradas.png y assets/costera-recorrido.png. scripts/costera.cjs conserva los píxeles originales, calibración y trazado. npm run build:route reconstruye ambas rutas y conserva Campus III. Para corregir permanentemente Costera, editar ese módulo. Laguna de Términos sigue pendiente.

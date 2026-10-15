@@ -5,6 +5,7 @@ const files = new Set(['index.html', 'styles.css', 'config.js', 'app.js', 'data/
 ['transit.js','data/transit.geojson','data/routes.json','assets/campus-3-paradas.png','assets/campus-3-recorrido.png'].forEach(file => files.add(file));
 const types = {'.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.geojson': 'application/geo+json; charset=utf-8', '.json': 'application/json; charset=utf-8'};
 types['.png'] = 'image/png';
+['assets/costera-paradas.png','assets/costera-recorrido.png'].forEach(file=>files.add(file));
 http.createServer((req, res) => {
   const name = new URL(req.url, 'http://localhost').pathname.slice(1) || 'index.html';
   if (!files.has(name)) { res.writeHead(404); return res.end('Not found'); }
