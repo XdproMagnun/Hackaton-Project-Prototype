@@ -66,4 +66,6 @@ Mapa general reúne las rutas disponibles. Mostrar rutas y Mostrar paradas contr
 config.js activa simulateVehicles. Para usar GPS, desactivarlo y configurar vehiclesUrl con una API JSON que devuelva vehicles: [{id, routeId, longitude, latitude, updatedAt, active}]. updatedAt debe ser una fecha ISO; solo se muestran registros activos de los últimos 120 segundos. Se consulta cada 15 segundos; la API necesita permitir el acceso desde el sitio. Ante fallos se retiran las posiciones y se muestra el estado de conexión.
 
 Categoria de participacion: Hack for Humanity Challenge
+
+
 Tecnologias que se usaron para este proyecto: Codex, ChatGPT.
