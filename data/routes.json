@@ -1,0 +1,82 @@
+{
+  "updated": "2026-10-15",
+  "routes": [
+    {
+      "id": "campus-3",
+      "name": "Campus III",
+      "color": "#8b23c9",
+      "status": "reference",
+      "stopCount": 12,
+      "description": "Campus I (principal) · Campus III",
+      "note": "Recorrido y posiciones aproximados, reconstruidos desde las imágenes compartidas. No representan un servicio en tiempo real. La numeración identifica marcadores; no indica orden de paso. La captura no es un inventario completo de paradas.",
+      "streets": [
+        "Calle 31",
+        "Periférica Norte",
+        "Av. Concordia",
+        "Av. Corregidora",
+        "Calle 37",
+        "Boquerón del Palmar",
+        "Carretera Carmen–Puerto Real",
+        "Calle Escárcega",
+        "Av. Puerto de Campeche",
+        "Av. Abasolo",
+        "Av. Contadores",
+        "Av. Central",
+        "Campus III"
+      ],
+      "sources": [
+        {
+          "id": "poster-user",
+          "title": "Cartel Ruta Campus III · compartido por el usuario",
+          "url": "assets/campus-3-recorrido.png"
+        },
+        {
+          "id": "screenshot-user",
+          "title": "Captura de paradas · compartida por el usuario",
+          "url": "assets/campus-3-paradas.png"
+        }
+      ]
+    },
+    {
+      "id": "costera",
+      "name": "Costera",
+      "color": "#159ca0",
+      "status": "pending",
+      "stopCount": 0,
+      "description": "Pendiente de recorrido y paradas"
+    },
+    {
+      "id": "laguna-terminos",
+      "name": "Laguna de Términos",
+      "color": "#da8b20",
+      "status": "pending",
+      "stopCount": 0,
+      "description": "Pendiente de recorrido y paradas"
+    }
+  ],
+  "method": {
+    "stopCalibration": {
+      "chedraui": {
+        "pixel": [
+          436,
+          362
+        ],
+        "coordinate": [
+          -91.82146474,
+          18.64246032
+        ]
+      },
+      "aurrera": {
+        "pixel": [
+          975,
+          175
+        ],
+        "coordinate": [
+          -91.7822696,
+          18.6553726
+        ]
+      }
+    },
+    "route": "Tramos OSM seleccionados según el cartel, más una conexión aproximada en Abasolo. Sin cálculo de sentidos ni horarios."
+  }
+}

@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "start": "node server.cjs",
-    "import:pbf": "node scripts/import-pbf.cjs"
+    "import:pbf": "node scripts/import-pbf.cjs",
+    "build:route": "node scripts/build-campus-route.cjs"
   },
   "dependencies": {
     "osmtogeojson": "3.0.0-beta.5",
