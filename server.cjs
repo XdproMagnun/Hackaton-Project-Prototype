@@ -6,7 +6,7 @@ const files = new Set(['index.html', 'styles.css', 'config.js', 'app.js', 'data/
 const types = {'.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.geojson': 'application/geo+json; charset=utf-8', '.json': 'application/json; charset=utf-8'};
 types['.png'] = 'image/png';
 types['.svg'] = 'image/svg+xml';
-['icons.css','icons.js'].forEach(file=>files.add(file));
+['icons.css','icons.js','theme.css','preferences.js'].forEach(file=>files.add(file));
 fs.readdirSync(path.join(__dirname,'assets/icons')).filter(file=>file.endsWith('.svg')).forEach(file=>files.add('assets/icons/'+file));
 ['assets/costera-paradas.png','assets/costera-recorrido.png'].forEach(file=>files.add(file));
 http.createServer((req, res) => {

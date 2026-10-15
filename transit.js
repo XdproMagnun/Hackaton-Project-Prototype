@@ -53,6 +53,7 @@
     document.querySelector('#transit-scope').textContent = general ? 'Todas las rutas disponibles' : route().name;
     document.querySelector('#routes-visible').checked = visible;
     document.querySelector('#stops-visible').checked = stopsVisible;
+    window.syncLayerIcons?.();
     drawVehicles();
     if (!map) return;
     if (!map.isStyleLoaded()) { map.once('idle',draw); return; }
@@ -130,16 +131,30 @@
       node.style.setProperty('--route-color',item.color);
       node.setAttribute('aria-pressed',String(item.id===selected));
       node.append(element('strong',item.name),element('small',item.status==='pending'?'Pendiente de datos':`${item.stopCount} paradas de referencia`));
+      if (window.uiPrefs.favorites.includes(item.id)) { const badge = element('span', 'Favorita', 'favorite-tag'); badge.prepend(appIcon('heart')); node.append(badge); }
       list.append(node);
     });
     const detail = document.querySelector('#route-detail'); detail.replaceChildren();
     const item = route();
     detail.append(element('h2',item.name),element('p',item.description));
+    const favorite = button('', () => {
+      const saved = window.uiPrefs.favorites.includes(item.id);
+      window.uiPrefs.favorites = saved ? window.uiPrefs.favorites.filter(id => id !== item.id) : [...window.uiPrefs.favorites, item.id];
+      const persisted = window.saveUiPrefs();
+      render();
+      if (persisted) notify(saved ? 'Ruta retirada de favoritos.' : 'Ruta guardada en favoritos.', 'optional');
+    }, 'favorite-button');
+    const saved = window.uiPrefs.favorites.includes(item.id);
+    favorite.setAttribute('aria-pressed', String(saved));
+    favorite.append(appIcon(saved ? 'heart' : 'heart-off'), document.createTextNode(saved ? 'Ruta favorita' : 'Guardar favorita'));
+    detail.append(favorite);
     if(item.status==='pending') {
       detail.append(element('p','Recorrido y paradas pendientes. Todavía no se dibuja esta ruta.','info-box'));
       renderStops(); return;
     }
-    detail.append(element('p',item.note,'info-box'));
+    const routeNote = element('p', item.note, 'info-box');
+    routeNote.prepend(appIcon('warning'), document.createTextNode(' '));
+    detail.append(routeNote);
     detail.append(button('Ver recorrido completo',fitRoute));
     detail.append(button(item.stopCount ? `Ver ${item.stopCount} paradas` : 'Ver paradas',()=>{ document.querySelector('#stop-route').value=selected; showPanel('stops'); },'text-button route-action'));
     const visibility = element('label',null,'layer-option');
@@ -149,7 +164,7 @@
     const streets = element('details'); streets.append(element('summary','Calles indicadas en el cartel'));
     const streetList = element('ul'); item.streets.forEach(street => streetList.append(element('li',street))); streets.append(streetList); detail.append(streets);
     const sources = element('details'); sources.append(element('summary','Imágenes de referencia'));
-    item.sources.forEach(source => {const link=element('a',source.title);link.href=source.url;link.target='_blank';link.rel='noopener';sources.append(link);}); detail.append(sources);
+    item.sources.forEach(source => {const link=element('a',source.title);link.href=source.url;link.target='_blank';link.rel='noopener';if (/^assets\/.*\.png$/.test(source.url)) {const preview=document.createElement('img');preview.src=source.url;preview.alt=source.title;preview.loading='lazy';preview.className='reference-preview';link.prepend(preview);}sources.append(link);}); detail.append(sources);
     renderStops();
   }
   document.querySelector('#stop-route').addEventListener('change',event=>choose(event.target.value));

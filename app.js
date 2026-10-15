@@ -67,7 +67,8 @@ fetchJSON(config.stops).then(data => {
     list.append(button);
   });
 }).catch(() => { document.querySelector('#stop-list').textContent = 'No se pudieron cargar las paradas locales.'; });
-function notify(message) {
+function notify(message, kind = 'status') {
+  if (kind === 'optional' && window.uiPrefs?.alerts === false) return;
   notice.textContent = message;
   notice.hidden = false;
   clearTimeout(noticeTimer);
