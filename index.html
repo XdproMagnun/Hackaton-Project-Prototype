@@ -6,16 +6,16 @@
   <meta name="theme-color" content="#9747FF">
   <title>Ubicarmen · Explora tu ciudad</title>
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="styles.css?v=brand-2">
-  <link rel="stylesheet" href="icons.css?v=brand-2">
-  <link rel="stylesheet" href="theme.css?v=brand-2">
+  <link rel="stylesheet" href="styles.css?v=layers-3">
+  <link rel="stylesheet" href="icons.css?v=layers-3">
+  <link rel="stylesheet" href="theme.css?v=layers-3">
   <link rel="icon" type="image/svg+xml" href="assets/icons/logo-app.svg">
-  <script defer src="icons.js?v=brand-2"></script>
+  <script defer src="icons.js?v=layers-3"></script>
   <script defer src="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.js"></script>
   <script defer src="config.js"></script>
-  <script defer src="app.js?v=brand-2"></script>
-  <script defer src="preferences.js?v=brand-2"></script>
-  <script defer src="transit.js?v=brand-2"></script>
+  <script defer src="app.js?v=layers-3"></script>
+  <script defer src="preferences.js?v=layers-3"></script>
+  <script defer src="transit.js?v=layers-3"></script>
 </head>
 <body>
   <header class="header">
@@ -30,11 +30,14 @@
   </header>
   <main>
     <div id="map" aria-label="Mapa interactivo de Ciudad del Carmen"></div>
-    <aside class="transit-controls" aria-label="Capas de transporte">
+    <details class="transit-controls" id="layer-menu">
+      <summary aria-label="Mostrar opciones de capas" title="Rutas y paradas"><span class="app-icon icon-eye" aria-hidden="true"></span></summary>
+      <div class="layers-popover">
       <strong id="transit-scope">Todas las rutas disponibles</strong>
-      <div><label><input id="routes-visible" type="checkbox" checked><span class="app-icon icon-eye" data-layer-icon="routes-visible" aria-hidden="true"></span> Rutas</label><label><input id="stops-visible" type="checkbox" checked><span class="app-icon icon-eye" data-layer-icon="stops-visible" aria-hidden="true"></span> Paradas</label></div>
+      <div class="layer-options"><label><input id="routes-visible" type="checkbox" checked><span class="app-icon icon-eye" data-layer-icon="routes-visible" aria-hidden="true"></span> Rutas</label><label><input id="stops-visible" type="checkbox" checked><span class="app-icon icon-eye" data-layer-icon="stops-visible" aria-hidden="true"></span> Paradas</label></div>
       <span class="fleet-status"><span class="app-icon icon-bus" aria-hidden="true"></span><small id="vehicle-status" role="status">Cargando camiones…</small></span>
-    </aside>
+      </div>
+    </details>
     <div class="location-chip"><span class="green-dot"></span> Ciudad del Carmen <span class="chip-divider">/</span><span>Campeche, México</span></div>
     <button id="transit-chip" class="transit-chip" hidden aria-label="Ver detalles de Campus III">Campus III · aproximada <span class="app-icon icon-chevron-right" aria-hidden="true"></span></button>
     <section class="panel" id="search" hidden aria-labelledby="search-title">

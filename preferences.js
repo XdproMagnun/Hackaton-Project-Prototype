@@ -42,3 +42,15 @@
   ['routes-visible','stops-visible'].forEach(id => document.getElementById(id).addEventListener('change', window.syncLayerIcons));
   window.syncLayerIcons();
 })();
+
+// El menú no tapa el mapa hasta que el usuario lo abre.
+const layerMenu = document.querySelector('#layer-menu');
+document.addEventListener('pointerdown', event => {
+  if (!layerMenu.contains(event.target)) layerMenu.open = false;
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && layerMenu.open) {
+    layerMenu.open = false;
+    layerMenu.querySelector('summary').focus();
+  }
+});
