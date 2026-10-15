@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","features":[{"type":"Feature","id":"node/8192099855","properties":{"bus":"yes","highway":"bus_stop","public_transport":"platform","id":"node/8192099855"},"geometry":{"type":"Point","coordinates":[-91.8262342,18.6303034]}}]}

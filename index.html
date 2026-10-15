@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="theme-color" content="#125b46">
+  <title>Ubicarmen · Explora tu ciudad</title>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.js"></script>
+  <script defer src="config.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="./" aria-label="Ubicarmen, inicio"><span class="brand-icon">u<span>•</span></span><span>ubicarmen<small>TU CIUDAD, MÁS CERCA</small></span></a>
+    <nav aria-label="Navegación principal">
+      <button data-panel="search" aria-controls="search" aria-expanded="false"><span aria-hidden="true">⌕</span> Búsqueda</button>
+      <button data-panel="routes" aria-controls="routes" aria-expanded="false"><span aria-hidden="true">⑂</span> Rutas</button>
+      <button data-panel="stops" aria-controls="stops" aria-expanded="false"><span aria-hidden="true">⚑</span> Paradas</button>
+      <button data-panel="general" class="active" aria-current="page"><span aria-hidden="true">▧</span> Mapa general</button>
+    </nav>
+    <button class="import-button" data-panel="source" aria-controls="source" aria-expanded="false"><span aria-hidden="true">＋</span> Conectar mapa</button>
+  </header>
+  <main>
+    <div id="map" aria-label="Mapa interactivo de Ciudad del Carmen"></div>
+    <div class="location-chip"><span class="green-dot"></span> Ciudad del Carmen <span class="chip-divider">/</span><span>Campeche, México</span></div>
+    <section class="panel" id="search" hidden aria-labelledby="search-title">
+      <div class="eyebrow">EXPLORA A TU RITMO</div><h1 id="search-title">¿A dónde vamos?</h1><p>Encuentra un punto en el mapa por sus coordenadas.</p>
+      <form id="search-form"><label for="coordinates">Latitud, longitud</label><div class="input-row"><input id="coordinates" placeholder="18.651, -91.807" required><button class="primary" aria-label="Buscar coordenadas">→</button></div><p class="hint">La búsqueda por nombre estará disponible al conectar un servicio de lugares.</p></form>
+    </section>
+    <section class="panel" id="routes" hidden aria-labelledby="routes-title">
+      <div class="eyebrow">CONECTA TUS DESTINOS</div><h1 id="routes-title">Tus próximas rutas</h1><p>Este espacio está listo para integrar recorridos y un servicio de cálculo de rutas.</p><div class="empty-icon">⑂</div><h2>Aún no hay rutas</h2><p class="hint">Las rutas aparecerán aquí cuando conectes tus datos de transporte.</p>
+    </section>
+    <section class="panel" id="stops" hidden aria-labelledby="stops-title">
+      <div class="eyebrow">PUNTOS DE ENCUENTRO</div><h1 id="stops-title">Paradas del mapa</h1><p>Paradas registradas en tu archivo OpenStreetMap.</p><div id="stop-list" aria-live="polite">Cargando paradas…</div><p class="hint">El extracto puede no incluir todas las paradas de la ciudad.</p>
+    </section>
+    <section class="panel" id="source" hidden aria-labelledby="source-title">
+      <div class="eyebrow">TU MAPA, TUS DATOS</div><h1 id="source-title">Tu cartografía</h1><p id="local-summary">Cargando información del PBF local…</p><p>También puedes conectar un estilo MapLibre externo.</p>
+      <form id="source-form"><label for="style-url">URL del archivo style.json</label><input id="style-url" type="url" placeholder="http://localhost:8080/style.json" required><button class="primary wide">Conectar mapa</button></form>
+      <div class="info-box"><strong>PBF local integrado</strong><p>Las calles, edificios y lugares de tu archivo se muestran sobre un fondo de OpenStreetMap. Selecciona un elemento para consultar sus datos.</p><label class="layer-option"><input id="local-visible" type="checkbox" checked> Mostrar datos del PBF</label></div><button id="reset-source" class="text-button">Volver a mi mapa local</button>
+    </section>
+    <aside class="welcome" id="welcome"><div class="eyebrow">CADA RECORRIDO EMPIEZA AQUÍ</div><h1>Descubre tu ciudad.</h1><p>Un mapa. Todos tus caminos.</p><button class="text-button" data-panel="search">Explorar el mapa <span aria-hidden="true">↗</span></button></aside>
+    <div class="map-tools"><button id="home" aria-label="Volver a Ciudad del Carmen" title="Volver al inicio">⌂</button></div>
+    <div class="map-footer"><span class="green-dot"></span><span id="map-status" role="status">Cargando mapa base…</span><span class="footer-tag">ESQUELETO · V1.0</span></div>
+    <div id="notice" role="status" hidden></div>
+  </main>
+</body>
+</html>
