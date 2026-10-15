@@ -113,8 +113,9 @@
   function renderStops() {
     const list = document.querySelector('#transit-stop-list'); list.replaceChildren();
     const pending = route().status === 'pending';
-    document.querySelector('#stop-disclaimer').textContent = pending ? 'Aún no se han añadido las paradas de esta ruta.' : route().id==='costera' ? 'Puntos 1–3: coordenadas del My Maps compartido. Otros 26: estimados desde la captura y ajustados al PBF.' : `${stops().length} marcadores de tu captura. Posiciones aproximadas; números de referencia, no orden de paso. Puede haber otras paradas.`;
+    document.querySelector('#stop-disclaimer').textContent = pending ? 'Aún no se han añadido las paradas de esta ruta.' : route().id==='costera' ? 'Puntos 1–3: coordenadas del My Maps compartido. Otros 26: estimados desde la captura y ajustados al PBF.' : route().id==='laguna-terminos' ? 'El My Maps compartido contiene el trazado, pero no muestra marcadores de paradas. La ruta y los camiones simulados sí están disponibles.' : `${stops().length} marcadores de tu captura. Posiciones aproximadas; números de referencia, no orden de paso. Puede haber otras paradas.`;
     if (pending) { list.append(element('p','Comparte el mapa o las ubicaciones para integrar esta ruta.','info-box')); return; }
+    if (!stops().length) { list.append(element('p','Todavía no hay paradas georreferenciadas en la fuente de esta ruta.','info-box')); return; }
     stops().forEach(feature => {
       const node = button('',()=>showStop(feature),'transit-stop');
       node.append(element('span',String(feature.properties.number),'stop-number'),element('span',feature.properties.name),element('small',feature.properties.accuracy==='source-coordinate'?'My Maps ✓':'Aproximada ↗'));
@@ -139,7 +140,7 @@
     }
     detail.append(element('p',item.note,'info-box'));
     detail.append(button('Ver recorrido completo',fitRoute));
-    detail.append(button(`Ver ${item.stopCount} paradas`,()=>{ document.querySelector('#stop-route').value=selected; showPanel('stops'); },'text-button route-action'));
+    detail.append(button(item.stopCount ? `Ver ${item.stopCount} paradas` : 'Ver paradas',()=>{ document.querySelector('#stop-route').value=selected; showPanel('stops'); },'text-button route-action'));
     const visibility = element('label',null,'layer-option');
     const checkbox = document.createElement('input'); checkbox.type='checkbox'; checkbox.checked=visible;
     checkbox.addEventListener('change',()=>{visible=checkbox.checked;draw();});

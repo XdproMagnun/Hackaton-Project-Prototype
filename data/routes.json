@@ -78,9 +78,20 @@
       "id": "laguna-terminos",
       "name": "Laguna de Términos",
       "color": "#da8b20",
-      "status": "pending",
+      "status": "reference",
       "stopCount": 0,
-      "description": "Pendiente de recorrido y paradas"
+      "description": "Recorrido Línea 2 · Laguna de Términos",
+      "note": "Recorrido aproximado digitalizado visualmente de la Línea 2 del Google My Maps compartido. El mapa no muestra paradas ni expone coordenadas exactas de la línea; no usar para navegación giro a giro.",
+      "streets": [
+        "Recorrido de referencia · Línea 2"
+      ],
+      "sources": [
+        {
+          "id": "google-mymaps-laguna",
+          "title": "Google My Maps · ruta Laguna de Términos",
+          "url": "https://www.google.com/maps/d/u/0/viewer?mid=1S7tfEO4a6EizA1P0045_WfPYP7HCeYQ"
+        }
+      ]
     }
   ],
   "method": {
@@ -145,6 +156,9 @@
         ]
       },
       "route": "Tramos del cartel encadenados sobre la red vial del PBF, del circuito del centro a Av. Constelación Pléyades. Sin sentidos de circulación confirmados."
+    },
+    "lagunaTerminos": {
+      "route": "Línea 2 digitalizada visualmente de la vista de Google My Maps; el mapa no expone geometría ni paradas exportables."
     }
   }
 }
