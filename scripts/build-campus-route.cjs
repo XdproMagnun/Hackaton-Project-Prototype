@@ -63,7 +63,7 @@ catalog.method.costera = {stopCalibration:costera.anchors,route:'Tramos del cart
 const laguna = require('./laguna-terminos.cjs')();
 features.push(laguna.feature);
 catalog.routes[catalog.routes.findIndex(route=>route.id==='laguna-terminos')] = laguna.route;
-catalog.method.lagunaTerminos = {route:'Recorrido del cartel unido sobre la red vial del PBF; los puntos de paso se aproximaron visualmente y se encadenaron para eliminar cortes.'};
+catalog.method.lagunaTerminos = {route:'Importación directa de data/laguna-source.kml, descargado del My Maps compartido. Vértices, conexiones y orden conservados sin recalcular caminos.'};
 fs.writeFileSync(path.join(root,'data/transit.geojson'),JSON.stringify({type:'FeatureCollection',features}));
 fs.writeFileSync(path.join(root,'data/routes.json'),JSON.stringify(catalog,null,2));
 console.log(`${features.filter(f=>f.properties.kind==='route').length} tramos de referencia y ${features.filter(f=>f.properties.kind==='stop').length} paradas aproximadas.`);

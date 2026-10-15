@@ -80,8 +80,6 @@
       "color": "#da8b20",
       "status": "reference",
       "stopCount": 0,
-      "description": "Circuito desde Soriana Centro · ruta de calles del cartel",
-      "note": "Recorrido reconstruido siguiendo el cartel y unido sobre las calles del PBF. La línea queda continua; su ubicación es aproximada y el cartel no incluye coordenadas GPS ni marcadores de paradas.",
       "streets": [
         "Malecón del Centro",
         "Calle 25",
@@ -102,10 +100,12 @@
         "Calle 31",
         "Calle 22"
       ],
+      "description": "Recorrido original del My Maps compartido",
+      "note": "Línea importada directamente del KML compartido, conservando sus conexiones y su orden. Es un trazado de referencia, no un registro GPS de los camiones.",
       "sources": [
         {
-          "id": "laguna-poster-user",
-          "title": "Cartel Ruta Laguna de Términos · compartido por el usuario",
+          "id": "google-mymaps-laguna",
+          "title": "Google My Maps · trazado original de Laguna de Términos",
           "url": "https://www.google.com/maps/d/u/0/viewer?mid=1S7tfEO4a6EizA1P0045_WfPYP7HCeYQ"
         }
       ]
@@ -175,7 +175,7 @@
       "route": "Tramos del cartel encadenados sobre la red vial del PBF, del circuito del centro a Av. Constelación Pléyades. Sin sentidos de circulación confirmados."
     },
     "lagunaTerminos": {
-      "route": "Recorrido del cartel unido sobre la red vial del PBF; los puntos de paso se aproximaron visualmente y se encadenaron para eliminar cortes."
+      "route": "Importación directa de data/laguna-source.kml, descargado del My Maps compartido. Vértices, conexiones y orden conservados sin recalcular caminos."
     }
   }
 }

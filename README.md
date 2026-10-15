@@ -56,7 +56,7 @@ Las imágenes están en assets/costera-paradas.png y assets/costera-recorrido.pn
 
 ## Amor X Carmen · Laguna de Términos
 
-El circuito se reconstruyó desde el cartel compartido y se ajustó a la red vial del PBF para que la línea quede continua. La imagen no aporta coordenadas GPS ni marcadores georreferenciados de paradas, por lo que el trazado sigue siendo aproximado y la lista de paradas queda vacía hasta recibir ubicaciones. El proyecto simula dos camiones sobre el recorrido; no son posiciones GPS. Editar `scripts/laguna-terminos.cjs` para ajustar la línea; `npm run build:route` la conserva junto con las otras rutas.
+El recorrido se importa directamente del KML del My Maps compartido, conservado en `data/laguna-source.kml`. Se mantienen todos sus vértices y conexiones, sin recalcular caminos por calles cercanas. No contiene marcadores de paradas. `npm run build:route` reconstruye la ruta a partir de esta fuente y la simulación recorre su geometría.
 
 ## Mapa general y camiones
 

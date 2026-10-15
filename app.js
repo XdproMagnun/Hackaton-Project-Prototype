@@ -41,7 +41,7 @@ function featurePopup(feature, lngLat) {
   new maplibregl.Popup().setLngLat(lngLat).setDOMContent(content).addTo(map);
 }
 async function fetchJSON(url) {
-  const response = await fetch(url);
+  const response = await fetch(url, {cache: 'no-store'});
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   return response.json();
 }
