@@ -56,7 +56,7 @@ Las imágenes están en assets/costera-paradas.png y assets/costera-recorrido.pn
 
 ## Amor X Carmen · Laguna de Términos
 
-La Línea 2 se digitalizó visualmente desde el Google My Maps compartido. El visor enseña el recorrido, pero no expone sus vértices ni muestra marcadores de paradas, así que la geometría es aproximada y la lista queda vacía hasta recibir ubicaciones. El proyecto muestra la ruta y simula dos camiones sobre su trazado; no son posiciones GPS. Editar `scripts/laguna-terminos.cjs` para ajustar la línea; `npm run build:route` la conserva junto con las otras rutas.
+El circuito se reconstruyó desde el cartel compartido y se ajustó a la red vial del PBF para que la línea quede continua. La imagen no aporta coordenadas GPS ni marcadores georreferenciados de paradas, por lo que el trazado sigue siendo aproximado y la lista de paradas queda vacía hasta recibir ubicaciones. El proyecto simula dos camiones sobre el recorrido; no son posiciones GPS. Editar `scripts/laguna-terminos.cjs` para ajustar la línea; `npm run build:route` la conserva junto con las otras rutas.
 
 ## Mapa general y camiones
 

@@ -80,15 +80,32 @@
       "color": "#da8b20",
       "status": "reference",
       "stopCount": 0,
-      "description": "Recorrido Línea 2 · Laguna de Términos",
-      "note": "Recorrido aproximado digitalizado visualmente de la Línea 2 del Google My Maps compartido. El mapa no muestra paradas ni expone coordenadas exactas de la línea; no usar para navegación giro a giro.",
+      "description": "Circuito desde Soriana Centro · ruta de calles del cartel",
+      "note": "Recorrido reconstruido siguiendo el cartel y unido sobre las calles del PBF. La línea queda continua; su ubicación es aproximada y el cartel no incluye coordenadas GPS ni marcadores de paradas.",
       "streets": [
-        "Recorrido de referencia · Línea 2"
+        "Malecón del Centro",
+        "Calle 25",
+        "Calle 24",
+        "Calle 28 × 17",
+        "Av. 10 de Julio",
+        "Calle 40",
+        "Calle Independencia",
+        "Calle Constitución",
+        "Vicente Guerrero",
+        "Balneario de la Manigua",
+        "Av. 16 de Septiembre",
+        "Calle Satélite",
+        "Francisco Javier Mina",
+        "Calle 17-D",
+        "Calle 19",
+        "Calle 42",
+        "Calle 31",
+        "Calle 22"
       ],
       "sources": [
         {
-          "id": "google-mymaps-laguna",
-          "title": "Google My Maps · ruta Laguna de Términos",
+          "id": "laguna-poster-user",
+          "title": "Cartel Ruta Laguna de Términos · compartido por el usuario",
           "url": "https://www.google.com/maps/d/u/0/viewer?mid=1S7tfEO4a6EizA1P0045_WfPYP7HCeYQ"
         }
       ]
@@ -158,7 +175,7 @@
       "route": "Tramos del cartel encadenados sobre la red vial del PBF, del circuito del centro a Av. Constelación Pléyades. Sin sentidos de circulación confirmados."
     },
     "lagunaTerminos": {
-      "route": "Línea 2 digitalizada visualmente de la vista de Google My Maps; el mapa no expone geometría ni paradas exportables."
+      "route": "Recorrido del cartel unido sobre la red vial del PBF; los puntos de paso se aproximaron visualmente y se encadenaron para eliminar cortes."
     }
   }
 }
