@@ -87,7 +87,7 @@
         popup=new maplibregl.Popup({offset:24}).setLngLat(feature.geometry.coordinates).setDOMContent(content).addTo(map);
       }, 'transit-marker');
       control.style.setProperty('--transit-color',owner.color);
-      control.setAttribute('aria-label', clustered?`${group.features.length} paradas cercanas, abrir lista`:`${owner.name}, ${feature.properties.name}, ubicación aproximada`);
+      control.setAttribute('aria-label', clustered?`${group.features.length} paradas cercanas, abrir lista`:`${owner.name}, ${feature.properties.name}, ${feature.properties.accuracy==='source-coordinate'?'coordenada de My Maps':'ubicación aproximada'}`);
       const marker = new maplibregl.Marker({element:control}).setLngLat(feature.geometry.coordinates).addTo(map);
       markers.push(marker);
     });
@@ -113,11 +113,11 @@
   function renderStops() {
     const list = document.querySelector('#transit-stop-list'); list.replaceChildren();
     const pending = route().status === 'pending';
-    document.querySelector('#stop-disclaimer').textContent = pending ? 'Aún no se han añadido las paradas de esta ruta.' : `${stops().length} marcadores de tu captura. Posiciones aproximadas; números de referencia, no orden de paso. Puede haber otras paradas.`;
+    document.querySelector('#stop-disclaimer').textContent = pending ? 'Aún no se han añadido las paradas de esta ruta.' : route().id==='costera' ? 'Puntos 1–3: coordenadas del My Maps compartido. Otros 26: estimados desde la captura y ajustados al PBF.' : `${stops().length} marcadores de tu captura. Posiciones aproximadas; números de referencia, no orden de paso. Puede haber otras paradas.`;
     if (pending) { list.append(element('p','Comparte el mapa o las ubicaciones para integrar esta ruta.','info-box')); return; }
     stops().forEach(feature => {
       const node = button('',()=>showStop(feature),'transit-stop');
-      node.append(element('span',String(feature.properties.number),'stop-number'),element('span',feature.properties.name),element('small','Aproximada ↗'));
+      node.append(element('span',String(feature.properties.number),'stop-number'),element('span',feature.properties.name),element('small',feature.properties.accuracy==='source-coordinate'?'My Maps ✓':'Aproximada ↗'));
       list.append(node);
     });
   }

@@ -44,7 +44,7 @@
       "status": "reference",
       "stopCount": 29,
       "description": "Calle 22 · Playa Norte · Malecón Costero",
-      "note": "Recorrido aproximado alineado a la red vial local y reconstruido desde el cartel. Las paradas estimadas de la captura se agrupan si sus pines se superponen. Los números son referencias internas, no equivalen a los nombres «Punto» de My Maps ni indican orden de paso. No se han confirmado sentidos, horarios ni la totalidad de las paradas.",
+      "note": "Puntos 1–3 usan las coordenadas de sus marcadores en el Google My Maps compartido. Los demás puntos están estimados desde la captura y ajustados a calles del PBF; al acercar el mapa, los grupos se separan visualmente.",
       "streets": [
         "Calle 22",
         "Calle 47",
@@ -57,6 +57,11 @@
         "Av. Constelación"
       ],
       "sources": [
+        {
+          "id": "google-mymaps-user",
+          "title": "Google My Maps · ruta Costera compartida",
+          "url": "https://www.google.com/maps/d/u/0/viewer?mid=1DaSzhYCq9FK5rQ_Vx-gSYVdZzb6kfDU"
+        },
         {
           "id": "costera-poster-user",
           "title": "Cartel Ruta Costera · compartido por el usuario",
@@ -123,7 +128,21 @@
             -91.7822696,
             18.6553726
           ]
-        }
+        },
+        "exactMyMaps": [
+          [
+            -91.8357047,
+            18.6355567
+          ],
+          [
+            -91.8371088,
+            18.6373543
+          ],
+          [
+            -91.8369888,
+            18.6392968
+          ]
+        ]
       },
       "route": "Tramos del cartel encadenados sobre la red vial del PBF, del circuito del centro a Av. Constelación Pléyades. Sin sentidos de circulación confirmados."
     }

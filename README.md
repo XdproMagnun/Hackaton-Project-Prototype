@@ -50,7 +50,7 @@ Para corregir puntos, editar las coordenadas [longitud, latitud] y propiedades e
 
 ## Amor X Carmen · Costera
 
-Se digitalizaron 29 marcadores visibles de la captura My Maps usando la punta de los pines y una calibración aproximada con Chedraui y Bodega Aurrera. Los números internos no corresponden a los nombres Punto de My Maps ni al orden de servicio. Los pines superpuestos son especialmente imprecisos. El recorrido se interpretó del cartel en cinco secciones; no está ajustado exactamente a las calles y no se debe usar para navegación giro a giro.
+Se digitalizaron 29 marcadores visibles de la captura My Maps. Los primeros tres usan las coordenadas del mapa My Maps compartido. Los otros 26 se calibraron con Chedraui y Bodega Aurrera y se ajustaron a la calle más cercana del PBF. Los nombres Punto 1, 2 y 3 coinciden con los del mapa; los números restantes son referencias internas y no indican orden de servicio. El recorrido se interpretó del cartel en cinco secciones; no está ajustado exactamente a las calles y no se debe usar para navegación giro a giro.
 
 Las imágenes están en assets/costera-paradas.png y assets/costera-recorrido.png. scripts/costera.cjs conserva los píxeles originales, calibración y trazado. npm run build:route reconstruye ambas rutas y conserva Campus III. Para corregir permanentemente Costera, editar ese módulo. Laguna de Términos sigue pendiente.
 
