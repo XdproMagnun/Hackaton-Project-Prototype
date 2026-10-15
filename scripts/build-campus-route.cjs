@@ -59,7 +59,7 @@ const catalog = {
 const costera = require('./costera.cjs')();
 features.push(...costera.features);
 catalog.routes[catalog.routes.findIndex(route=>route.id==='costera')] = costera.route;
-catalog.method.costera = {stopCalibration:costera.anchors,route:'Digitalización aproximada del cartel sobre la captura. Sin ajuste exacto a calles ni sentidos de circulación.'};
+catalog.method.costera = {stopCalibration:costera.anchors,route:'Tramos del cartel encadenados sobre la red vial del PBF, del circuito del centro a Av. Constelación Pléyades. Sin sentidos de circulación confirmados.'};
 fs.writeFileSync(path.join(root,'data/transit.geojson'),JSON.stringify({type:'FeatureCollection',features}));
 fs.writeFileSync(path.join(root,'data/routes.json'),JSON.stringify(catalog,null,2));
 console.log(`${features.filter(f=>f.properties.kind==='route').length} tramos de referencia y ${features.filter(f=>f.properties.kind==='stop').length} paradas aproximadas.`);

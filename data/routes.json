@@ -44,7 +44,7 @@
       "status": "reference",
       "stopCount": 29,
       "description": "Calle 22 · Playa Norte · Malecón Costero",
-      "note": "Recorrido orientativo interpretado del cartel y 29 marcadores estimados desde la captura. Algunas ubicaciones se superponen. Los números son referencias internas, no equivalen a los nombres «Punto» de My Maps ni indican orden de paso. No se han confirmado sentidos, horarios ni la totalidad de las paradas.",
+      "note": "Recorrido aproximado alineado a la red vial local y reconstruido desde el cartel. Las paradas estimadas de la captura se agrupan si sus pines se superponen. Los números son referencias internas, no equivalen a los nombres «Punto» de My Maps ni indican orden de paso. No se han confirmado sentidos, horarios ni la totalidad de las paradas.",
       "streets": [
         "Calle 22",
         "Calle 47",
@@ -125,7 +125,7 @@
           ]
         }
       },
-      "route": "Digitalización aproximada del cartel sobre la captura. Sin ajuste exacto a calles ni sentidos de circulación."
+      "route": "Tramos del cartel encadenados sobre la red vial del PBF, del circuito del centro a Av. Constelación Pléyades. Sin sentidos de circulación confirmados."
     }
   }
 }
