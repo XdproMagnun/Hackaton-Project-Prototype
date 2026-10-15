@@ -71,6 +71,7 @@ Categoria de participacion: Hack for Humanity Challenge
 Tecnologias que se usaron para este proyecto: Codex, ChatGPT.
 
 Integrantes del equipo:
+
 Julian Mendoza
 
 Irving del Angel
