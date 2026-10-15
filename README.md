@@ -1,3 +1,4 @@
+Problemática: Ubicacion precisa de los autobuses de amor x carmen inexistente y sin ningun mapa claro de rutas y paradas
 # Ubicarmen
 
 Mapa web de Ciudad del Carmen con Búsqueda, Rutas, Paradas y Mapa general.
@@ -63,3 +64,6 @@ El recorrido se importa directamente del KML del My Maps compartido, conservado 
 Mapa general reúne las rutas disponibles. Mostrar rutas y Mostrar paradas controlan capas independientes y no ocultan camiones. Rutas y Paradas filtran la vista a la ruta elegida. Hay dos unidades simuladas por cada una de las tres rutas (seis actualmente). La simulación recorre segmentos de referencia en ciclos de tres minutos, puede saltar entre tramos desconectados y no representa horarios, velocidades o ubicaciones reales.
 
 config.js activa simulateVehicles. Para usar GPS, desactivarlo y configurar vehiclesUrl con una API JSON que devuelva vehicles: [{id, routeId, longitude, latitude, updatedAt, active}]. updatedAt debe ser una fecha ISO; solo se muestran registros activos de los últimos 120 segundos. Se consulta cada 15 segundos; la API necesita permitir el acceso desde el sitio. Ante fallos se retiran las posiciones y se muestra el estado de conexión.
+
+Categoria de participacion: Hack for Humanity Challenge
+Tecnologias que se usaron para este proyecto: Codex, ChatGPT.
