@@ -86,6 +86,7 @@
         group.features.forEach(f=>content.append(button(`${catalog.routes.find(r=>r.id===f.properties.routeId).name} · ${f.properties.name}`,()=>showStop(f),'cluster-stop')));
         popup=new maplibregl.Popup({offset:24}).setLngLat(feature.geometry.coordinates).setDOMContent(content).addTo(map);
       }, 'transit-marker');
+      if (!clustered) control.prepend(appIcon('stop'));
       control.style.setProperty('--transit-color',owner.color);
       control.setAttribute('aria-label', clustered?`${group.features.length} paradas cercanas, abrir lista`:`${owner.name}, ${feature.properties.name}, ${feature.properties.accuracy==='source-coordinate'?'coordenada de My Maps':'ubicación aproximada'}`);
       const marker = new maplibregl.Marker({element:control}).setLngLat(feature.geometry.coordinates).addTo(map);
@@ -168,10 +169,11 @@
     const active = vehicles.filter(v=>v.active===true && Date.now()-Date.parse(v.updatedAt)<=120000 && Date.parse(v.updatedAt)<=Date.now()+30000);
     active.filter(v=>general || v.routeId===selected).forEach(v=>{
       const owner=catalog.routes.find(r=>r.id===v.routeId);
-      const control=button('🚌',()=>{
+      const control=button('',()=>{
         const content=element('div');content.append(element('strong',`Camión ${v.id}${v.simulated?' · SIMULACIÓN':''}`),element('small',owner?.name || 'Ruta sin identificar'));
         new maplibregl.Popup().setLngLat([v.longitude,v.latitude]).setDOMContent(content).addTo(map);
       },'vehicle-marker');
+      control.append(appIcon('bus'));
       control.style.background=owner?.color || '#125b46';
       control.setAttribute('aria-label',`Camión ${v.simulated?'simulado':'activo'} ${v.id} · ${owner?.name || 'Ruta sin identificar'}`);
       vehicleMarkers.push(new maplibregl.Marker({element:control}).setLngLat([v.longitude,v.latitude]).addTo(map));

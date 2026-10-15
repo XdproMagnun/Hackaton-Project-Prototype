@@ -1,0 +1,28 @@
+/* Assets originales: ASSETS_ICONS. Máscaras para heredar el color accesible del control. */
+.app-icon{display:inline-block;width:22px;height:22px;flex:0 0 22px;background-color:currentColor;-webkit-mask:var(--icon) center/contain no-repeat;mask:var(--icon) center/contain no-repeat;vertical-align:middle;pointer-events:none}
+.icon-account{--icon:url('assets/icons/account.svg')}
+.icon-home{--icon:url('assets/icons/home.svg')}
+.icon-help{--icon:url('assets/icons/help.svg')}
+.icon-search{--icon:url('assets/icons/search.svg')}
+.icon-map{--icon:url('assets/icons/map.svg')}
+.icon-place{--icon:url('assets/icons/place.svg')}
+.icon-stop{--icon:url('assets/icons/stop.svg')}
+.icon-bus{--icon:url('assets/icons/bus.svg')}
+.icon-check{--icon:url('assets/icons/check.svg')}
+.icon-close{--icon:url('assets/icons/close.svg')}
+.icon-more{--icon:url('assets/icons/more.svg')}
+.icon-chevron-down{--icon:url('assets/icons/chevron-down.svg')}
+.icon-chevron-up{--icon:url('assets/icons/chevron-up.svg')}
+.icon-chevron-left{--icon:url('assets/icons/chevron-left.svg')}
+.icon-chevron-right{--icon:url('assets/icons/chevron-right.svg')}
+.icon-bell{--icon:url('assets/icons/bell.svg')}
+.icon-bell-off{--icon:url('assets/icons/bell-off.svg')}
+.icon-settings{--icon:url('assets/icons/settings.svg')}
+.icon-warning{--icon:url('assets/icons/warning.svg')}
+.icon-eye{--icon:url('assets/icons/eye.svg')}
+.icon-eye-off{--icon:url('assets/icons/eye-off.svg')}
+.icon-heart{--icon:url('assets/icons/heart.svg')}
+.icon-heart-off{--icon:url('assets/icons/heart-off.svg')}
+.icon-loading{--icon:url('assets/icons/loading.svg')}
+.brand-logo{object-fit:contain;border-radius:11px}.header nav button{display:flex;align-items:center;justify-content:center;gap:7px}.header nav button .app-icon{margin:0}.header-more{position:relative;color:var(--green)}.header-more summary{display:flex;align-items:center;gap:8px;cursor:pointer;list-style:none;min-height:44px;padding:10px 14px;border:1px solid #d7e1da;border-radius:12px;font-size:12px;font-weight:700}.header-more summary::-webkit-details-marker{display:none}.more-options{position:absolute;right:0;top:calc(100% + 8px);width:210px;padding:8px;background:white;border:1px solid #d7e1da;border-radius:14px;box-shadow:0 8px 28px #183f3226;z-index:10}.more-options button{display:flex;align-items:center;gap:12px;width:100%;min-height:48px;padding:10px;border-radius:8px;background:white;color:#254b3b;text-align:left}.more-options button:hover{background:#eaf2ed}.header:has(.header-more[open]){z-index:20}.panel-close,.map-tools button,.vehicle-marker{display:grid;place-items:center}.vehicle-marker{color:white}.vehicle-marker .app-icon{width:24px;height:24px}.icon-label{display:flex;align-items:center;gap:8px}.help-item{display:flex;align-items:flex-start;gap:14px;margin-top:20px}.help-item>.app-icon{color:var(--green);margin-top:4px}.help-item h2{margin:0 0 6px}.help-item p{margin:0}.transit-marker{display:flex;align-items:center;justify-content:center;gap:2px}.transit-marker .app-icon{width:11px;height:14px;flex-basis:11px}.text-button .app-icon{margin-left:6px}#route-detail summary,.osm-stops summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px}#route-detail summary::-webkit-details-marker,.osm-stops summary::-webkit-details-marker{display:none}#route-detail summary::after,.osm-stops summary::after{content:'';width:18px;height:18px;flex-shrink:0;background:currentColor;mask:url('assets/icons/chevron-down.svg') center/contain no-repeat;-webkit-mask:url('assets/icons/chevron-down.svg') center/contain no-repeat}#route-detail details[open]>summary::after,.osm-stops[open]>summary::after{transform:rotate(180deg)}summary:focus-visible,select:focus-visible{outline:3px solid #d1a74a;outline-offset:3px}input[type=checkbox]{accent-color:var(--green)}
+@media(max-width:650px){.brand-logo{width:36px;height:36px}.header nav button{flex-direction:column;gap:3px}.header nav button .app-icon{width:20px;height:20px;flex-basis:20px}.header-more summary{padding:10px 12px}.more-label{display:none}.header nav{order:3}.more-options{width:min(230px,calc(100vw - 24px))}}

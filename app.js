@@ -74,6 +74,7 @@ function notify(message) {
   noticeTimer = setTimeout(() => { notice.hidden = true; }, 6500);
 }
 function showPanel(name) {
+  document.querySelector('.header-more').open = false;
   document.body.classList.toggle('panel-open', name !== 'general');
   document.querySelectorAll('.panel').forEach(panel => { panel.hidden = panel.id !== name; });
   document.querySelectorAll('[data-panel]').forEach(button => {
@@ -90,7 +91,7 @@ document.querySelectorAll('.panel').forEach(panel => {
   const close = document.createElement('button');
   close.className = 'panel-close';
   close.type = 'button';
-  close.textContent = '×';
+  close.append(appIcon('close'));
   close.setAttribute('aria-label', 'Cerrar panel');
   close.addEventListener('click', () => {
     showPanel('general');
@@ -166,4 +167,9 @@ document.querySelector('#local-visible').addEventListener('change', event => {
   localLayerIds.forEach(id => {
     if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', event.target.checked ? 'visible' : 'none');
   });
+});
+
+document.addEventListener('click', event => {
+ const menu = document.querySelector('.header-more');
+ if (!menu.contains(event.target)) menu.open = false;
 });

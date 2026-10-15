@@ -6,22 +6,25 @@
   <meta name="theme-color" content="#125b46">
   <title>Ubicarmen · Explora tu ciudad</title>
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=assets-1">
+  <link rel="stylesheet" href="icons.css?v=assets-1">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo-app.svg">
+  <script defer src="icons.js?v=assets-1"></script>
   <script defer src="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.js"></script>
   <script defer src="config.js"></script>
-  <script defer src="app.js?v=laguna-kml-1"></script>
-  <script defer src="transit.js?v=laguna-kml-1"></script>
+  <script defer src="app.js?v=assets-1"></script>
+  <script defer src="transit.js?v=assets-1"></script>
 </head>
 <body>
   <header class="header">
-    <a class="brand" href="./" aria-label="Ubicarmen, inicio"><span class="brand-icon">u<span>•</span></span><span>ubicarmen<small>TU CIUDAD, MÁS CERCA</small></span></a>
+    <a class="brand" href="./" aria-label="Ubicarmen, inicio"><img class="brand-logo" src="assets/icons/logo-app.svg" alt="" width="44" height="44"><span>ubicarmen<small>TU CIUDAD, MÁS CERCA</small></span></a>
     <nav aria-label="Navegación principal">
-      <button data-panel="search" aria-controls="search" aria-expanded="false"><span aria-hidden="true">⌕</span> Búsqueda</button>
-      <button data-panel="routes" aria-controls="routes" aria-expanded="false"><span aria-hidden="true">⑂</span> Rutas</button>
-      <button data-panel="stops" aria-controls="stops" aria-expanded="false"><span aria-hidden="true">⚑</span> Paradas</button>
-      <button data-panel="general" class="active" aria-current="page"><span aria-hidden="true">▧</span> Mapa general</button>
+      <button data-panel="search" aria-controls="search" aria-expanded="false"><span class="app-icon icon-search" aria-hidden="true"></span> Búsqueda</button>
+      <button data-panel="routes" aria-controls="routes" aria-expanded="false"><span class="app-icon icon-map" aria-hidden="true"></span> Rutas</button>
+      <button data-panel="stops" aria-controls="stops" aria-expanded="false"><span class="app-icon icon-stop" aria-hidden="true"></span> Paradas</button>
+      <button data-panel="general" class="active" aria-current="page"><span class="app-icon icon-map" aria-hidden="true"></span> Mapa general</button>
     </nav>
-    <button class="import-button" data-panel="source" aria-controls="source" aria-expanded="false"><span aria-hidden="true">＋</span> Conectar mapa</button>
+    <details class="header-more"><summary aria-label="Más opciones"><span class="app-icon icon-more" aria-hidden="true"></span><span class="more-label">Más</span></summary><div class="more-options"><button data-panel="source" aria-controls="source" aria-expanded="false"><span class="app-icon icon-settings" aria-hidden="true"></span>Cartografía</button><button data-panel="help" aria-controls="help" aria-expanded="false"><span class="app-icon icon-help" aria-hidden="true"></span>Ayuda</button></div></details>
   </header>
   <main>
     <div id="map" aria-label="Mapa interactivo de Ciudad del Carmen"></div>
@@ -31,10 +34,10 @@
       <small id="vehicle-status" role="status">Camiones en vivo: sin fuente GPS conectada</small>
     </aside>
     <div class="location-chip"><span class="green-dot"></span> Ciudad del Carmen <span class="chip-divider">/</span><span>Campeche, México</span></div>
-    <button id="transit-chip" class="transit-chip" hidden aria-label="Ver detalles de Campus III">Campus III · aproximada <span aria-hidden="true">↗</span></button>
+    <button id="transit-chip" class="transit-chip" hidden aria-label="Ver detalles de Campus III">Campus III · aproximada <span class="app-icon icon-chevron-right" aria-hidden="true"></span></button>
     <section class="panel" id="search" hidden aria-labelledby="search-title">
       <div class="eyebrow">EXPLORA A TU RITMO</div><h1 id="search-title">¿A dónde vamos?</h1><p>Encuentra un punto en el mapa por sus coordenadas.</p>
-      <form id="search-form"><label for="coordinates">Latitud, longitud</label><div class="input-row"><input id="coordinates" placeholder="18.651, -91.807" required><button class="primary" aria-label="Buscar coordenadas">→</button></div><p class="hint">La búsqueda por nombre estará disponible al conectar un servicio de lugares.</p></form>
+      <form id="search-form"><label class="icon-label" for="coordinates"><span class="app-icon icon-place" aria-hidden="true"></span>Ubicación · latitud, longitud</label><div class="input-row"><input id="coordinates" placeholder="18.651, -91.807" required><button class="primary" aria-label="Buscar coordenadas"><span class="app-icon icon-chevron-right" aria-hidden="true"></span></button></div><p class="hint">La búsqueda por nombre estará disponible al conectar un servicio de lugares.</p></form>
     </section>
     <section class="panel" id="routes" hidden aria-labelledby="routes-title">
       <div class="eyebrow">AMOR X CARMEN</div><h1 id="routes-title">Encuentra tu ruta</h1><p>Consulta los recorridos de tu ciudad.</p><div id="route-list" aria-live="polite">Cargando rutas…</div><div id="route-detail"></div>
@@ -44,11 +47,12 @@
     </section>
     <section class="panel" id="source" hidden aria-labelledby="source-title">
       <div class="eyebrow">TU MAPA, TUS DATOS</div><h1 id="source-title">Tu cartografía</h1><p id="local-summary">Cargando información del PBF local…</p><p>También puedes conectar un estilo MapLibre externo.</p>
-      <form id="source-form"><label for="style-url">URL del archivo style.json</label><input id="style-url" type="url" placeholder="http://localhost:8080/style.json" required><button class="primary wide">Conectar mapa</button></form>
+      <form id="source-form"><label for="style-url">URL del archivo style.json</label><input id="style-url" type="url" placeholder="http://localhost:8080/style.json" required><button class="primary wide"><span class="app-icon icon-check" aria-hidden="true"></span> Conectar mapa</button></form>
       <div class="info-box"><strong>PBF local integrado</strong><p>Las calles, edificios y lugares de tu archivo se muestran sobre un fondo de OpenStreetMap. Selecciona un elemento para consultar sus datos.</p><label class="layer-option"><input id="local-visible" type="checkbox" checked> Mostrar datos del PBF</label></div><button id="reset-source" class="text-button">Volver a mi mapa local</button>
     </section>
+    <section class="panel" id="help" hidden aria-labelledby="help-title"><div class="eyebrow">TE ACOMPAÑAMOS</div><h1 id="help-title">¿Cómo usar el mapa?</h1><div class="help-item"><span class="app-icon icon-map" aria-hidden="true"></span><div><h2>Mapa general y rutas</h2><p>Mapa general reúne los recorridos y camiones. En Rutas puedes elegir uno y ver su recorrido completo.</p></div></div><div class="help-item"><span class="app-icon icon-stop" aria-hidden="true"></span><div><h2>Encuentra una parada</h2><p>Abre Paradas y selecciona una ruta. Toca un número para ver su ubicación. Los grupos se separan al acercar el mapa.</p></div></div><div class="help-item"><span class="app-icon icon-bus" aria-hidden="true"></span><div><h2>Camiones en el mapa</h2><p>Por ahora hay dos camiones simulados por ruta. No indican llegadas ni ubicaciones reales.</p></div></div><div class="help-item"><span class="app-icon icon-home" aria-hidden="true"></span><div><h2>Vuelve al inicio</h2><p>El botón de la casa regresa al mapa general. Puedes mostrar u ocultar rutas y paradas desde los controles del mapa.</p></div></div></section>
     <aside class="welcome" id="welcome"><div class="eyebrow">CADA RECORRIDO EMPIEZA AQUÍ</div><h1>Descubre tu ciudad.</h1><p>Un mapa. Todos tus caminos.</p><button class="text-button" data-panel="search">Explorar el mapa <span aria-hidden="true">↗</span></button></aside>
-    <div class="map-tools"><button id="home" aria-label="Volver a Ciudad del Carmen" title="Volver al inicio">⌂</button></div>
+    <div class="map-tools"><button id="home" aria-label="Volver a Ciudad del Carmen" title="Volver al inicio"><span class="app-icon icon-home" aria-hidden="true"></span></button></div>
     <div class="map-footer"><span class="green-dot"></span><span id="map-status" role="status">Cargando mapa base…</span><span class="footer-tag">ESQUELETO · V1.0</span></div>
     <div id="notice" role="status" hidden></div>
   </main>
