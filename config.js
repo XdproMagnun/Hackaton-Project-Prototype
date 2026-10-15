@@ -7,4 +7,6 @@ window.MAP_CONFIG = {
   localData: 'data/carmen.geojson',
   metadata: 'data/metadata.json',
   stops: 'data/stops.geojson',
+  vehiclesUrl: '', // API JSON: {vehicles:[{id,routeId,longitude,latitude,updatedAt,active:true}]}
+  simulateVehicles: true, // Dos unidades por ruta disponible; desactivar al conectar GPS.
 };

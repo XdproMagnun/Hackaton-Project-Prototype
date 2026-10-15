@@ -53,3 +53,9 @@ Para corregir puntos, editar las coordenadas [longitud, latitud] y propiedades e
 Se digitalizaron 29 marcadores visibles de la captura My Maps usando la punta de los pines y una calibración aproximada con Chedraui y Bodega Aurrera. Los números internos no corresponden a los nombres Punto de My Maps ni al orden de servicio. Los pines superpuestos son especialmente imprecisos. El recorrido se interpretó del cartel en cinco secciones; no está ajustado exactamente a las calles y no se debe usar para navegación giro a giro.
 
 Las imágenes están en assets/costera-paradas.png y assets/costera-recorrido.png. scripts/costera.cjs conserva los píxeles originales, calibración y trazado. npm run build:route reconstruye ambas rutas y conserva Campus III. Para corregir permanentemente Costera, editar ese módulo. Laguna de Términos sigue pendiente.
+
+## Mapa general y camiones
+
+Mapa general reúne las rutas disponibles. Mostrar rutas y Mostrar paradas controlan capas independientes y no ocultan camiones. Rutas y Paradas filtran la vista a la ruta elegida. Hay dos unidades simuladas por ruta con geometría disponible (cuatro actualmente); Laguna de Términos sigue pendiente. La simulación recorre segmentos de referencia en ciclos de tres minutos, puede saltar entre tramos desconectados y no representa horarios, velocidades o ubicaciones reales.
+
+config.js activa simulateVehicles. Para usar GPS, desactivarlo y configurar vehiclesUrl con una API JSON que devuelva vehicles: [{id, routeId, longitude, latitude, updatedAt, active}]. updatedAt debe ser una fecha ISO; solo se muestran registros activos de los últimos 120 segundos. Se consulta cada 15 segundos; la API necesita permitir el acceso desde el sitio. Ante fallos se retiran las posiciones y se muestra el estado de conexión.

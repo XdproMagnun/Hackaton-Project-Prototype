@@ -5,6 +5,12 @@
   let transit;
   let selected = 'campus-3';
   let visible = true;
+  let general = true;
+  let stopsVisible = true;
+  let vehicles = [];
+  let vehicleMarkers = [];
+  const simulationStarted = Date.now();
+  let simulationPaths = [];
   let markers = [];
   let popup;
   const chip = document.querySelector('#transit-chip');
@@ -28,7 +34,7 @@
     if (mobile()) showPanel('general');
     if (popup) popup.remove();
     const content = element('div');
-    content.append(element('strong', `${route().name} · ${feature.properties.name}`), element('small', feature.properties.note));
+    content.append(element('strong', `${catalog.routes.find(r=>r.id===feature.properties.routeId).name} · ${feature.properties.name}`), element('small', feature.properties.note));
     popup = new maplibregl.Popup({offset: 20}).setLngLat(feature.geometry.coordinates).setDOMContent(content).addTo(map);
     map.flyTo({center: feature.geometry.coordinates, zoom: 16, padding: mobile() ? {top:100,bottom:80,left:30,right:30} : {top:80,bottom:60,left:390,right:60}});
   }
@@ -36,29 +42,37 @@
     const checkbox = document.querySelector('#route-detail input[type="checkbox"]');
     if (checkbox) checkbox.checked = visible;
     markers.forEach(marker => marker.remove()); markers = [];
-    const available = route().status === 'reference';
+    if (!catalog) return;
+    const available = general || route().status === 'reference';
     const show = visible && available;
-    chip.hidden = !show;
+    chip.hidden = general || !show;
     chip.textContent = `${route().name} · aproximada ↗`;
     chip.setAttribute('aria-label', `Ver detalles de ${route().name}`);
     document.body.style.setProperty('--transit-color',route().color);
-    document.body.classList.toggle('transit-active', show);
+    document.body.classList.toggle('transit-active', true);
+    document.querySelector('#transit-scope').textContent = general ? 'Todas las rutas disponibles' : route().name;
+    document.querySelector('#routes-visible').checked = visible;
+    document.querySelector('#stops-visible').checked = stopsVisible;
+    drawVehicles();
     if (!map) return;
     if (!map.isStyleLoaded()) { map.once('idle',draw); return; }
+    if(map.getLayer('local-stops')) map.setLayoutProperty('local-stops','visibility',stopsVisible && document.querySelector('#local-visible').checked ? 'visible' : 'none');
     if (!map.getSource('amor-transit')) {
       map.addSource('amor-transit', {type:'geojson',data:transit});
       map.addLayer({id:'amor-route-halo',type:'line',source:'amor-transit',filter:['==',['get','kind'],'route'],paint:{'line-color':'#ffffff','line-width':7,'line-opacity':0.85}});
       map.addLayer({id:'amor-route',type:'line',source:'amor-transit',filter:['==',['get','kind'],'route'],paint:{'line-color':'#8b23c9','line-width':4,'line-dasharray':[2,1]}});
     }
     ['amor-route-halo','amor-route'].forEach(id => {
-      map.setFilter(id,['all',['==',['get','kind'],'route'],['==',['get','routeId'],selected]]);
+      map.setFilter(id,['all',['==',['get','kind'],'route'],['in',['get','routeId'],['literal',general ? catalog.routes.filter(r=>r.status==='reference').map(r=>r.id) : [selected]]]]);
       map.setLayoutProperty(id,'visibility',show?'visible':'none');
     });
-    map.setPaintProperty('amor-route','line-color',route().color);
-    if (!show) return;
-    stops().forEach(feature => {
+    map.setPaintProperty('amor-route','line-color',['match',['get','routeId'],...catalog.routes.flatMap(r=>[r.id,r.color]),'#125b46']);
+    if (!stopsVisible) return;
+    transit.features.filter(f=>f.properties.kind==='stop' && (general || f.properties.routeId===selected)).forEach(feature => {
+      const owner = catalog.routes.find(r=>r.id===feature.properties.routeId);
       const control = button(String(feature.properties.number), event => { event.stopPropagation(); showStop(feature); }, 'transit-marker');
-      control.setAttribute('aria-label', `${route().name}, ${feature.properties.name}, ubicación aproximada`);
+      control.style.setProperty('--transit-color',owner.color);
+      control.setAttribute('aria-label', `${owner.name}, ${feature.properties.name}, ubicación aproximada`);
       const marker = new maplibregl.Marker({element:control}).setLngLat(feature.geometry.coordinates).addTo(map);
       markers.push(marker);
     });
@@ -67,7 +81,7 @@
     if (!map) return notify('El mapa no está disponible.');
     visible = true; draw();
     const bounds = new maplibregl.LngLatBounds();
-    transit.features.filter(f => f.properties.routeId === selected).forEach(feature => {
+    transit.features.filter(f => general || f.properties.routeId === selected).forEach(feature => {
       if(feature.geometry.type === 'Point') bounds.extend(feature.geometry.coordinates);
       else feature.geometry.coordinates.forEach(coordinate => bounds.extend(coordinate));
     });
@@ -76,7 +90,7 @@
     map.fitBounds(bounds,{padding:mobile()?{top:110,bottom:85,left:35,right:55}:{top:100,bottom:75,left:395,right:80},maxZoom:14,duration:600});
   }
   function choose(id) {
-    selected = id; visible = true;
+    selected = id; visible = true; general = false;
     if (popup) popup.remove();
     document.querySelector('#stop-route').value = selected;
     render(); draw();
@@ -122,11 +136,74 @@
     renderStops();
   }
   document.querySelector('#stop-route').addEventListener('change',event=>choose(event.target.value));
+  document.querySelector('#routes-visible').addEventListener('change',event=>{visible=event.target.checked;draw();});
+  document.querySelector('#stops-visible').addEventListener('change',event=>{stopsVisible=event.target.checked;if(popup)popup.remove();draw();});
+  document.querySelector('#local-visible').addEventListener('change',draw);
+  document.querySelector('nav [data-panel="general"]').addEventListener('click',()=>{
+    general=true; if(popup)popup.remove(); draw();
+    if(transit) { const previous=visible;fitRoute();visible=previous;draw(); }
+  });
+  document.querySelector('#home').addEventListener('click',()=>{general=true;draw();});
+  document.querySelector('nav [data-panel="routes"]').addEventListener('click',()=>{if(catalog)choose(selected);});
+  document.querySelector('nav [data-panel="stops"]').addEventListener('click',()=>{if(catalog)choose(selected);});
+  function drawVehicles() {
+    vehicleMarkers.forEach(marker=>marker.remove()); vehicleMarkers=[];
+    if(!map) return;
+    const active = vehicles.filter(v=>v.active===true && Date.now()-Date.parse(v.updatedAt)<=120000 && Date.parse(v.updatedAt)<=Date.now()+30000);
+    active.filter(v=>general || v.routeId===selected).forEach(v=>{
+      const owner=catalog.routes.find(r=>r.id===v.routeId);
+      const control=button('🚌',()=>{
+        const content=element('div');content.append(element('strong',`Camión ${v.id}${v.simulated?' · SIMULACIÓN':''}`),element('small',owner?.name || 'Ruta sin identificar'));
+        new maplibregl.Popup().setLngLat([v.longitude,v.latitude]).setDOMContent(content).addTo(map);
+      },'vehicle-marker');
+      control.style.background=owner?.color || '#125b46';
+      control.setAttribute('aria-label',`Camión ${v.simulated?'simulado':'activo'} ${v.id} · ${owner?.name || 'Ruta sin identificar'}`);
+      vehicleMarkers.push(new maplibregl.Marker({element:control}).setLngLat([v.longitude,v.latitude]).addTo(map));
+    });
+    if(config.simulateVehicles || config.vehiclesUrl) document.querySelector('#vehicle-status').textContent=`${config.simulateVehicles?'SIMULACIÓN · ':''}${active.filter(v=>general || v.routeId===selected).length} camiones · ${general?'todas las rutas':route().name}${config.simulateVehicles?' · sin GPS real':''}`;
+  }
+  function simulate() {
+    vehicles=simulationPaths.flatMap(path=>[0,1].map(index=>{
+      const progress=((Date.now()-simulationStarted)/1000/180+index/2)%1;
+      const distance=progress*path.length;
+      const segment=path.segments.find(s=>distance<=s.end) || path.segments.at(-1);
+      const t=(distance-segment.start)/(segment.end-segment.start);
+      return {id:`${path.id}-${index+1}`,routeId:path.id,active:true,simulated:true,updatedAt:new Date().toISOString(),longitude:segment.a[0]+(segment.b[0]-segment.a[0])*t,latitude:segment.a[1]+(segment.b[1]-segment.a[1])*t};
+    }));
+    drawVehicles();
+  }
+  function startSimulation() {
+    simulationPaths=catalog.routes.filter(r=>r.status==='reference').map(r=>{
+      const segments=[];let length=0;
+      transit.features.filter(f=>f.properties.routeId===r.id && f.properties.kind==='route').forEach(f=>{
+        f.geometry.coordinates.slice(1).forEach((b,i)=>{
+          const a=f.geometry.coordinates[i],size=Math.hypot((b[0]-a[0])*Math.cos(a[1]*Math.PI/180),b[1]-a[1]);
+          if(size>0){segments.push({a,b,start:length,end:length+size});length+=size;}
+        });
+      });
+      return {id:r.id,segments,length};
+    }).filter(p=>p.length>0);
+    simulate();setInterval(simulate,1000);
+  }
+  async function refreshVehicles() {
+    if(!config.vehiclesUrl) return;
+    try {
+      const data=await fetchJSON(config.vehiclesUrl);
+      if(!Array.isArray(data.vehicles)) throw new Error('Formato inválido');
+      vehicles=data.vehicles.filter(v=>v.id!=null && Number.isFinite(v.longitude) && Number.isFinite(v.latitude) && Math.abs(v.longitude)<=180 && Math.abs(v.latitude)<=85 && Number.isFinite(Date.parse(v.updatedAt)));
+      drawVehicles();
+    } catch {
+      vehicles=[];drawVehicles();
+      document.querySelector('#vehicle-status').textContent='Camiones en vivo: conexión no disponible';
+    }
+  }
   chip.addEventListener('click',()=>showPanel('routes'));
   Promise.all([fetchJSON('data/routes.json'),fetchJSON('data/transit.geojson')]).then(([data,geo])=>{
     catalog=data; transit=geo; render();
     if(map) map.on('style.load',draw);
     draw();
+    if(config.simulateVehicles) startSimulation();
+    else {refreshVehicles();if(config.vehiclesUrl) setInterval(refreshVehicles,15000);}
   }).catch(()=>{
     document.querySelector('#route-list').textContent='No se pudieron cargar las rutas. Recarga la página desde el servidor local.';
     document.querySelector('#transit-stop-list').textContent='Paradas no disponibles.';

@@ -25,6 +25,11 @@
   </header>
   <main>
     <div id="map" aria-label="Mapa interactivo de Ciudad del Carmen"></div>
+    <aside class="transit-controls" aria-label="Capas de transporte">
+      <strong id="transit-scope">Todas las rutas disponibles</strong>
+      <div><label><input id="routes-visible" type="checkbox" checked> Mostrar rutas</label><label><input id="stops-visible" type="checkbox" checked> Mostrar paradas</label></div>
+      <small id="vehicle-status" role="status">Camiones en vivo: sin fuente GPS conectada</small>
+    </aside>
     <div class="location-chip"><span class="green-dot"></span> Ciudad del Carmen <span class="chip-divider">/</span><span>Campeche, México</span></div>
     <button id="transit-chip" class="transit-chip" hidden aria-label="Ver detalles de Campus III">Campus III · aproximada <span aria-hidden="true">↗</span></button>
     <section class="panel" id="search" hidden aria-labelledby="search-title">
