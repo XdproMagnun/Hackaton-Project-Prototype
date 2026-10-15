@@ -68,11 +68,26 @@
     });
     map.setPaintProperty('amor-route','line-color',['match',['get','routeId'],...catalog.routes.flatMap(r=>[r.id,r.color]),'#125b46']);
     if (!stopsVisible) return;
-    transit.features.filter(f=>f.properties.kind==='stop' && (general || f.properties.routeId===selected)).forEach(feature => {
+    const groups=[];
+    transit.features.filter(f=>f.properties.kind==='stop' && (general || f.properties.routeId===selected)).forEach(feature=>{
+      const point=map.project(feature.geometry.coordinates);
+      const group=groups.find(g=>Math.hypot(g.point.x-point.x,g.point.y-point.y)<48);
+      if(group)group.features.push(feature);else groups.push({point,features:[feature]});
+    });
+    groups.forEach(group => {
+      const feature=group.features[0];
       const owner = catalog.routes.find(r=>r.id===feature.properties.routeId);
-      const control = button(String(feature.properties.number), event => { event.stopPropagation(); showStop(feature); }, 'transit-marker');
+      const clustered=group.features.length>1;
+      const control = button(clustered?`${group.features.length}＋`:String(feature.properties.number), event => {
+        event.stopPropagation();
+        if(!clustered)return showStop(feature);
+        if(popup)popup.remove();
+        const content=element('div');content.append(element('strong',`${group.features.length} paradas cercanas`));
+        group.features.forEach(f=>content.append(button(`${catalog.routes.find(r=>r.id===f.properties.routeId).name} · ${f.properties.name}`,()=>showStop(f),'cluster-stop')));
+        popup=new maplibregl.Popup({offset:24}).setLngLat(feature.geometry.coordinates).setDOMContent(content).addTo(map);
+      }, 'transit-marker');
       control.style.setProperty('--transit-color',owner.color);
-      control.setAttribute('aria-label', `${owner.name}, ${feature.properties.name}, ubicación aproximada`);
+      control.setAttribute('aria-label', clustered?`${group.features.length} paradas cercanas, abrir lista`:`${owner.name}, ${feature.properties.name}, ubicación aproximada`);
       const marker = new maplibregl.Marker({element:control}).setLngLat(feature.geometry.coordinates).addTo(map);
       markers.push(marker);
     });
@@ -87,7 +102,7 @@
     });
     if (bounds.isEmpty()) return;
     if (mobile()) showPanel('general');
-    map.fitBounds(bounds,{padding:mobile()?{top:110,bottom:85,left:35,right:55}:{top:100,bottom:75,left:395,right:80},maxZoom:14,duration:600});
+    map.fitBounds(bounds,{padding:mobile()?{top:75,bottom:190,left:28,right:58}:{top:170,bottom:85,left:general?45:395,right:80},maxZoom:14,duration:600});
   }
   function choose(id) {
     selected = id; visible = true; general = false;
@@ -200,7 +215,7 @@
   chip.addEventListener('click',()=>showPanel('routes'));
   Promise.all([fetchJSON('data/routes.json'),fetchJSON('data/transit.geojson')]).then(([data,geo])=>{
     catalog=data; transit=geo; render();
-    if(map) map.on('style.load',draw);
+    if(map) {map.on('style.load',draw);map.on('moveend',draw);}
     draw();
     if(config.simulateVehicles) startSimulation();
     else {refreshVehicles();if(config.vehiclesUrl) setInterval(refreshVehicles,15000);}

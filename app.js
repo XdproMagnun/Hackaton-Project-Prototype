@@ -23,7 +23,8 @@ function addLocalLayers() {
   const polygon = ['==', ['geometry-type'], 'Polygon'];
   const road = ['all', ['==', ['geometry-type'], 'LineString'], ['has', 'highway']];
   layer('local-land', 'fill', ['all', polygon, ['any', ['has', 'landuse'], ['has', 'leisure']]], {'fill-color': '#b8d3a2', 'fill-opacity': 0.35});
-  layer('local-water', 'fill', ['all', polygon, ['any', ['==', ['get', 'natural'], 'water'], ['has', 'water']]], {'fill-color': '#9bcbd5', 'fill-opacity': 0.8});
+  // El extracto cierra artificialmente la laguna en su borde sur. El fondo OSM
+  // ya contiene agua completa; no superponer el polígono recortado del PBF.
   layer('local-buildings', 'fill', ['all', polygon, ['has', 'building']], {'fill-color': '#bdc9bc', 'fill-outline-color': '#8fa08c', 'fill-opacity': 0.7}, 14);
   layer('local-roads-outline', 'line', road, {'line-color': '#748d77', 'line-width': ['interpolate', ['linear'], ['zoom'], 12, 1, 16, 5, 19, 13], 'line-opacity': 0.7});
   layer('local-roads', 'line', road, {'line-color': ['match', ['get', 'highway'], ['primary', 'secondary', 'tertiary'], '#e7c879', '#fffdf0'], 'line-width': ['interpolate', ['linear'], ['zoom'], 12, 0.5, 16, 3, 19, 10]});

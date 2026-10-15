@@ -20,5 +20,7 @@ module.exports = function costera() {
     ['Circuito del centro · Calle 20 · Malecón',[[448,369],[427,376],[443,403],[471,453],[480,462],[496,486],[509,478],[500,457],[491,442],[482,437]]]
   ];
   sections.forEach(([name,pixels],i)=>features.push({type:'Feature',id:`costera-section-${i+1}`,properties:{routeId:'costera',kind:'route',name,accuracy:'approximate',source:'costera-poster-user'},geometry:{type:'LineString',coordinates:pixels.map(project)}}));
+  const osm=JSON.parse(require('node:fs').readFileSync(require('node:path').join(__dirname,'../data/carmen.geojson')));
+  require('./align-roads.cjs')(osm,features.filter(f=>f.properties.kind==='route'));
   return {features,anchors,route:{id:'costera',name:'Costera',color:'#087f83',status:'reference',stopCount:pins.length,description:'Calle 22 · Playa Norte · Malecón Costero',note:'Recorrido orientativo interpretado del cartel y 29 marcadores estimados desde la captura. Algunas ubicaciones se superponen. Los números son referencias internas, no equivalen a los nombres «Punto» de My Maps ni indican orden de paso. No se han confirmado sentidos, horarios ni la totalidad de las paradas.',streets:['Calle 22','Calle 47','Calle 26','Playa Norte','Malecón Costero','P. del Mar','Av. Amado Nervo','Av. Nardos','Av. Constelación'],sources:[{id:'costera-poster-user',title:'Cartel Ruta Costera · compartido por el usuario',url:'assets/costera-recorrido.png'},{id:'costera-screenshot-user',title:'Captura de paradas Costera · compartida por el usuario',url:'assets/costera-paradas.png'}]}};
 };
