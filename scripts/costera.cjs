@@ -10,7 +10,27 @@ module.exports = function costera() {
     Number((18.64246032+(y-389)*(.01291228/-158)).toFixed(6))
   ];
   const pins = [[496,486],[480,462],[471,453],[482,437],[443,403],[457,397],[444,366],[427,376],[466,351],[461,337],[455,322],[444,287],[428,242],[423,224],[416,211],[423,165],[514,155],[539,153],[656,131],[755,126],[842,120],[894,116],[952,119],[978,147],[1026,180],[1068,166],[1065,139],[1053,117],[1027,100]];
-  const features = pins.map((pixel,index)=>({type:'Feature',id:`costera-stop-${index+1}`,properties:{routeId:'costera',kind:'stop',number:index+1,name:`Parada de referencia ${String(index+1).padStart(2,'0')}`,accuracy:'approximate',source:'costera-screenshot-user',referencePixel:pixel,note:'Posición estimada desde la captura. Los marcadores superpuestos pueden reducir la precisión; nombre oficial, sentido y ubicación exacta por confirmar.'},geometry:{type:'Point',coordinates:project(pixel)}}));
+  const osm=JSON.parse(require('node:fs').readFileSync(require('node:path').join(__dirname,'../data/carmen.geojson')));
+  const roads=osm.features.filter(f=>f.geometry.type==='LineString' && /^(primary|secondary|tertiary|residential|unclassified|living_street)(?:_link)?$/.test(f.properties.highway||''));
+  // Ancla cada pin calibrado al segmento vial más cercano del PBF, para evitar
+  // que el error de la transformación de la captura deje la parada en una manzana.
+  function snapToRoad(point) {
+    const cosine=Math.cos(point[1]*Math.PI/180);let nearest=point,best=Infinity;
+    for(const road of roads)for(let i=1;i<road.geometry.coordinates.length;i++){
+      const a=road.geometry.coordinates[i-1],b=road.geometry.coordinates[i];
+      const dx=(b[0]-a[0])*cosine,dy=b[1]-a[1];
+      const px=(point[0]-a[0])*cosine,py=point[1]-a[1];
+      const t=Math.max(0,Math.min(1,(px*dx+py*dy)/(dx*dx+dy*dy||1)));
+      const candidate=[a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t];
+      const distance=Math.hypot((candidate[0]-point[0])*cosine,candidate[1]-point[1]);
+      if(distance<best){best=distance;nearest=candidate;}
+    }
+    return {coordinate:nearest,snapDistanceMeters:Math.round(best*111320)};
+  }
+  const features = pins.map((pixel,index)=>{
+    const snapped=snapToRoad(project(pixel));
+    return {type:'Feature',id:`costera-stop-${index+1}`,properties:{routeId:'costera',kind:'stop',number:index+1,name:`Parada de referencia ${String(index+1).padStart(2,'0')}`,accuracy:'approximate',source:'costera-screenshot-user',referencePixel:pixel,snapDistanceMeters:snapped.snapDistanceMeters,note:'Posición estimada desde la captura y ajustada a la calle cercana del PBF. Nombre oficial y ubicación exacta por confirmar.'},geometry:{type:'Point',coordinates:snapped.coordinate.map(v=>Number(v.toFixed(7)))}};
+  });
   // Corredores interpretados del cartel sobre la captura. No son indicaciones giro a giro.
   // El orden sigue el cartel: arranca en el circuito del centro (Calle 20 · Malecón),
   // sube por Calle 22 · Calle 47 y Calle 26 hasta Playa Norte, sigue la costa hacia el
@@ -31,7 +51,6 @@ module.exports = function costera() {
     'Amado Nervo · Nardos · Constelación Pléyades':/^Calle Amado Nervo$|^Avenida Nardos$|^Calle Constelación Pléyades$/
   };
   sections.forEach(([name,pixels],i)=>features.push({type:'Feature',id:`costera-section-${i+1}`,properties:{routeId:'costera',kind:'route',name,accuracy:'approximate',source:'costera-poster-user'},geometry:{type:'LineString',coordinates:pixels.map(project)}}));
-  const osm=JSON.parse(require('node:fs').readFileSync(require('node:path').join(__dirname,'../data/carmen.geojson')));
   require('./align-roads.cjs')(osm,features.filter(f=>f.properties.kind==='route'),streets);
   return {features,anchors,route:{id:'costera',name:'Costera',color:'#087f83',status:'reference',stopCount:pins.length,description:'Calle 22 · Playa Norte · Malecón Costero',note:'Recorrido aproximado alineado a la red vial local y reconstruido desde el cartel. Las paradas estimadas de la captura se agrupan si sus pines se superponen. Los números son referencias internas, no equivalen a los nombres «Punto» de My Maps ni indican orden de paso. No se han confirmado sentidos, horarios ni la totalidad de las paradas.',streets:['Calle 22','Calle 47','Calle 26','Playa Norte','Malecón Costero','P. del Mar','Av. Amado Nervo','Av. Nardos','Av. Constelación'],sources:[{id:'costera-poster-user',title:'Cartel Ruta Costera · compartido por el usuario',url:'assets/costera-recorrido.png'},{id:'costera-screenshot-user',title:'Captura de paradas Costera · compartida por el usuario',url:'assets/costera-paradas.png'}]}};
 };
