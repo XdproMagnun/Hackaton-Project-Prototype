@@ -72,13 +72,14 @@ Tecnologias que se usaron para este proyecto: Codex, ChatGPT.
 
 Integrantes del equipo:
 
-Julian Mendoza
+Tomas Julian Mendoza Luna
 
 Irving del Angel
 
-Carlos Morales
+Dominique Alessandra Ugarte González
 
-Miguel Garcia
+Citlally Alejandra Moreno López 
 
-Dominic Ugarte
+Santiago Saldaña Perez
+
 
