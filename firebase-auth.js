@@ -1,10 +1,11 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js';
 import {
   connectAuthEmulator,
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
   signInAnonymously,
+  signInWithCredential,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
@@ -90,7 +91,14 @@ logout.addEventListener('click', async () => {
     showStatus('');
     return;
   }
-  try { await signOut(auth); showStatus('Sesión cerrada.'); }
+  try {
+    await signOut(auth);
+    if (window.Capacitor?.isNativePlatform?.()) {
+      const { signOutNative } = await import('./native-auth.bundle.js');
+      await signOutNative();
+    }
+    showStatus('Sesión cerrada.');
+  }
   catch (error) { showStatus(authError(error), true); }
 });
 
@@ -140,7 +148,18 @@ if (localDemoHost) {
       googleButton.disabled = true;
       showStatus('Conectando con Google…');
       try {
-        await signInWithPopup(auth, new GoogleAuthProvider());
+        if (window.Capacitor?.isNativePlatform?.()) {
+          const { signInWithGoogleNative, signOutNative } = await import('./native-auth.bundle.js');
+          try {
+            const idToken = await signInWithGoogleNative();
+            await signInWithCredential(auth, GoogleAuthProvider.credential(idToken));
+          } catch (error) {
+            await signOutNative().catch(() => {});
+            throw error;
+          }
+        } else {
+          await signInWithPopup(auth, new GoogleAuthProvider());
+        }
       } catch (error) { showStatus(authError(error), true); }
       finally { googleButton.disabled = false; }
     });
