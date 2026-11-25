@@ -99,7 +99,7 @@ if (!configured) {
       googleButton.disabled = true;
       showStatus('Conectando con Google…');
       try {
-        await signInWithPopup(auth, new GoogleAuthProvider());
+        await signInWithRedirect(auth, new GoogleAuthProvider());
       } catch (error) { showStatus(authError(error), true); }
       finally { googleButton.disabled = false; }
     });
