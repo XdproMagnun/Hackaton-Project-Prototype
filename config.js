@@ -14,7 +14,7 @@ window.MAP_CONFIG = {
   // Si Firestore falla o no hay red, la app usa el snapshot local data/*.json.
   // Emulador local: {projectId:'demo-ubicarmen', useEmulators:true}
   firebase: {
-    apiKey: 'AIzaSyDv0wS_7HaCn7-L4P7CaGnfN5TPAMawC0',
+    apiKey: 'AIzaSyDvOwSz_7HaCn7-l4P7CaGnfN5TPAMawC0',
     authDomain: 'ubicarmen.firebaseapp.com',
     projectId: 'ubicarmen',
     appId: '1:88835741842:web:e7f25a0408f43f7d006e4b',

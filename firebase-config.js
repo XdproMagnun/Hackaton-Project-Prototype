@@ -1,7 +1,7 @@
 // Completa estos datos desde Firebase Console > Configuración del proyecto > Tus apps > Web.
 // Esta configuración web no es una clave privada. Nunca pongas aquí una clave de cuenta de servicio.
 export const firebaseConfig = {
-  apiKey: 'AIzaSyDv0wS_7HaCn7-L4P7CaGnfN5TPAMawC0',
+  apiKey: 'AIzaSyDvOwSz_7HaCn7-l4P7CaGnfN5TPAMawC0',
   authDomain: 'ubicarmen.firebaseapp.com',
   projectId: 'ubicarmen',
   storageBucket: 'ubicarmen.firebasestorage.app',
