@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Ubicarmen</string>
+    <string name="title_activity_main">Ubicarmen</string>
+    <string name="package_name">mx.ubicarmen.app</string>
+    <string name="custom_url_scheme">mx.ubicarmen.app</string>
+</resources>
