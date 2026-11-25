@@ -14,7 +14,8 @@
     "test:rules": "node scripts/test-rules.cjs",
     "vendor": "node scripts/vendor-assets.cjs",
     "import:rea": "node scripts/import-rea.cjs",
-    "use:rea": "node scripts/use-rea-routes.cjs"
+    "use:rea": "node scripts/use-rea-routes.cjs",
+    "build:pages": "node scripts/prepare-pages.cjs"
   },
   "dependencies": {
     "osmtogeojson": "3.0.0-beta.5",
