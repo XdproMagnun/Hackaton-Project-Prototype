@@ -66,8 +66,7 @@ async function stopTracking() {
 
 button.addEventListener('click', async () => {
   if (!window.ubicarmenUser) {
-    window.notify('Inicia sesión en Mi perfil para activar tu ubicación.');
-    window.showPanel('account');
+    window.notify('Inicia sesión para activar tu ubicación.');
     return;
   }
   if (button.getAttribute('aria-pressed') === 'true') {
