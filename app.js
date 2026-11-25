@@ -5,6 +5,8 @@ const notice = document.querySelector('#notice');
 let noticeTimer;
 let map;
 let marker;
+let userLocationMarker;
+let userLocationCentered = false;
 let customSource = Boolean(config.styleUrl);
 let localMetadata;
 let localReady = false;
@@ -18,7 +20,7 @@ function addLocalLayers() {
   localReady = false;
   sourceError = false;
   if (customSource) return;
-  map.addSource('local-pbf', {type: 'geojson', data: config.localData, attribution: 'Datos PBF © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> (ODbL)'});
+  map.addSource('local-pbf', {type: 'geojson', data: window.UbiData.getLocalDataUrl(), attribution: 'Datos PBF © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> (ODbL)'});
   const layer = (id, type, filter, paint, minzoom = 0) => map.addLayer({id, type, source: 'local-pbf', filter, paint, minzoom, layout: {visibility: document.querySelector('#local-visible').checked ? 'visible' : 'none'}});
   const polygon = ['==', ['geometry-type'], 'Polygon'];
   const road = ['all', ['==', ['geometry-type'], 'LineString'], ['has', 'highway']];
@@ -45,12 +47,12 @@ async function fetchJSON(url) {
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   return response.json();
 }
-fetchJSON(config.metadata).then(metadata => {
+window.UbiData.getMetadata().then(metadata => {
   localMetadata = metadata;
   document.querySelector('#local-summary').textContent = `${metadata.file} · ${metadata.features.toLocaleString('es-MX')} elementos importados.`;
   updateStatus();
 }).catch(() => { document.querySelector('#local-summary').textContent = 'No se encontraron los datos locales. Ejecuta npm run import:pbf y abre la página con un servidor local.'; });
-fetchJSON(config.stops).then(data => {
+window.UbiData.getOsmStops().then(data => {
   const list = document.querySelector('#stop-list');
   list.replaceChildren();
   if (!data.features.length) list.textContent = 'Este extracto no contiene paradas registradas.';
@@ -74,6 +76,18 @@ function notify(message, kind = 'status') {
   clearTimeout(noticeTimer);
   noticeTimer = setTimeout(() => { notice.hidden = true; }, 6500);
 }
+// La capa de datos avisa cuando tiene que usar el respaldo local. El banner vive
+// fuera de main (que tiene isolation) para verse por encima de la pantalla de acceso.
+let fallbackBanner;
+window.addEventListener('ubicarmen:fallback', event => {
+  if (!fallbackBanner) {
+    fallbackBanner = document.createElement('div');
+    fallbackBanner.id = 'fallback-banner';
+    fallbackBanner.setAttribute('role', 'status');
+    document.body.append(fallbackBanner);
+  }
+  fallbackBanner.textContent = event.detail?.message || 'Sin conexión con la nube: mostrando datos locales.';
+});
 function showPanel(name) {
   document.querySelector('.header-more').open = false;
   document.body.classList.toggle('panel-open', name !== 'general');
@@ -87,6 +101,30 @@ function showPanel(name) {
   });
   document.querySelector('#welcome').hidden = name !== 'general';
 }
+// Integracion con firebase-auth.js y location.bundle.js.
+window.showPanel = showPanel;
+window.notify = notify;
+window.showUserLocation = ({latitude, longitude, accuracy}) => {
+  if (!map) return;
+  const coordinates = [longitude, latitude];
+  if (!userLocationMarker) {
+    const element = document.createElement('div');
+    element.className = 'user-location-marker';
+    element.setAttribute('aria-label', 'Tu ubicación actual');
+    userLocationMarker = new maplibregl.Marker({element}).setLngLat(coordinates).addTo(map);
+  } else userLocationMarker.setLngLat(coordinates);
+  if (!userLocationCentered) {
+    map.flyTo({center: coordinates, zoom: Math.max(map.getZoom(), 16)});
+    userLocationCentered = true;
+  }
+  window.dispatchEvent(new CustomEvent('ubicarmen:user-location', {detail: {latitude, longitude, accuracy}}));
+};
+window.clearUserLocation = () => {
+  userLocationMarker?.remove();
+  userLocationMarker = null;
+  userLocationCentered = false;
+  window.dispatchEvent(new Event('ubicarmen:user-location-cleared'));
+};
 document.querySelectorAll('[data-panel]').forEach(button => button.addEventListener('click', () => showPanel(button.dataset.panel)));
 document.querySelectorAll('.panel').forEach(panel => {
   const close = document.createElement('button');

@@ -1,13 +1,24 @@
 {
   "name": "ubicarmen",
   "private": true,
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "start": "node server.cjs",
+    "check": "node scripts/check.cjs",
     "import:pbf": "node scripts/import-pbf.cjs",
-    "build:route": "node scripts/build-campus-route.cjs"
+    "build:route": "node scripts/build-campus-route.cjs",
+    "emulators": "node scripts/emulators.cjs",
+    "seed": "node scripts/seed-firestore.cjs",
+    "test:rules": "node scripts/test-rules.cjs",
+    "vendor": "node scripts/vendor-assets.cjs"
   },
   "dependencies": {
     "osmtogeojson": "3.0.0-beta.5",
     "tiny-osmpbf": "1.0.0-beta.1"
+  },
+  "devDependencies": {
+    "firebase-tools": "^15.37.0"
   }
 }

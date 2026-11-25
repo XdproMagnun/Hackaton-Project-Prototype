@@ -17,7 +17,10 @@
   document.querySelector('#profile-form').addEventListener('submit', event => {
     event.preventDefault();
     window.uiPrefs.name = name.value.trim().slice(0, 40);
-    if (window.saveUiPrefs()) notify('Perfil guardado en este dispositivo.');
+    if (window.saveUiPrefs()) {
+      notify(window.UbiAccount?.signedIn ? 'Perfil guardado y sincronizado.' : 'Perfil guardado en este dispositivo.');
+      window.UbiAccount?.syncProfile();
+    }
   });
   document.querySelector('#profile-cancel').addEventListener('click', () => {
     name.value = window.uiPrefs.name;
