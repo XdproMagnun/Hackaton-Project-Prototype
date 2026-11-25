@@ -10,17 +10,19 @@ let userLocationCentered = false;
 let customSource = Boolean(config.styleUrl);
 let localMetadata;
 let localReady = false;
+let localSourceAdded = false;
 let sourceError = false;
 const localLayerIds = ['local-land', 'local-water', 'local-buildings', 'local-roads-outline', 'local-roads', 'local-points', 'local-stops'];
 function updateStatus() {
   if (sourceError) return;
-  statusElement.textContent = customSource ? 'CartografÃ­a personalizada' : localReady ? `${localMetadata ? localMetadata.features.toLocaleString('es-MX') + ' elementos Â· ' : ''}PBF local Â· fondo OpenStreetMap` : 'Cargando datos del PBF localâ€¦';
+  statusElement.textContent = customSource ? 'Cartografia personalizada' : localReady ? `${localMetadata ? localMetadata.features.toLocaleString('es-MX') + ' elementos - ' : ''}PBF local - fondo OpenStreetMap` : localSourceAdded ? 'Cargando datos del PBF local...' : 'Mapa base listo; PBF local desactivado';
 }
 function addLocalLayers() {
   localReady = false;
   sourceError = false;
-  if (customSource) return;
+  if (customSource || localSourceAdded || !document.querySelector('#local-visible').checked) return;
   map.addSource('local-pbf', {type: 'geojson', data: config.localData, attribution: 'Datos PBF Â© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> (ODbL)'});
+  localSourceAdded = true;
   const layer = (id, type, filter, paint, minzoom = 0) => map.addLayer({id, type, source: 'local-pbf', filter, paint, minzoom, layout: {visibility: document.querySelector('#local-visible').checked ? 'visible' : 'none'}});
   const polygon = ['==', ['geometry-type'], 'Polygon'];
   const road = ['all', ['==', ['geometry-type'], 'LineString'], ['has', 'highway']];
@@ -43,7 +45,7 @@ function featurePopup(feature, lngLat) {
   new maplibregl.Popup().setLngLat(lngLat).setDOMContent(content).addTo(map);
 }
 async function fetchJSON(url) {
-  const response = await fetch(url, {cache: 'no-store'});
+  const response = await fetch(url, {cache: 'default'});
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   return response.json();
 }
@@ -179,17 +181,26 @@ document.querySelector('#source-form').addEventListener('submit', event => {
   const url = new URL(document.querySelector('#style-url').value);
   if (!['http:', 'https:'].includes(url.protocol)) return notify('Usa una direcciÃ³n HTTP o HTTPS.');
   customSource = true;
+  localSourceAdded = false;
+  localReady = false;
   statusElement.textContent = 'Conectando cartografÃ­aâ€¦';
   map.setStyle(url.href);
 });
 document.querySelector('#reset-source').addEventListener('click', () => {
   if (!map) return notify('El mapa todavÃ­a no estÃ¡ disponible.');
   customSource = false;
+  localSourceAdded = false;
+  localReady = false;
   map.setStyle(baseStyle(), {diff: false});
   document.querySelector('#style-url').value = '';
 });
 document.querySelector('#local-visible').addEventListener('change', event => {
   if (!map) return;
+  if (event.target.checked && !localSourceAdded) {
+    addLocalLayers();
+    updateStatus();
+    return;
+  }
   localLayerIds.forEach(id => {
     if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', event.target.checked ? 'visible' : 'none');
   });

@@ -67,10 +67,10 @@
     return {signal: controller.signal, done: () => clearTimeout(timer)};
   }
 
-  async function fetchJSON(url, label) {
+  async function fetchJSON(url, label, cache = 'default') {
     const {signal, done} = timeoutSignal();
     try {
-      const response = await fetch(url, {cache: 'no-store', signal});
+      const response = await fetch(url, {cache, signal});
       if (!response.ok) throw new Error(`${label || url}: HTTP ${response.status}`);
       return await response.json();
     } finally {
@@ -446,7 +446,7 @@
 
       if (config.vehiclesUrl) {
         try {
-          const data = await fetchJSON(config.vehiclesUrl, 'API de vehiculos');
+          const data = await fetchJSON(config.vehiclesUrl, 'API de vehiculos', 'no-store');
           if (!Array.isArray(data.vehicles)) throw new Error('respuesta sin vehicles[]');
           const vehicles = vehiclesFromDocuments(data.vehicles.map(vehicle => ({...vehicle, id: String(vehicle.id)})))
             .filter(vehicle => Number.isFinite(Date.parse(vehicle.updatedAt)));

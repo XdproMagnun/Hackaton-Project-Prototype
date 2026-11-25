@@ -317,7 +317,7 @@
     finally { vehiclesBusy=false; }
   }
   function startSimulation() {
-    simulate();setInterval(simulate,1000);
+    simulate();setInterval(simulate,5000);
   }
   async function refreshVehicles() {
     if(!config.vehiclesUrl && !UbiData.hasFirebase()) return;
