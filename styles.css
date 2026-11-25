@@ -10,6 +10,7 @@ main{position:relative;height:calc(100dvh - 100px);min-height:360px;overflow:hid
 
 /* Controles compartidos y distribución móvil: menú arriba, mapa libre y panel inferior. */
 .panel-close{position:absolute;right:10px;top:10px;width:44px;height:44px;border-radius:50%;background:#edf2e9;color:#254b3b;font-size:26px;line-height:1}
+.map-tools{display:grid;gap:10px}.map-tools button{width:44px;height:44px;border-radius:50%;font-size:25px;background:#fff;color:#7025b5}.map-tools #location-toggle[aria-pressed="true"]{background:#7025b5;color:#fff}.map-tools #location-toggle:disabled{opacity:.6;cursor:wait}.user-location-marker{width:20px;height:20px;border:3px solid #fff;border-radius:50%;background:#3486f6;box-shadow:0 0 0 7px #3486f655,0 2px 7px #0005}.auth-error{color:#b42318}.profile-actions button:disabled{opacity:.6;cursor:wait}
 .panel .eyebrow{padding-right:34px}
 #local-summary{overflow-wrap:anywhere}
 button{touch-action:manipulation}

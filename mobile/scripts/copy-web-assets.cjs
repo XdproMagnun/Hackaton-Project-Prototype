@@ -5,7 +5,7 @@ const projectRoot = path.resolve(__dirname, '..', '..');
 const webRoot = path.join(__dirname, '..', 'www');
 const files = [
   'index.html', 'styles.css', 'theme.css', 'icons.css', 'icons.js',
-  'config.js', 'app.js', 'preferences.js', 'transit.js',
+  'config.js', 'app.js', 'preferences.js', 'transit.js', 'firebase-auth.js', 'firebase-config.js', 'location.bundle.js',
   'data/carmen.geojson', 'data/stops.geojson', 'data/metadata.json',
   'data/transit.geojson', 'data/routes.json',
   'assets/icons', 'assets/campus-3-paradas.png', 'assets/campus-3-recorrido.png',
@@ -21,4 +21,4 @@ for (const file of files) {
   fs.mkdirSync(path.dirname(destination), {recursive: true});
   fs.cpSync(source, destination, {recursive: true});
 }
-console.log(`Recursos copiados a ${webRoot}. La versión web original no se modificó.`);
+console.log(`Recursos compartidos copiados a ${webRoot}.`);

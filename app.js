@@ -5,6 +5,8 @@ const notice = document.querySelector('#notice');
 let noticeTimer;
 let map;
 let marker;
+let userLocationMarker;
+let userLocationCentered = false;
 let customSource = Boolean(config.styleUrl);
 let localMetadata;
 let localReady = false;
@@ -87,6 +89,27 @@ function showPanel(name) {
   });
   document.querySelector('#welcome').hidden = name !== 'general';
 }
+window.showPanel = showPanel;
+window.showUserLocation = ({latitude, longitude}) => {
+  if (!map) return;
+  const coordinates = [longitude, latitude];
+  if (!userLocationMarker) {
+    const element = document.createElement('div');
+    element.className = 'user-location-marker';
+    element.setAttribute('aria-label', 'Tu ubicación actual');
+    userLocationMarker = new maplibregl.Marker({element}).setLngLat(coordinates).addTo(map);
+  } else userLocationMarker.setLngLat(coordinates);
+  if (!userLocationCentered) {
+    map.flyTo({center: coordinates, zoom: Math.max(map.getZoom(), 16)});
+    userLocationCentered = true;
+  }
+};
+window.clearUserLocation = () => {
+  userLocationMarker?.remove();
+  userLocationMarker = null;
+  userLocationCentered = false;
+};
+window.notify = notify;
 document.querySelectorAll('[data-panel]').forEach(button => button.addEventListener('click', () => showPanel(button.dataset.panel)));
 document.querySelectorAll('.panel').forEach(panel => {
   const close = document.createElement('button');
