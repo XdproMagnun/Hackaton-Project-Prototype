@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "88835741842",
+    "project_id": "ubicarmen",
+    "storage_bucket": "ubicarmen.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:88835741842:android:eb2982a119a5211b006e4b",
+        "android_client_info": {
+          "package_name": "mx.ubicarmen.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "88835741842-ro9ntnk59q5f82i55dmub8fqhb0qmu64.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBp6CVASZJeA7RDdi7_rMc5i3MdfvIpzW4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "88835741842-ro9ntnk59q5f82i55dmub8fqhb0qmu64.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
