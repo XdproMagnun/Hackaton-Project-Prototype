@@ -95,11 +95,11 @@ if (!configured) {
       } catch (error) { showStatus(authError(error), true); }
       finally { submit.disabled = false; }
     });
-    googleButton.addEventListener('click', async () => {
+   googleButton.addEventListener('click', async () => {
       googleButton.disabled = true;
       showStatus('Conectando con Google…');
       try {
-        await signInWithRedirect(auth, new GoogleAuthProvider());
+        await signInWithPopup(auth, new GoogleAuthProvider());
       } catch (error) { showStatus(authError(error), true); }
       finally { googleButton.disabled = false; }
     });
