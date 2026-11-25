@@ -691,8 +691,7 @@
   }
   button.addEventListener("click", async () => {
     if (!window.ubicarmenUser) {
-      window.notify("Inicia sesi\xF3n en Mi perfil para activar tu ubicaci\xF3n.");
-      window.showPanel("account");
+      window.notify("Inicia sesi\xF3n para activar tu ubicaci\xF3n.");
       return;
     }
     if (button.getAttribute("aria-pressed") === "true") {
