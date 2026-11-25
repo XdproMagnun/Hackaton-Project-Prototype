@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#9747FF">
   <title>Ubicarmen · Explora tu ciudad</title>
   <link rel="stylesheet" href="vendor/maplibre-gl/maplibre-gl.css">
-  <link rel="stylesheet" href="styles.css?v=local-assets">
+  <link rel="stylesheet" href="styles.css?v=nearest-stops-1">
   <link rel="stylesheet" href="icons.css?v=layers-3">
   <link rel="stylesheet" href="theme.css?v=layers-3">
   <link rel="icon" type="image/svg+xml" href="assets/icons/logo-app.svg">
@@ -17,7 +17,7 @@
   <script defer src="app.js?v=layers-3"></script>
   <script defer src="preferences.js?v=layers-3"></script>
   <script defer src="account.js?v=layers-3"></script>
-  <script defer src="transit.js?v=layers-3"></script>
+  <script defer src="transit.js?v=nearest-stops-1"></script>
   <script type="module" src="firebase-auth.js?v=auth-2"></script>
   <script type="module" src="location.bundle.js"></script>
 </head>
@@ -76,7 +76,11 @@
     <section class="panel" id="help" hidden aria-labelledby="help-title"><div class="eyebrow">TE ACOMPAÑAMOS</div><h1 id="help-title">¿Cómo usar el mapa?</h1><div class="help-item"><span class="app-icon icon-map" aria-hidden="true"></span><div><h2>Mapa general y rutas</h2><p>Mapa general reúne los recorridos y camiones. En Rutas puedes elegir uno y ver su recorrido completo.</p></div></div><div class="help-item"><span class="app-icon icon-stop" aria-hidden="true"></span><div><h2>Encuentra una parada</h2><p>Abre Paradas y selecciona una ruta. Toca un número para ver su ubicación. Los grupos se separan al acercar el mapa.</p></div></div><div class="help-item"><span class="app-icon icon-bus" aria-hidden="true"></span><div><h2>Camiones en el mapa</h2><p>Por ahora hay dos camiones simulados por ruta. No indican llegadas ni ubicaciones reales.</p></div></div><div class="help-item"><span class="app-icon icon-home" aria-hidden="true"></span><div><h2>Vuelve al inicio</h2><p>El botón de la casa regresa al mapa general. Puedes mostrar u ocultar rutas y paradas desde los controles del mapa.</p></div></div></section>
     <aside class="welcome" id="welcome"><div class="eyebrow">CADA RECORRIDO EMPIEZA AQUÍ</div><h1>Descubre tu ciudad.</h1><p>Un mapa. Todos tus caminos.</p><button class="text-button" data-panel="search">Explorar el mapa <span aria-hidden="true">↗</span></button></aside>
     <div class="map-tools"><button id="location-toggle" aria-label="Iniciar seguimiento de mi ubicación" title="Mi ubicación" aria-pressed="false">⌖</button><button id="home" aria-label="Volver a Ciudad del Carmen" title="Volver al inicio"><span class="app-icon icon-home" aria-hidden="true"></span></button></div>
-    <button id="nearest-stop-chip" class="nearest-stop-chip" type="button" aria-live="polite" hidden></button>
+    <section id="nearest-stop-chip" class="nearest-stop-chip" aria-label="Paradas cercanas por ruta" hidden>
+      <strong>Parada más cercana en cada ruta</strong>
+      <div id="nearest-stop-results" class="nearest-stop-results"></div>
+      <small id="nearest-stop-note"></small>
+    </section>
     <div class="map-footer"><span class="green-dot"></span><span id="map-status" role="status">Cargando mapa base…</span><span class="footer-tag">UBICARMEN · TU CIUDAD, MÁS CERCA</span></div>
     <div id="notice" role="status" hidden></div>
   </main>

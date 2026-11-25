@@ -9,13 +9,15 @@
   let stopsVisible = true;
   let vehicles = [];
   let vehicleMarkers = new Map();
+  let vehicleAnimationFrame = 0;
   let vehiclesBusy = false;
   let markers = [];
   let popup;
   let userLocation;
-  let nearestStop;
   const chip = document.querySelector('#transit-chip');
   const nearestStopChip = document.querySelector('#nearest-stop-chip');
+  const nearestStopResults = document.querySelector('#nearest-stop-results');
+  const nearestStopNote = document.querySelector('#nearest-stop-note');
   const mobile = () => window.matchMedia('(max-width: 650px)').matches;
   const element = (tag, text, className) => {
     const node = document.createElement(tag);
@@ -32,6 +34,10 @@
   }
   function showStop(feature) {
     if (!map) return notify('El mapa no está disponible.');
+    selected = feature.properties.routeId;
+    general = false;
+    document.querySelector('#stop-route').value = selected;
+    render();
     visible = true; draw();
     if (mobile()) showPanel('general');
     if (popup) popup.remove();
@@ -51,38 +57,55 @@
   function updateNearestStop() {
     if (!userLocation || !catalog || !transit) return;
     const userCoordinates = [userLocation.longitude, userLocation.latitude];
-    const closest = transit.features
-      .filter(feature => feature.properties.kind === 'stop' && feature.geometry.type === 'Point')
-      .map(feature => ({feature, distance: distanceMeters(userCoordinates, feature.geometry.coordinates)}))
-      .sort((a, b) => a.distance - b.distance)[0];
-    if (!closest) {
-      nearestStop = null;
+    const nearestByRoute = catalog.routes.map(owner => {
+      const closest = transit.features
+        .filter(feature => feature.properties.kind === 'stop'
+          && feature.geometry.type === 'Point'
+          && feature.properties.routeId === owner.id)
+        .map(feature => ({feature, distance: distanceMeters(userCoordinates, feature.geometry.coordinates)}))
+        .sort((a, b) => a.distance - b.distance)[0] || null;
+      return {owner, closest};
+    }).sort((a, b) => (a.closest?.distance ?? Infinity) - (b.closest?.distance ?? Infinity));
+    if (!nearestByRoute.some(item => item.closest)) {
       nearestStopChip.hidden = true;
       return;
     }
-    nearestStop = closest.feature;
-    const properties = nearestStop.properties;
-    const owner = catalog.routes.find(item => item.id === properties.routeId);
-    const formattedDistance = closest.distance < 1000
-      ? `${Math.round(closest.distance)} m`
-      : `${(closest.distance / 1000).toFixed(1)} km`;
-    const accuracy = properties.accuracy === 'source-coordinate' ? 'coordenada de referencia' : 'posición aproximada';
+    nearestStopResults.replaceChildren();
+    nearestByRoute.forEach(({owner, closest}) => {
+      const row = element('button', null, 'nearest-stop-option');
+      row.type = 'button';
+      row.style.setProperty('--route-color', owner.color);
+      if (!closest) {
+        row.disabled = true;
+        row.setAttribute('aria-label', `${owner.name}: sin paradas georreferenciadas`);
+        const details = element('span');
+        details.append(element('strong', owner.name), element('small', 'Sin paradas georreferenciadas'));
+        row.append(details);
+        nearestStopResults.append(row);
+        return;
+      }
+      const properties = closest.feature.properties;
+      const formattedDistance = closest.distance < 1000
+        ? `${Math.round(closest.distance)} m`
+        : `${(closest.distance / 1000).toFixed(1)} km`;
+      const accuracy = properties.accuracy === 'source-coordinate' ? 'coordenada de referencia' : 'posición aproximada';
+      const details = element('span');
+      details.append(element('strong', owner.name), element('small', `${properties.name || `Parada ${properties.number}`} · ${accuracy}`));
+      row.append(details, element('small', formattedDistance));
+      row.setAttribute('aria-label', `${owner.name}: ${properties.name || `Parada ${properties.number}`}, a ${formattedDistance} en línea recta; ${accuracy}. Mostrar en el mapa.`);
+      row.addEventListener('click', () => showStop(closest.feature));
+      nearestStopResults.append(row);
+    });
     const gpsAccuracy = Number.isFinite(userLocation.accuracy) ? `GPS ±${Math.round(userLocation.accuracy)} m` : 'GPS activo';
-    const label = element('strong', 'Parada de referencia más cercana');
-    const name = element('span', `${properties.name || `Parada ${properties.number}`} · ${owner?.name || 'Ruta'}`);
-    const distance = element('small', `${formattedDistance} en línea recta · ${gpsAccuracy} · ${accuracy}`);
-    nearestStopChip.replaceChildren(label, name, distance);
-    nearestStopChip.setAttribute('aria-label', `${label.textContent}: ${name.textContent}, a ${formattedDistance} en línea recta; ${accuracy}. Activar para ver la parada en el mapa.`);
+    nearestStopNote.textContent = `${gpsAccuracy} · distancias en línea recta`;
     nearestStopChip.hidden = false;
   }
-  nearestStopChip.addEventListener('click', () => { if (nearestStop) showStop(nearestStop); });
   window.addEventListener('ubicarmen:user-location', event => {
     userLocation = event.detail;
     updateNearestStop();
   });
   window.addEventListener('ubicarmen:user-location-cleared', () => {
     userLocation = null;
-    nearestStop = null;
     nearestStopChip.hidden = true;
   });
   function draw() {
@@ -226,6 +249,24 @@
   document.querySelector('#home').addEventListener('click',()=>{general=true;draw();});
   document.querySelector('nav [data-panel="routes"]').addEventListener('click',()=>{if(catalog)choose(selected);});
   document.querySelector('nav [data-panel="stops"]').addEventListener('click',()=>{if(catalog)choose(selected);});
+  function animateVehicleMarkers() {
+    vehicleAnimationFrame = 0;
+    const now = performance.now();
+    let moving = false;
+    vehicleMarkers.forEach(entry => {
+      if (entry.animationStarted === null || entry.animationStarted === undefined) return;
+      const progress = Math.min((now - entry.animationStarted) / entry.animationDuration, 1);
+      const eased = progress * (2 - progress);
+      const position = [
+        entry.animationFrom[0] + (entry.target[0] - entry.animationFrom[0]) * eased,
+        entry.animationFrom[1] + (entry.target[1] - entry.animationFrom[1]) * eased
+      ];
+      entry.marker.setLngLat(position);
+      if (progress === 1) entry.animationStarted = null;
+      else moving = true;
+    });
+    if (moving) vehicleAnimationFrame = requestAnimationFrame(animateVehicleMarkers);
+  }
   function drawVehicles() {
     if(!map) return;
     const active = vehicles.filter(v=>v.active===true && Date.now()-Date.parse(v.updatedAt)<=120000 && Date.parse(v.updatedAt)<=Date.now()+30000);
@@ -234,9 +275,10 @@
     shown.forEach(v=>{
       const owner=catalog.routes.find(r=>r.id===v.routeId);
       const id=String(v.id);
+      const coordinates=[v.longitude,v.latitude];
       let entry=vehicleMarkers.get(id);
       if(!entry){
-        entry={vehicle:v};
+        entry={vehicle:v,target:coordinates,animationStarted:null};
         entry.control=button('',()=>{
           const vehicle=entry.vehicle;
           const vehicleOwner=catalog.routes.find(r=>r.id===vehicle.routeId);
@@ -244,13 +286,25 @@
           new maplibregl.Popup().setLngLat([vehicle.longitude,vehicle.latitude]).setDOMContent(content).addTo(map);
         },'vehicle-marker');
         entry.control.append(appIcon('bus'));
-        entry.marker=new maplibregl.Marker({element:entry.control}).addTo(map);
+        entry.marker=new maplibregl.Marker({element:entry.control}).setLngLat(coordinates).addTo(map);
         vehicleMarkers.set(id,entry);
+      } else if (v.simulated && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const changed = !entry.target || entry.target[0] !== coordinates[0] || entry.target[1] !== coordinates[1];
+        if (changed) {
+          entry.animationFrom=entry.marker.getLngLat().toArray();
+          entry.target=coordinates;
+          entry.animationStarted=performance.now();
+          entry.animationDuration=1000;
+          if (!vehicleAnimationFrame) vehicleAnimationFrame=requestAnimationFrame(animateVehicleMarkers);
+        }
+      } else {
+        entry.target=coordinates;
+        entry.animationStarted=null;
+        entry.marker.setLngLat(coordinates);
       }
       entry.vehicle=v;
       entry.control.style.background=owner?.color || '#125b46';
       entry.control.setAttribute('aria-label',`Camión ${v.simulated?'simulado':'activo'} ${v.id} · ${owner?.name || 'Ruta sin identificar'}`);
-      entry.marker.setLngLat([v.longitude,v.latitude]);
     });
     vehicleMarkers.forEach((entry,id)=>{if(!visibleIds.has(id)){entry.marker.remove();vehicleMarkers.delete(id);}});
     const simulated=UbiData.lastVehicleOrigin==='simulation';
