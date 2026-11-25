@@ -1,0 +1,21 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "stops",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "routeId", "order": "ASCENDING" },
+        { "fieldPath": "number", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "routeSegments",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "routeId", "order": "ASCENDING" },
+        { "fieldPath": "index", "order": "ASCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

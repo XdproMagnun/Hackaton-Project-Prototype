@@ -14,19 +14,19 @@ let sourceError = false;
 const localLayerIds = ['local-land', 'local-water', 'local-buildings', 'local-roads-outline', 'local-roads', 'local-points', 'local-stops'];
 function updateStatus() {
   if (sourceError) return;
-  statusElement.textContent = customSource ? 'Cartografía personalizada' : localReady ? `${localMetadata ? localMetadata.features.toLocaleString('es-MX') + ' elementos · ' : ''}PBF local · fondo OpenStreetMap` : 'Cargando datos del PBF local…';
+  statusElement.textContent = customSource ? 'CartografÃ­a personalizada' : localReady ? `${localMetadata ? localMetadata.features.toLocaleString('es-MX') + ' elementos Â· ' : ''}PBF local Â· fondo OpenStreetMap` : 'Cargando datos del PBF localâ€¦';
 }
 function addLocalLayers() {
   localReady = false;
   sourceError = false;
   if (customSource) return;
-  map.addSource('local-pbf', {type: 'geojson', data: config.localData, attribution: 'Datos PBF © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> (ODbL)'});
+  map.addSource('local-pbf', {type: 'geojson', data: config.localData, attribution: 'Datos PBF Â© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> (ODbL)'});
   const layer = (id, type, filter, paint, minzoom = 0) => map.addLayer({id, type, source: 'local-pbf', filter, paint, minzoom, layout: {visibility: document.querySelector('#local-visible').checked ? 'visible' : 'none'}});
   const polygon = ['==', ['geometry-type'], 'Polygon'];
   const road = ['all', ['==', ['geometry-type'], 'LineString'], ['has', 'highway']];
   layer('local-land', 'fill', ['all', polygon, ['any', ['has', 'landuse'], ['has', 'leisure']]], {'fill-color': '#b8d3a2', 'fill-opacity': 0.35});
   // El extracto cierra artificialmente la laguna en su borde sur. El fondo OSM
-  // ya contiene agua completa; no superponer el polígono recortado del PBF.
+  // ya contiene agua completa; no superponer el polÃ­gono recortado del PBF.
   layer('local-buildings', 'fill', ['all', polygon, ['has', 'building']], {'fill-color': '#bdc9bc', 'fill-outline-color': '#8fa08c', 'fill-opacity': 0.7}, 14);
   layer('local-roads-outline', 'line', road, {'line-color': '#748d77', 'line-width': ['interpolate', ['linear'], ['zoom'], 12, 1, 16, 5, 19, 13], 'line-opacity': 0.7});
   layer('local-roads', 'line', road, {'line-color': ['match', ['get', 'highway'], ['primary', 'secondary', 'tertiary'], '#e7c879', '#fffdf0'], 'line-width': ['interpolate', ['linear'], ['zoom'], 12, 0.5, 16, 3, 19, 10]});
@@ -38,7 +38,7 @@ function featurePopup(feature, lngLat) {
   const title = document.createElement('strong');
   title.textContent = feature.properties.name || feature.properties['addr:street'] || 'Elemento del mapa';
   const description = document.createElement('small');
-  description.textContent = [feature.properties.highway, feature.properties.amenity, feature.properties.shop, feature.properties.building && 'Edificio', feature.properties.id].filter(Boolean).join(' · ');
+  description.textContent = [feature.properties.highway, feature.properties.amenity, feature.properties.shop, feature.properties.building && 'Edificio', feature.properties.id].filter(Boolean).join(' Â· ');
   content.append(title, description);
   new maplibregl.Popup().setLngLat(lngLat).setDOMContent(content).addTo(map);
 }
@@ -49,9 +49,9 @@ async function fetchJSON(url) {
 }
 fetchJSON(config.metadata).then(metadata => {
   localMetadata = metadata;
-  document.querySelector('#local-summary').textContent = `${metadata.file} · ${metadata.features.toLocaleString('es-MX')} elementos importados.`;
+  document.querySelector('#local-summary').textContent = `${metadata.file} Â· ${metadata.features.toLocaleString('es-MX')} elementos importados.`;
   updateStatus();
-}).catch(() => { document.querySelector('#local-summary').textContent = 'No se encontraron los datos locales. Ejecuta npm run import:pbf y abre la página con un servidor local.'; });
+}).catch(() => { document.querySelector('#local-summary').textContent = 'No se encontraron los datos locales. Ejecuta npm run import:pbf y abre la pÃ¡gina con un servidor local.'; });
 fetchJSON(config.stops).then(data => {
   const list = document.querySelector('#stop-list');
   list.replaceChildren();
@@ -59,9 +59,9 @@ fetchJSON(config.stops).then(data => {
   data.features.forEach((feature, index) => {
     const button = document.createElement('button');
     button.className = 'stop-card';
-    button.textContent = `${feature.properties.name || 'Parada ' + (index + 1)} ↗`;
+    button.textContent = `${feature.properties.name || 'Parada ' + (index + 1)} â†—`;
     button.addEventListener('click', () => {
-      if (!map) return notify('El mapa no está disponible.');
+      if (!map) return notify('El mapa no estÃ¡ disponible.');
       if (window.matchMedia('(max-width: 650px)').matches) showPanel('general');
       map.flyTo({center: feature.geometry.coordinates, zoom: 17});
       featurePopup(feature, feature.geometry.coordinates);
@@ -90,24 +90,26 @@ function showPanel(name) {
   document.querySelector('#welcome').hidden = name !== 'general';
 }
 window.showPanel = showPanel;
-window.showUserLocation = ({latitude, longitude}) => {
+window.showUserLocation = ({latitude, longitude, accuracy}) => {
   if (!map) return;
   const coordinates = [longitude, latitude];
   if (!userLocationMarker) {
     const element = document.createElement('div');
     element.className = 'user-location-marker';
-    element.setAttribute('aria-label', 'Tu ubicación actual');
+    element.setAttribute('aria-label', 'Tu ubicaciÃ³n actual');
     userLocationMarker = new maplibregl.Marker({element}).setLngLat(coordinates).addTo(map);
   } else userLocationMarker.setLngLat(coordinates);
   if (!userLocationCentered) {
     map.flyTo({center: coordinates, zoom: Math.max(map.getZoom(), 16)});
     userLocationCentered = true;
   }
+  window.dispatchEvent(new CustomEvent('ubicarmen:user-location', {detail: {latitude, longitude, accuracy}}));
 };
 window.clearUserLocation = () => {
   userLocationMarker?.remove();
   userLocationMarker = null;
   userLocationCentered = false;
+  window.dispatchEvent(new Event('ubicarmen:user-location-cleared'));
 };
 window.notify = notify;
 document.querySelectorAll('[data-panel]').forEach(button => button.addEventListener('click', () => showPanel(button.dataset.panel)));
@@ -125,7 +127,7 @@ document.querySelectorAll('.panel').forEach(panel => {
 });
 document.addEventListener('keydown', event => { if (event.key === 'Escape') showPanel('general'); });
 function baseStyle() {
-  return {version: 8, sources: {osm: {type: 'raster', tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'], tileSize: 256, maxzoom: 19, attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}}, layers: [{id: 'base', type: 'raster', source: 'osm', paint: {'raster-saturation': -0.55, 'raster-contrast': -0.08}}]};
+  return {version: 8, sources: {osm: {type: 'raster', tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'], tileSize: 256, maxzoom: 19, attribution: 'Â© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}}, layers: [{id: 'base', type: 'raster', source: 'osm', paint: {'raster-saturation': -0.55, 'raster-contrast': -0.08}}]};
 }
 try {
   if (!window.maplibregl) throw new Error('MapLibre no disponible');
@@ -138,7 +140,7 @@ try {
   });
   map.on('error', event => {
     sourceError = true;
-    statusElement.textContent = event.sourceId === 'local-pbf' ? 'No se pudo cargar el PBF convertido. Ejecuta npm run import:pbf y usa un servidor local.' : 'No se pudo cargar parte del mapa. Revisa la conexión o la fuente.';
+    statusElement.textContent = event.sourceId === 'local-pbf' ? 'No se pudo cargar el PBF convertido. Ejecuta npm run import:pbf y usa un servidor local.' : 'No se pudo cargar parte del mapa. Revisa la conexiÃ³n o la fuente.';
   });
   map.on('click', event => {
     const layers = [...localLayerIds].reverse().filter(id => map.getLayer(id));
@@ -147,10 +149,10 @@ try {
     if (features.length) featurePopup(features[0], event.lngLat);
   });
 } catch (error) {
-  statusElement.textContent = 'Mapa no disponible. Comprueba tu conexión y la compatibilidad con WebGL.';
+  statusElement.textContent = 'Mapa no disponible. Comprueba tu conexiÃ³n y la compatibilidad con WebGL.';
 }
 document.querySelector('#home').addEventListener('click', () => {
-  if (!map) return notify('El mapa no está disponible. Recarga la página con conexión a internet.');
+  if (!map) return notify('El mapa no estÃ¡ disponible. Recarga la pÃ¡gina con conexiÃ³n a internet.');
   map.flyTo({center: config.center, zoom: config.zoom});
   if (marker) { marker.remove(); marker = null; }
   showPanel('general');
@@ -160,8 +162,8 @@ document.querySelector('#search-form').addEventListener('submit', event => {
   const raw = document.querySelector('#coordinates').value.trim();
   const parts = raw.split(',').map(part => part.trim());
   const [lat, lng] = parts.map(Number);
-  if (parts.length !== 2 || parts.some(part => !part) || !Number.isFinite(lat) || !Number.isFinite(lng) || Math.abs(lat) > 85.051129 || Math.abs(lng) > 180) return notify('Escribe coordenadas válidas: latitud, longitud. Ejemplo: 18.651, -91.807');
-  if (!map) return notify('El mapa todavía no está disponible.');
+  if (parts.length !== 2 || parts.some(part => !part) || !Number.isFinite(lat) || !Number.isFinite(lng) || Math.abs(lat) > 85.051129 || Math.abs(lng) > 180) return notify('Escribe coordenadas vÃ¡lidas: latitud, longitud. Ejemplo: 18.651, -91.807');
+  if (!map) return notify('El mapa todavÃ­a no estÃ¡ disponible.');
   if (marker) marker.remove();
   marker = new maplibregl.Marker({color: '#125b46'}).setLngLat([lng, lat]).addTo(map);
   if (window.matchMedia('(max-width: 650px)').matches) {
@@ -169,19 +171,19 @@ document.querySelector('#search-form').addEventListener('submit', event => {
     showPanel('general');
   }
   map.flyTo({center: [lng, lat], zoom: 15});
-  notify('Ubicación encontrada en el mapa.');
+  notify('UbicaciÃ³n encontrada en el mapa.');
 });
 document.querySelector('#source-form').addEventListener('submit', event => {
   event.preventDefault();
-  if (!map) return notify('El mapa todavía no está disponible.');
+  if (!map) return notify('El mapa todavÃ­a no estÃ¡ disponible.');
   const url = new URL(document.querySelector('#style-url').value);
-  if (!['http:', 'https:'].includes(url.protocol)) return notify('Usa una dirección HTTP o HTTPS.');
+  if (!['http:', 'https:'].includes(url.protocol)) return notify('Usa una direcciÃ³n HTTP o HTTPS.');
   customSource = true;
-  statusElement.textContent = 'Conectando cartografía…';
+  statusElement.textContent = 'Conectando cartografÃ­aâ€¦';
   map.setStyle(url.href);
 });
 document.querySelector('#reset-source').addEventListener('click', () => {
-  if (!map) return notify('El mapa todavía no está disponible.');
+  if (!map) return notify('El mapa todavÃ­a no estÃ¡ disponible.');
   customSource = false;
   map.setStyle(baseStyle(), {diff: false});
   document.querySelector('#style-url').value = '';

@@ -1,0 +1,475 @@
+==============================================================================
+CONTEXTO COMPLETO: CREAR LA BASE DE DATOS DE FIREBASE PARA UBICARMEN
+==============================================================================
+
+Este documento es autosuficiente: se puede copiar tal cual en otra
+herramienta (GPT, Claude, etc.) y contiene todo lo necesario para crear la
+base de Firestore del proyecto real, publicar las reglas y dejar la app
+funcionando con Authentication + Firestore.
+
+No contiene secretos: la apiKey web de Firebase es publica por diseno y la
+seguridad real esta en las reglas.
+
+El estado de consola y CLI descrito abajo procede de una revision previa; confirmalo antes de ejecutar.
+
+
+------------------------------------------------------------------------------
+1. QUE ES EL PROYECTO
+------------------------------------------------------------------------------
+
+Ubicarmen es una app web estatica (HTML/CSS/JS clasico, SIN build) que
+muestra un mapa de Ciudad del Carmen (Campeche, Mexico) con rutas y paradas
+de transporte "Amor X Carmen".
+
+- Datos geograficos: data/routes.json + data/transit.geojson
+  (3 rutas, 41 paradas, 43 tramos).
+- No hay backend propio: todo es estatico y se sirve con `node server.cjs`
+  en http://127.0.0.1:5173
+- Firebase se usa solo desde el navegador con el SDK modular por CDN:
+  Authentication y Firestore.
+
+
+------------------------------------------------------------------------------
+2. ESTADO REPORTADO (confirmar en consola antes de ejecutar)
+------------------------------------------------------------------------------
+
+Pieza                    | Estado
+-------------------------+---------------------------------------------------
+Proyecto `ubicarmen`     | Existe
+App Web registrada       | SI: appId 1:88835741842:web:e7f25a0408f43f7d006e4b
+Cloud Firestore          | NO existe. La API responde:
+                         |   404 The database (default) does not exist
+                         |   for project ubicarmen
+Reglas escritas          | SI, en el repo (firebase/firestore.rules),
+                         | SIN desplegar
+Indices escritos         | SI, en el repo (firebase/firestore.indexes.json),
+                         | SIN desplegar
+Proveedores de Auth      | Por verificar en consola (Email/Password y Google)
+Catalogo en Firestore    | VACIO (no hay base, no hay documentos)
+CLI de Firebase          | Sin sesion: `firebase login:list` ->
+                         |   No authorized accounts
+
+Mientras la base no exista, la app cae automaticamente al respaldo local
+(data/*.json) y muestra un aviso de "sin conexion con la nube".
+NO es un bug: es el comportamiento disenado.
+
+
+------------------------------------------------------------------------------
+3. IDENTIFICADORES DEL PROYECTO
+------------------------------------------------------------------------------
+
+{
+  apiKey: 'AIzaSyDv0wS_7HaCn7-L4P7CaGnfN5TPAMawC0',   // publica, va en el repo a proposito
+  authDomain: 'ubicarmen.firebaseapp.com',
+  projectId: 'ubicarmen',
+  storageBucket: 'ubicarmen.firebasestorage.app',
+  messagingSenderId: '88835741842',
+  appId: '1:88835741842:web:e7f25a0408f43f7d006e4b',
+  measurementId: 'G-SKKJW6XDXM'
+}
+
+Consola: https://console.firebase.google.com/project/ubicarmen
+
+
+------------------------------------------------------------------------------
+4. PASO A PASO
+------------------------------------------------------------------------------
+
+4.1 CREAR LA BASE DE FIRESTORE
+------------------------------
+
+Firestore -> "Crear base de datos":
+
+1. Modo PRODUCCION (no "modo de prueba": las reglas del repo ya definen el
+   acceso).
+2. Ubicacion northamerica-south1 (Queretaro), en Mexico y cercana a Ciudad del Carmen.
+   No se puede cambiar despues; confirma disponibilidad y latencia antes de crear.
+3. Esperar a que la consola muestre la pestana "Datos" con la base
+   (default) en estado activo.
+
+Equivalente por CLI (requiere `npx firebase login`):
+
+  npx firebase firestore:databases:create "(default)" \
+    --location northamerica-south1 --project ubicarmen
+  npx firebase firestore:databases:list --project ubicarmen
+  # debe mostrar (default)
+
+
+4.2 PUBLICAR LAS REGLAS
+-----------------------
+
+Firestore -> pestana "Reglas" -> pegar el contenido completo de la seccion 7
+-> "Publicar". Debe decir "Reglas publicadas correctamente".
+
+Por CLI:
+
+  npx firebase deploy --only firestore:rules \
+    --config firebase/firebase.json --project ubicarmen
+
+
+4.3 PUBLICAR LOS INDICES
+------------------------
+
+Firestore -> pestana "Indices" -> "Crear indice" dos veces, o desplegar por
+CLI (recomendado, es exacto):
+
+  npx firebase deploy --only firestore:indexes \
+    --config firebase/firebase.json --project ubicarmen
+
+Son dos indices compuestos, ambos de alcance COLLECTION:
+
+  Coleccion       | Campo 1   | Campo 2
+  ----------------+-----------+-----------
+  stops           | routeId ASC | number ASC
+  routeSegments   | routeId ASC | index ASC
+
+Tardan unos minutos en pasar de "Creando" a "Habilitado". La app no los
+necesita para arrancar, solo para consultas filtradas por ruta.
+
+
+4.4 HABILITAR LOS PROVEEDORES DE AUTHENTICATION
+-----------------------------------------------
+
+Authentication -> "Sign-in method" -> habilitar:
+
+1. Correo electronico/contrasena (Email/Password).
+   Sin "vinculo por correo" (email link).
+2. Google: elegir un correo de soporte del proyecto y guardar.
+
+Ambos deben quedar en estado HABILITADO.
+
+
+4.5 DOMINIOS AUTORIZADOS
+------------------------
+
+Authentication -> "Settings" -> "Authorized domains".
+
+- localhost ya viene autorizado (sirve para http://localhost:5173).
+- Agregar el dominio real donde se publique la app, por ejemplo
+  xdpromagnun.github.io (sin https:// ni rutas).
+- Ojo: http://127.0.0.1:5173 puede fallar con Google Sign-In si solo esta
+  localhost. Para probar, usar http://localhost:5173
+
+
+4.6 CARGAR EL CATALOGO (3 rutas, 41 paradas, 43 tramos + meta)
+--------------------------------------------------------------
+
+El catalogo NO se carga a mano. Hay un script que lee data/routes.json y
+data/transit.geojson y escribe las colecciones. Necesita credenciales de
+administrador (las reglas de cliente no permiten escribir el catalogo).
+
+  gcloud auth login
+  node scripts/seed-firestore.cjs --project ubicarmen \
+    --host https://firestore.googleapis.com \
+    --token "$(gcloud auth print-access-token)"
+
+Salida esperada:
+
+  Proyecto: ubicarmen (https://firestore.googleapis.com)
+  Documentos: {"routes":3,"stops":41,"routeSegments":43,"meta":1}
+  Catalogo cargado en ubicarmen. La app debe mostrar "Catalogo cargado
+  desde Firestore" en consola.
+
+Reglas de seguridad del token: se pasa solo por argumento, NUNCA se guarda
+en el repo, ni en .env, ni en el chat, ni se versiona un service account.
+
+Si no hay gcloud, alternativa sin codigo: exportar el catalogo como JSON
+aceptado por la consola e importarlo (Firestore -> Importar/Exportar
+requiere un bucket de Cloud Storage y plan Blaze). El script es mas simple
+y no requiere plan de pago.
+
+
+------------------------------------------------------------------------------
+5. COMO CONSUME LA APP ESTOS DATOS
+------------------------------------------------------------------------------
+
+- data-layer.js (window.UbiData) es la unica puerta a los datos. Lee
+  routes, stops, routeSegments, vehicles y meta de Firestore; si algo falla,
+  usa data/*.json y emite `ubicarmen:fallback` (banner visible
+  "Sin conexion con la nube").
+
+- firebase-auth.js monta el login (correo/contrasena y Google con
+  signInWithPopup) y expone window.ubicarmenUser + evento
+  `ubicarmen:auth-changed`.
+
+- account.js (window.UbiAccount) sincroniza users/{uid} y
+  users/{uid}/favorites/{routeId} con el ID token del SDK.
+
+- Configuracion activa: config.js -> MAP_CONFIG.firebase con
+  projectId: 'ubicarmen', useEmulators: false.
+
+
+------------------------------------------------------------------------------
+6. MODELO DE DATOS
+------------------------------------------------------------------------------
+
+Coleccion               | ID del documento           | Campos principales
+------------------------+----------------------------+-----------------------
+routes                  | campus-3, costera,         | name, color, status,
+                        | laguna-terminos            | stopCount, description,
+                        |                            | note, streets[],
+                        |                            | sources[], updated
+------------------------+----------------------------+-----------------------
+stops                   | {routeId}-{number}         | routeId, number, name,
+                        |                            | note, accuracy, source,
+                        |                            | lng, lat
+------------------------+----------------------------+-----------------------
+routeSegments           | {routeId}-{NN}             | routeId, index, name,
+                        |                            | accuracy, source,
+                        |                            | osmWay,
+                        |                            | coordinates:
+                        |                            |   [{lng, lat}]
+------------------------+----------------------------+-----------------------
+vehicles                | {vehicleId}                | routeId, longitude,
+                        |                            | latitude, updatedAt,
+                        |                            | active, simulated
+------------------------+----------------------------+-----------------------
+meta                    | version                    | seededAt, source,
+                        |                            | projectId, routes,
+                        |                            | stops, segments
+------------------------+----------------------------+-----------------------
+users                   | {uid}                      | name, updatedAt
+------------------------+----------------------------+-----------------------
+users/{uid}/favorites   | {routeId}                  | routeId, createdAt
+                        |                            | (opcional)
+------------------------+----------------------------+-----------------------
+reports                 | autogenerado               | routeId, stopId, kind,
+                        |                            | message, createdAt,
+                        |                            | uid, status
+
+Permisos por coleccion:
+
+  routes, stops, routeSegments, vehicles, meta
+    lectura: publica            escritura: admin
+
+  users, users/{uid}/favorites
+    lectura: solo el dueno      escritura: solo el dueno
+
+  reports
+    lectura: solo admin         crear: con sesion iniciada
+                                editar/borrar: admin
+
+NOTAS TECNICAS OBLIGATORIAS:
+
+- Geometria fuera de routes: los tramos van en routeSegments porque una ruta
+  completa se acerca al limite de 1 MiB por documento.
+
+- Firestore no admite arreglos anidados: por eso las coordenadas se guardan
+  como [{lng, lat}] y no como [[lng, lat]]. La app las rehidrata al leer.
+
+- vehicles no lo llena el seed: la app usa simulacion local si la coleccion
+  esta vacia. La ingesta real (GPS) requiere escritura de administrador.
+
+
+------------------------------------------------------------------------------
+7. REGLAS COMPLETAS (pegar en Firestore -> Reglas)
+------------------------------------------------------------------------------
+
+rules_version = '2';
+
+// Catalogo publico (rutas, paradas, tramos, meta, vehiculos): lectura abierta,
+// escritura solo para administradores con el custom claim admin == true.
+// Los datos de cada usuario viven en users/{uid} y solo los ve su dueno.
+// Los reportes ciudadanos se pueden crear con sesion, pero no editar ni borrar.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return signedIn() && request.auth.token.admin == true;
+    }
+
+    // Sesion anonima (invitado): puede entrar a la app, pero no escribir datos.
+    // El catalogo ya es de lectura publica, asi que no necesita mas permisos.
+    function isAnonymous() {
+      return signedIn() && request.auth.token.firebase.sign_in_provider == 'anonymous';
+    }
+
+    function isOwner(uid) {
+      return signedIn() && !isAnonymous() && request.auth.uid == uid;
+    }
+
+    match /routes/{routeId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /stops/{stopId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /routeSegments/{segmentId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /vehicles/{vehicleId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /meta/{documentId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /users/{uid} {
+      allow read, write: if isOwner(uid);
+
+      match /favorites/{routeId} {
+        allow read, write: if isOwner(uid);
+      }
+    }
+
+    match /reports/{reportId} {
+      // El mensaje y el uid solo son visibles para administradores.
+      allow read: if isAdmin();
+
+      // stopId es opcional; si se incluye, debe ser string.
+      allow create: if signedIn()
+        && !isAnonymous()
+        && request.resource.data.keys().hasAll([
+          'routeId', 'kind', 'message', 'createdAt', 'uid', 'status'
+        ])
+        && request.resource.data.keys().hasOnly([
+          'routeId', 'stopId', 'kind', 'message', 'createdAt', 'uid', 'status'
+        ])
+        && request.resource.data.routeId is string
+        && (!('stopId' in request.resource.data) || request.resource.data.stopId is string)
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.kind in ['stop', 'incident', 'delay', 'other']
+        && request.resource.data.message is string
+        && request.resource.data.message.size() > 0
+        && request.resource.data.message.size() <= 500
+        && request.resource.data.createdAt is string
+        && request.resource.data.status == 'open';
+
+      allow update, delete: if isAdmin();
+    }
+
+    // Todo lo demas queda cerrado por defecto.
+  }
+}
+
+
+------------------------------------------------------------------------------
+8. INDICES COMPLETOS (pegar en Firestore -> Indices)
+------------------------------------------------------------------------------
+
+{
+  "indexes": [
+    {
+      "collectionGroup": "stops",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "routeId", "order": "ASCENDING" },
+        { "fieldPath": "number", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "routeSegments",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "routeId", "order": "ASCENDING" },
+        { "fieldPath": "index", "order": "ASCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
+
+
+------------------------------------------------------------------------------
+9. VERIFICACION
+------------------------------------------------------------------------------
+
+9.1 BASE CREADA Y CATALOGO CARGADO
+-----------------------------------
+
+  curl "https://firestore.googleapis.com/v1/projects/ubicarmen/databases/(default)/documents/routes?key=AIzaSyDv0wS_7HaCn7-L4P7CaGnfN5TPAMawC0"
+
+Debe devolver 3 documentos (campus-3, costera, laguna-terminos) y NO un 404.
+
+  curl "https://firestore.googleapis.com/v1/projects/ubicarmen/databases/(default)/documents/meta/version?key=AIzaSyDv0wS_7HaCn7-L4P7CaGnfN5TPAMawC0"
+
+Debe mostrar stops: 41, segments: 43, routes: 3.
+
+
+9.2 ESCRITURA DENEGADA SIN SESION
+-----------------------------------
+
+  curl -X PATCH \
+    "https://firestore.googleapis.com/v1/projects/ubicarmen/databases/(default)/documents/routes/prueba?key=AIzaSyDv0wS_7HaCn7-L4P7CaGnfN5TPAMawC0" \
+    -H "Content-Type: application/json" \
+    -d '{"fields":{"name":{"stringValue":"x"}}}'
+
+Debe devolver 403 PERMISSION_DENIED. Si devuelve 200, las reglas no se
+publicaron.
+
+
+9.3 EN LA APP
+-------------
+
+1. npm start -> abrir http://localhost:5173
+2. La consola del navegador debe mostrar
+   "[UbiData] Catalogo cargado desde Firestore." y NO debe aparecer el
+   banner "Sin conexion con la nube".
+3. Crear una cuenta con correo y contrasena, guardar el nombre en Mi perfil,
+   marcar una ruta como favorita, recargar: nombre y favoritos deben volver
+   desde la nube.
+4. Cerrar sesion y entrar con Google: debe abrir el popup y completar el
+   login sin error auth/unauthorized-domain ni
+   auth/operation-not-allowed.
+5. Errores frecuentes y que significan:
+   - auth/operation-not-allowed -> el proveedor no esta habilitado (paso 4.4).
+   - auth/unauthorized-domain   -> falta el dominio (paso 4.5).
+   - auth/invalid-api-key o 400 -> la config del proyecto no coincide.
+   - 404 database does not exist -> falta el paso 4.1.
+
+
+------------------------------------------------------------------------------
+10. LIMITES Y PROHIBICIONES
+------------------------------------------------------------------------------
+
+- NO crear un service account ni descargar su JSON. No se versiona ninguna
+  clave privada.
+- NO pegar tokens de `gcloud auth print-access-token` en el chat, en el repo
+  ni en archivos del proyecto.
+- NO habilitar "modo de prueba" en las reglas (allow read, write: if true)
+  ni como solucion temporal.
+- NO crear colecciones ni documentos a mano: el seed reproduce el esquema y
+  evita errores de tipos (lng/lat numericos, number entero).
+- NO cambiar la ubicacion de la base despues de crearla (es irreversible).
+- NO tocar config.js: ya apunta a ubicarmen con useEmulators: false. El
+  bloque de emulador es solo para pruebas y se restaura.
+- NO hacer commit, push ni desplegar nada del repo como parte de esta tarea.
+  Solo consola + seed.
+- Cloud Functions / App Hosting no se usan en esta fase (Functions requiere
+  plan Blaze).
+
+
+------------------------------------------------------------------------------
+11. RESUMEN EJECUTABLE (CHECKLIST)
+------------------------------------------------------------------------------
+
+[ ] Firestore creado en northamerica-south1, modo produccion.
+[ ] Reglas de la seccion 7 publicadas.
+[ ] Indices de la seccion 8 desplegados (2 indices en estado "Habilitado").
+[ ] Email/Password habilitado.
+[ ] Google habilitado con correo de soporte.
+[ ] Dominio publicado agregado en Authorized domains.
+[ ] Seed ejecutado: {"routes":3,"stops":41,"routeSegments":43,"meta":1}
+[ ] GET /routes devuelve 3 documentos.
+[ ] PATCH /routes/prueba devuelve 403.
+[ ] App: catalogo desde Firestore, login con correo y con Google, perfil y
+    favoritos persistiendo tras recargar.
+
+
+==============================================================================
+FIN DEL DOCUMENTO
+==============================================================================

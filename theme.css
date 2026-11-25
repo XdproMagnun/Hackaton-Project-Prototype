@@ -44,3 +44,6 @@ input,select{border-color:#d9cce4;color:var(--ink);border-radius:12px;background
 .transit-controls .layer-options label:last-child{border-bottom:0}
 .transit-controls .fleet-status{line-height:1.5;padding-top:10px}
 @media(max-width:900px){.transit-controls{left:12px;right:auto;top:auto;bottom:94px;width:48px;max-width:none;padding:0}.transit-controls .layers-popover{top:auto;bottom:60px;left:0;right:auto}.transit-controls strong{font-size:12px}}
+
+/* Aviso persistente de respaldo local: fuera de main para quedar sobre el login. */
+#fallback-banner{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(34px + env(safe-area-inset-bottom));z-index:1100;max-width:90%;padding:13px 20px;border-radius:9px;background:#43215f;color:#fff;border:1px solid #bb87e5;font-size:12px;box-shadow:0 6px 24px #0003}

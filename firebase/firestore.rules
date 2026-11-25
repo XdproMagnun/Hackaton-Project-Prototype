@@ -1,0 +1,90 @@
+rules_version = '2';
+
+// Catalogo publico (rutas, paradas, tramos, meta, vehiculos): lectura abierta,
+// escritura solo para administradores con el custom claim admin == true.
+// Los datos de cada usuario viven en users/{uid} y solo los ve su dueno.
+// Los reportes ciudadanos se pueden crear con sesion, pero no editar ni borrar.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return signedIn() && request.auth.token.admin == true;
+    }
+
+    // Sesion anonima (invitado): puede entrar a la app, pero no escribir datos.
+    // El catalogo ya es de lectura publica, asi que no necesita mas permisos.
+    function isAnonymous() {
+      return signedIn() && request.auth.token.firebase.sign_in_provider == 'anonymous';
+    }
+
+    function isOwner(uid) {
+      return signedIn() && !isAnonymous() && request.auth.uid == uid;
+    }
+
+    match /routes/{routeId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /stops/{stopId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /routeSegments/{segmentId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /vehicles/{vehicleId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /meta/{documentId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /users/{uid} {
+      allow read, write: if isOwner(uid);
+
+      match /favorites/{routeId} {
+        allow read, write: if isOwner(uid);
+      }
+    }
+
+    match /reports/{reportId} {
+      // El mensaje y el uid solo son visibles para administradores.
+      allow read: if isAdmin();
+
+      // stopId es opcional; si se incluye, debe ser string.
+      allow create: if signedIn()
+        && !isAnonymous()
+        && request.resource.data.keys().hasAll([
+          'routeId', 'kind', 'message', 'createdAt', 'uid', 'status'
+        ])
+        && request.resource.data.keys().hasOnly([
+          'routeId', 'stopId', 'kind', 'message', 'createdAt', 'uid', 'status'
+        ])
+        && request.resource.data.routeId is string
+        && (!('stopId' in request.resource.data) || request.resource.data.stopId is string)
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.kind in ['stop', 'incident', 'delay', 'other']
+        && request.resource.data.message is string
+        && request.resource.data.message.size() > 0
+        && request.resource.data.message.size() <= 500
+        && request.resource.data.createdAt is string
+        && request.resource.data.status == 'open';
+
+      allow update, delete: if isAdmin();
+    }
+
+    // Todo lo demas queda cerrado por defecto.
+  }
+}

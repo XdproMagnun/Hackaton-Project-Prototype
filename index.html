@@ -5,18 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
   <meta name="theme-color" content="#9747FF">
   <title>Ubicarmen · Explora tu ciudad</title>
-  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="styles.css?v=layers-3">
+  <link rel="stylesheet" href="vendor/maplibre-gl/maplibre-gl.css">
+  <link rel="stylesheet" href="styles.css?v=nearest-stops-1">
   <link rel="stylesheet" href="icons.css?v=layers-3">
-  <link rel="stylesheet" href="theme.css?v=auth-1">
+  <link rel="stylesheet" href="theme.css?v=auth-2">
   <link rel="icon" type="image/svg+xml" href="assets/icons/logo-app.svg">
   <script defer src="icons.js?v=layers-3"></script>
-  <script defer src="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.js"></script>
+  <script defer src="vendor/maplibre-gl/maplibre-gl.js"></script>
   <script defer src="config.js"></script>
+  <script defer src="data-layer.js?v=layers-3"></script>
   <script defer src="app.js?v=layers-3"></script>
   <script defer src="preferences.js?v=layers-3"></script>
-  <script defer src="transit.js?v=layers-3"></script>
-  <script type="module" src="firebase-auth.js?v=auth-1"></script>
+  <script defer src="account.js?v=layers-3"></script>
+  <script defer src="transit.js?v=nearest-stops-1"></script>
+  <script type="module" src="firebase-auth.js?v=auth-3"></script>
   <script type="module" src="location.bundle.js"></script>
 </head>
 <body>
@@ -28,6 +30,9 @@
       <button class="google-signin" id="auth-google" type="button"><span aria-hidden="true">G</span> Continuar con Google</button>
       <div class="auth-divider"><span>o con tu correo</span></div>
       <form id="auth-form"><label for="auth-email">Correo electrónico</label><input id="auth-email" type="email" autocomplete="email" required placeholder="tu@correo.com"><label for="auth-password">Contraseña</label><input id="auth-password" type="password" autocomplete="current-password" minlength="6" required placeholder="Mínimo 6 caracteres"><p id="auth-status" class="hint" role="status" aria-live="polite"></p><div class="profile-actions"><button class="primary" id="auth-submit" type="submit">Iniciar sesión</button><button class="secondary" id="auth-mode-toggle" type="button">Crear cuenta</button></div></form>
+      <div class="auth-divider"><span>o sin cuenta</span></div>
+      <button class="secondary wide" id="auth-anonymous" type="button" aria-describedby="auth-anonymous-hint">Entrar como invitado</button>
+      <p class="hint" id="auth-anonymous-hint">Acceso al mapa y a las rutas sin registro. Tu perfil y tus favoritos se guardan solo en este dispositivo.</p>
     </div>
   </section>
   <header class="header">
@@ -67,10 +72,15 @@
       <form id="source-form"><label for="style-url">URL del archivo style.json</label><input id="style-url" type="url" placeholder="http://localhost:8080/style.json" required><button class="primary wide"><span class="app-icon icon-check" aria-hidden="true"></span> Conectar mapa</button></form>
       <div class="info-box"><strong>PBF local integrado</strong><p>Las calles, edificios y lugares de tu archivo se muestran sobre un fondo de OpenStreetMap. Selecciona un elemento para consultar sus datos.</p><label class="layer-option"><input id="local-visible" type="checkbox" checked> Mostrar datos del PBF</label></div><button id="reset-source" class="text-button">Volver a mi mapa local</button>
     </section>
-    <section class="panel" id="account" hidden aria-labelledby="account-title"><div class="eyebrow">TU ESPACIO</div><h1 id="account-title">Mi perfil</h1><div class="profile-avatar"><span class="app-icon icon-account" aria-hidden="true"></span></div><p id="auth-email-label" class="hint"></p><button class="secondary wide" id="auth-logout" type="button">Cerrar sesión</button><form id="profile-form"><label for="profile-name">¿Cómo te llamas?</label><input id="profile-name" maxlength="40" autocomplete="nickname" placeholder="Tu nombre"><div class="profile-actions"><button class="primary" type="submit"><span class="app-icon icon-check" aria-hidden="true"></span> Guardar</button><button class="secondary" type="button" id="profile-cancel"><span class="app-icon icon-close" aria-hidden="true"></span> Cancelar</button></div></form><p class="hint">El seguimiento usa el GPS del dispositivo cuando lo activas. La ubicación solo se muestra aquí y se detiene al cerrar sesión.</p></section>
+    <section class="panel" id="account" hidden aria-labelledby="account-title"><div class="eyebrow">TU ESPACIO</div><h1 id="account-title">Mi perfil</h1><div class="profile-avatar"><span class="app-icon icon-account" aria-hidden="true"></span></div><p id="auth-email-label" class="hint"></p><button class="secondary wide" id="auth-logout" type="button">Cerrar sesión</button><form id="profile-form"><label for="profile-name">¿Cómo te llamas?</label><input id="profile-name" maxlength="40" autocomplete="nickname" placeholder="Tu nombre"><div class="profile-actions"><button class="primary" type="submit"><span class="app-icon icon-check" aria-hidden="true"></span> Guardar</button><button class="secondary" type="button" id="profile-cancel"><span class="app-icon icon-close" aria-hidden="true"></span> Cancelar</button></div></form><p class="hint" id="account-status" role="status"></p><p class="hint">El seguimiento usa el GPS del dispositivo cuando lo activas. La ubicación solo se muestra aquí y se detiene al cerrar sesión.</p></section>
     <section class="panel" id="help" hidden aria-labelledby="help-title"><div class="eyebrow">TE ACOMPAÑAMOS</div><h1 id="help-title">¿Cómo usar el mapa?</h1><div class="help-item"><span class="app-icon icon-map" aria-hidden="true"></span><div><h2>Mapa general y rutas</h2><p>Mapa general reúne los recorridos y camiones. En Rutas puedes elegir uno y ver su recorrido completo.</p></div></div><div class="help-item"><span class="app-icon icon-stop" aria-hidden="true"></span><div><h2>Encuentra una parada</h2><p>Abre Paradas y selecciona una ruta. Toca un número para ver su ubicación. Los grupos se separan al acercar el mapa.</p></div></div><div class="help-item"><span class="app-icon icon-bus" aria-hidden="true"></span><div><h2>Camiones en el mapa</h2><p>Por ahora hay dos camiones simulados por ruta. No indican llegadas ni ubicaciones reales.</p></div></div><div class="help-item"><span class="app-icon icon-home" aria-hidden="true"></span><div><h2>Vuelve al inicio</h2><p>El botón de la casa regresa al mapa general. Puedes mostrar u ocultar rutas y paradas desde los controles del mapa.</p></div></div></section>
     <aside class="welcome" id="welcome"><div class="eyebrow">CADA RECORRIDO EMPIEZA AQUÍ</div><h1>Descubre tu ciudad.</h1><p>Un mapa. Todos tus caminos.</p><button class="text-button" data-panel="search">Explorar el mapa <span aria-hidden="true">↗</span></button></aside>
     <div class="map-tools"><button id="location-toggle" aria-label="Iniciar seguimiento de mi ubicación" title="Mi ubicación" aria-pressed="false">⌖</button><button id="home" aria-label="Volver a Ciudad del Carmen" title="Volver al inicio"><span class="app-icon icon-home" aria-hidden="true"></span></button></div>
+    <section id="nearest-stop-chip" class="nearest-stop-chip" aria-label="Paradas cercanas por ruta" hidden>
+      <strong>Parada más cercana en cada ruta</strong>
+      <div id="nearest-stop-results" class="nearest-stop-results"></div>
+      <small id="nearest-stop-note"></small>
+    </section>
     <div class="map-footer"><span class="green-dot"></span><span id="map-status" role="status">Cargando mapa base…</span><span class="footer-tag">UBICARMEN · TU CIUDAD, MÁS CERCA</span></div>
     <div id="notice" role="status" hidden></div>
   </main>
