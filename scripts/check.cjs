@@ -82,9 +82,13 @@ if (!catalog || !Array.isArray(catalog.routes)) {
     if (stops !== route.stopCount) {
       problems.push(`stopCount de ${route.id} es ${route.stopCount} pero hay ${stops} paradas`);
     }
+    const segments = features.filter(feature => feature.properties.routeId === route.id && feature.properties.kind === 'route').length;
+    if (!segments) {
+      problems.push(`La ruta ${route.id} no tiene tramos en transit.geojson`);
+    } else if (Number.isInteger(route.segmentCount) && segments !== route.segmentCount) {
+      problems.push(`segmentCount de ${route.id} es ${route.segmentCount} pero hay ${segments} tramos`);
+    }
   }
-  const routeFeatures = features.filter(feature => feature.properties.kind === 'route').length;
-  if (routeFeatures !== 43) problems.push(`Se esperaban 43 tramos de ruta, hay ${routeFeatures}`);
 }
 
 if (metadata && carmen && Array.isArray(carmen.features) && metadata.features !== carmen.features.length) {

@@ -1,0 +1,385 @@
+{
+  "updated": "2026-11-25",
+  "source": {
+    "id": "rea-go-carmen",
+    "title": "REA · Go Carmen (APK) · assets/routes.geojson"
+  },
+  "method": "Importacion automatica de assets/routes.geojson (scripts/import-rea.cjs).",
+  "routes": [
+    {
+      "id": "camion-perez-martinez",
+      "name": "Pérez Martínez",
+      "nameList": "Pérez Martínez",
+      "color": "#0000FF",
+      "type": "camion",
+      "status": "reference",
+      "active": true,
+      "stopCount": 11,
+      "description": "Centro | Esc. Pérez Martínez | Chedraui Tacubaya",
+      "note": "Trazado importado del APK de REA; no representa un servicio en tiempo real.",
+      "streets": [],
+      "sources": [
+        {
+          "id": "rea-go-carmen",
+          "title": "REA · Go Carmen (APK) · assets/routes.geojson",
+          "url": "hacer REA/Go Carmen.apk"
+        }
+      ],
+      "camera": [
+        -91.831089,
+        18.641923
+      ],
+      "pointCount": 26
+    },
+    {
+      "id": "camion-campus",
+      "name": "Campus III",
+      "nameList": "Campus 3",
+      "color": "#FF0000",
+      "type": "camion",
+      "status": "reference",
+      "active": true,
+      "stopCount": 20,
+      "description": "Centro | UNACAR | Bodega Ahurrera Contadores",
+      "note": "Trazado importado del APK de REA; no representa un servicio en tiempo real.",
+      "streets": [],
+      "sources": [
+        {
+          "id": "rea-go-carmen",
+          "title": "REA · Go Carmen (APK) · assets/routes.geojson",
+          "url": "hacer REA/Go Carmen.apk"
+        }
+      ],
+      "camera": [
+        -91.830556,
+        18.643056
+      ],
+      "pointCount": 248
+    },
+    {
+      "id": "camion-manigua",
+      "name": "Manigua",
+      "nameList": "Manigua",
+      "color": "#444444",
+      "type": "camion",
+      "status": "reference",
+      "active": true,
+      "stopCount": 10,
+      "description": "Centro | Chedraui Tacubaya | Mercado de Mariscos",
+      "note": "Trazado importado del APK de REA; no representa un servicio en tiempo real.",
+      "streets": [],
+      "sources": [
+        {
+          "id": "rea-go-carmen",
+          "title": "REA · Go Carmen (APK) · assets/routes.geojson",
+          "url": "hacer REA/Go Carmen.apk"
+        }
+      ],
+      "camera": [
+        -91.830556,
+        18.643056
+      ],
+      "pointCount": 163
+    },
+    {
+      "id": "camion-playa-norte",
+      "name": "Playa Norte",
+      "nameList": "Playa Norte",
+      "color": "#FFFF00",
+      "type": "camion",
+      "status": "reference",
+      "active": true,
+      "stopCount": 21,
+      "description": "Centro | Plaza Real | Chedraui Tacubaya",
+      "note": "Trazado importado del APK de REA; no representa un servicio en tiempo real.",
+      "streets": [],
+      "sources": [
+        {
+          "id": "rea-go-carmen",
+          "title": "REA · Go Carmen (APK) · assets/routes.geojson",
+          "url": "hacer REA/Go Carmen.apk"
+        }
+      ],
+      "camera": [
+        -91.830556,
+        18.643056
+      ],
+      "pointCount": 125
+    },
+    {
+      "id": "camion-renovacion",
+      "name": "Renovación",
+      "nameList": "Renovación",
+      "color": "#FF0000",
+      "type": "camion",
+      "status": "reference",
+      "active": true,
+      "stopCount": 1,
+      "description": "Centro | Guanal | La Puntilla",
+      "note": "Trazado importado del APK de REA; no representa un servicio en tiempo real.",
+      "streets": [],
+      "sources": [
+        {
+          "id": "rea-go-carmen",
+          "title": "REA · Go Carmen (APK) · assets/routes.geojson",
+          "url": "hacer REA/Go Carmen.apk"
+        }
+      ],
+      "camera": [
+        -91.830556,
+        18.643056
+      ],
+      "pointCount": 128
+    },
+    {
+      "id": "camion-san-nicolas",
+      "name": "San Nicolas",
+      "nameList": "San Nicolas",
+      "color": "#444444",
+      "type": "camion",
+      "status": "reference",
+      "active": true,
+      "stopCount": 21,
+      "description": "Centro | Caleta | Secc. 47 Pemex",
+      "note": "Trazado importado del APK de REA; no representa un servicio en tiempo real.",
+      "streets": [],
+      "sources": [
+        {
+          "id": "rea-go-carmen",
+          "title": "REA · Go Carmen (APK) · assets/routes.geojson",
+          "url": "hacer REA/Go Carmen.apk"
+        }
+      ],
+      "camera": [
+        -91.830556,
+        18.643056
+      ],
+      "pointCount": 176
+    },
+    {
+      "id": "camion-santa-isabel",
+      "name": "Santa Isabel",
+      "nameList": "Santa Isabel",
+      "color": "#FF00FF",
+      "type": "camion",
+      "status": "reference",
+      "active": true,
+      "stopCount": 25,
+      "description": "Centro | Calle 55 | Plaza Palmira",
+      "note": "Trazado importado del APK de REA; no representa un servicio en tiempo real.",
+      "streets": [],
+      "sources": [
+        {
+          "id": "rea-go-carmen",
+          "title": "REA · Go Carmen (APK) · assets/routes.geojson",
+          "url": "hacer REA/Go Carmen.apk"
+        }
+      ],
+      "camera": [
+        -91.830556,
+        18.643056
+      ],
+      "pointCount": 236
+    },
+    {
+      "id": "camion-tierra-libertad",
+      "name": "Tierra y Libertad",
+      "nameList": "Tierra y Libertad",
+      "color": "#00FFFF",
+      "type": "camion",
+      "status": "reference",
+      "active": true,
+      "stopCount": 13,
+      "description": "Centro | Calle 55 | Av. Constelación",
+      "note": "Trazado importado del APK de REA; no representa un servicio en tiempo real.",
+      "streets": [],
+      "sources": [
+        {
+          "id": "rea-go-carmen",
+          "title": "REA · Go Carmen (APK) · assets/routes.geojson",
+          "url": "hacer REA/Go Carmen.apk"
+        }
+      ],
+      "camera": [
+        -91.830556,
+        18.643056
+      ],
+      "pointCount": 193
+    },
+    {
+      "id": "camion-zoologico",
+      "name": "Zoológico",
+      "nameList": "Zoológico",
+      "color": "#FFFF00",
+      "type": "camion",
+      "status": "reference",
+      "active": true,
+      "stopCount": 19,
+      "description": "Centro | Parque Ecológico | Playa Norte",
+      "note": "Trazado importado del APK de REA; no representa un servicio en tiempo real.",
+      "streets": [],
+      "sources": [
+        {
+          "id": "rea-go-carmen",
+          "title": "REA · Go Carmen (APK) · assets/routes.geojson",
+          "url": "hacer REA/Go Carmen.apk"
+        }
+      ],
+      "camera": [
+        -91.830556,
+        18.643056
+      ],
+      "pointCount": 90
+    },
+    {
+      "id": "ac-campus3",
+      "name": "Amor x Carmen | Campus III",
+      "nameList": "Amor X Carmen",
+      "color": "#FF00FF",
+      "type": "camion",
+      "status": "reference",
+      "active": true,
+      "stopCount": 10,
+      "description": "Ruta Campus 3 | Bodega Ahurrera Contadores",
+      "note": "Trazado importado del APK de REA; no representa un servicio en tiempo real.",
+      "streets": [],
+      "sources": [
+        {
+          "id": "rea-go-carmen",
+          "title": "REA · Go Carmen (APK) · assets/routes.geojson",
+          "url": "hacer REA/Go Carmen.apk"
+        }
+      ],
+      "camera": [
+        -91.830556,
+        18.643056
+      ],
+      "pointCount": 218
+    },
+    {
+      "id": "ac-costera",
+      "name": "Amor x Carmen | Costera",
+      "nameList": "Amor X Carmen",
+      "color": "#00FF00",
+      "type": "camion",
+      "status": "reference",
+      "active": true,
+      "stopCount": 6,
+      "description": "Ruta Costera | Malecon Costero | Barco Pirata",
+      "note": "Trazado importado del APK de REA; no representa un servicio en tiempo real.",
+      "streets": [],
+      "sources": [
+        {
+          "id": "rea-go-carmen",
+          "title": "REA · Go Carmen (APK) · assets/routes.geojson",
+          "url": "hacer REA/Go Carmen.apk"
+        }
+      ],
+      "camera": [
+        -91.830556,
+        18.643056
+      ],
+      "pointCount": 241
+    },
+    {
+      "id": "ac-laguna-terminos",
+      "name": "Amor x Carmen | Laguna de Terminos",
+      "nameList": "Amor X Carmen",
+      "color": "#00FFFF",
+      "type": "camion",
+      "status": "reference",
+      "active": true,
+      "stopCount": 1,
+      "description": "Ruta Laguna de Terminos | Malecon Centro | Manigua | Las Americas",
+      "note": "Trazado importado del APK de REA; no representa un servicio en tiempo real.",
+      "streets": [],
+      "sources": [
+        {
+          "id": "rea-go-carmen",
+          "title": "REA · Go Carmen (APK) · assets/routes.geojson",
+          "url": "hacer REA/Go Carmen.apk"
+        }
+      ],
+      "camera": [
+        -91.830556,
+        18.643056
+      ],
+      "pointCount": 118
+    },
+    {
+      "id": "combi-reforma",
+      "name": "Reforma",
+      "nameList": "Reforma",
+      "color": "#FF0000",
+      "type": "combi",
+      "status": "reference",
+      "active": true,
+      "stopCount": 25,
+      "description": "Centro | Hospital de Pemex | Teotihuacan",
+      "note": "Trazado importado del APK de REA; no representa un servicio en tiempo real.",
+      "streets": [],
+      "sources": [
+        {
+          "id": "rea-go-carmen",
+          "title": "REA · Go Carmen (APK) · assets/routes.geojson",
+          "url": "hacer REA/Go Carmen.apk"
+        }
+      ],
+      "camera": [
+        -91.830556,
+        18.643056
+      ],
+      "pointCount": 228
+    },
+    {
+      "id": "combi-tierra-libertad",
+      "name": "Tierra y Libertad",
+      "nameList": "Tierra y Libertad",
+      "color": "#00FFFF",
+      "type": "combi",
+      "status": "reference",
+      "active": true,
+      "stopCount": 13,
+      "description": "Centro | Calle 55 | Av. Constelación",
+      "note": "Trazado importado del APK de REA; no representa un servicio en tiempo real.",
+      "streets": [],
+      "sources": [
+        {
+          "id": "rea-go-carmen",
+          "title": "REA · Go Carmen (APK) · assets/routes.geojson",
+          "url": "hacer REA/Go Carmen.apk"
+        }
+      ],
+      "camera": [
+        -91.830556,
+        18.643056
+      ],
+      "pointCount": 205
+    },
+    {
+      "id": "combi-santa-isabel",
+      "name": "Santa Isabel",
+      "nameList": "Santa Isabel",
+      "color": "#FF00FF",
+      "type": "combi",
+      "status": "reference",
+      "active": true,
+      "stopCount": 25,
+      "description": "Centro | Calle 55 | Plaza Palmira",
+      "note": "Trazado importado del APK de REA; no representa un servicio en tiempo real.",
+      "streets": [],
+      "sources": [
+        {
+          "id": "rea-go-carmen",
+          "title": "REA · Go Carmen (APK) · assets/routes.geojson",
+          "url": "hacer REA/Go Carmen.apk"
+        }
+      ],
+      "camera": [
+        -91.830556,
+        18.643056
+      ],
+      "pointCount": 236
+    }
+  ]
+}

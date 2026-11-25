@@ -6,7 +6,8 @@
   window.uiPrefs = {
     name: typeof stored?.name === 'string' ? stored.name.slice(0, 40) : defaults.name,
     alerts: typeof stored?.alerts === 'boolean' ? stored.alerts : defaults.alerts,
-    favorites: Array.isArray(stored?.favorites) ? stored.favorites.filter(id => ['campus-3','costera','laguna-terminos'].includes(id)) : []
+    // El catalogo de rutas puede cambiar: se conserva cualquier id guardado.
+    favorites: Array.isArray(stored?.favorites) ? stored.favorites.filter(id => typeof id === 'string') : []
   };
   window.saveUiPrefs = () => {
     try { localStorage.setItem('ubicarmen-preferences', JSON.stringify(window.uiPrefs)); return true; }

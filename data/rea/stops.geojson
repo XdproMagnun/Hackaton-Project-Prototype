@@ -1,0 +1,4204 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "camion-perez-martinez-stop-1",
+      "properties": {
+        "routeId": "camion-perez-martinez",
+        "kind": "stop",
+        "number": 1,
+        "name": "Parada Principal Camión Perez Martínez",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.836773,
+          18.638872
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-perez-martinez-stop-2",
+      "properties": {
+        "routeId": "camion-perez-martinez",
+        "kind": "stop",
+        "number": 2,
+        "name": "Parada Dunosusa Camión Perez Martínez",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.837601,
+          18.646387
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-perez-martinez-stop-3",
+      "properties": {
+        "routeId": "camion-perez-martinez",
+        "kind": "stop",
+        "number": 3,
+        "name": "Parada Benito Juarez Camión Perez Martínez",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.836119,
+          18.646885
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-perez-martinez-stop-4",
+      "properties": {
+        "routeId": "camion-perez-martinez",
+        "kind": "stop",
+        "number": 4,
+        "name": "Parada Sind.Taxis Camión Perez Martínez",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.83283,
+          18.647997
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-perez-martinez-stop-5",
+      "properties": {
+        "routeId": "camion-perez-martinez",
+        "kind": "stop",
+        "number": 5,
+        "name": "Parada Agua Potable SMAPAC Camión Perez Martínez",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.821671,
+          18.648214
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-perez-martinez-stop-6",
+      "properties": {
+        "routeId": "camion-perez-martinez",
+        "kind": "stop",
+        "number": 6,
+        "name": "Parada Hospital Pemex Camión Perez Martínez",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.818742,
+          18.645465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-perez-martinez-stop-7",
+      "properties": {
+        "routeId": "camion-perez-martinez",
+        "kind": "stop",
+        "number": 7,
+        "name": "Parada Panteón Camión Perez Martínez",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.840236,
+          18.645045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-perez-martinez-stop-8",
+      "properties": {
+        "routeId": "camion-perez-martinez",
+        "kind": "stop",
+        "number": 8,
+        "name": "Parada Pemex de la 56 Camión Perez Martínez",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.819371,
+          18.646038
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-perez-martinez-stop-9",
+      "properties": {
+        "routeId": "camion-perez-martinez",
+        "kind": "stop",
+        "number": 9,
+        "name": "Parada de Chedraui(Av.Aviación) Camión Perez Martínez",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.821857,
+          18.643735
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-perez-martinez-stop-10",
+      "properties": {
+        "routeId": "camion-perez-martinez",
+        "kind": "stop",
+        "number": 10,
+        "name": "Parada de la Chevrolet(Av.Aviación)Camión Perez Martínez",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.82591,
+          18.64132
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-perez-martinez-stop-11",
+      "properties": {
+        "routeId": "camion-perez-martinez",
+        "kind": "stop",
+        "number": 11,
+        "name": "Parada de Computación del Golfo Camión Perez Martínez",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.829024,
+          18.640118
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-campus-stop-1",
+      "properties": {
+        "routeId": "camion-campus",
+        "kind": "stop",
+        "number": 1,
+        "name": "Parada Principal Camion Campus III",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.837187,
+          18.638659
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-campus-stop-2",
+      "properties": {
+        "routeId": "camion-campus",
+        "kind": "stop",
+        "number": 2,
+        "name": "Parada Perforadora Mexico Camion Campus III",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.811439,
+          18.648011
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-campus-stop-3",
+      "properties": {
+        "routeId": "camion-campus",
+        "kind": "stop",
+        "number": 3,
+        "name": "Parada Perforadora Mexico Camion Campus III",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.811464,
+          18.64788
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-campus-stop-4",
+      "properties": {
+        "routeId": "camion-campus",
+        "kind": "stop",
+        "number": 4,
+        "name": "Parada del Restaurante El Portón(Av.Aviación)Camion Campus III",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.812072,
+          18.647765
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-campus-stop-5",
+      "properties": {
+        "routeId": "camion-campus",
+        "kind": "stop",
+        "number": 5,
+        "name": "Parada de la MEGA(Av.Aviación)Camion Campus III",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.814602,
+          18.646642
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-campus-stop-6",
+      "properties": {
+        "routeId": "camion-campus",
+        "kind": "stop",
+        "number": 6,
+        "name": "Parada de la UNACAR(Av.Aviación)Camion Campus III",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.817625,
+          18.645404
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-campus-stop-7",
+      "properties": {
+        "routeId": "camion-campus",
+        "kind": "stop",
+        "number": 7,
+        "name": "Parada de la Chevrolet(Av.Aviación)Camion Campus III",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.82591,
+          18.64132
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-campus-stop-8",
+      "properties": {
+        "routeId": "camion-campus",
+        "kind": "stop",
+        "number": 8,
+        "name": "Parada de Chedraui(Av.Aviación)Camion Campus III",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.821857,
+          18.643735
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-campus-stop-9",
+      "properties": {
+        "routeId": "camion-campus",
+        "kind": "stop",
+        "number": 9,
+        "name": "Parada de Computación del Golfo(Av.Aviación)Camion Campus III",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.829024,
+          18.640118
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-campus-stop-10",
+      "properties": {
+        "routeId": "camion-campus",
+        "kind": "stop",
+        "number": 10,
+        "name": "Parada de Mi Super(Av.Aviación)Camion Campus III",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.831275,
+          18.639338
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-campus-stop-11",
+      "properties": {
+        "routeId": "camion-campus",
+        "kind": "stop",
+        "number": 11,
+        "name": "Parada de Chedraui  Camion Campus III",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.82203,
+          18.643503
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-campus-stop-12",
+      "properties": {
+        "routeId": "camion-campus",
+        "kind": "stop",
+        "number": 12,
+        "name": "Parada FedExCamión Camion Campus III",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.826415,
+          18.640602
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-campus-stop-13",
+      "properties": {
+        "routeId": "camion-campus",
+        "kind": "stop",
+        "number": 13,
+        "name": "Parada Unacar Camion Campus III",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.817206,
+          18.645472
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-campus-stop-14",
+      "properties": {
+        "routeId": "camion-campus",
+        "kind": "stop",
+        "number": 14,
+        "name": "Parada Pizza Hut Camion Campus III",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.812141,
+          18.647606
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-campus-stop-15",
+      "properties": {
+        "routeId": "camion-campus",
+        "kind": "stop",
+        "number": 15,
+        "name": "Parada Soriana Camion Campus III",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.805915,
+          18.649168
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-campus-stop-16",
+      "properties": {
+        "routeId": "camion-campus",
+        "kind": "stop",
+        "number": 16,
+        "name": "Parada 23 Julio Camion Campus III",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.789381,
+          18.641606
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-campus-stop-17",
+      "properties": {
+        "routeId": "camion-campus",
+        "kind": "stop",
+        "number": 17,
+        "name": "Parada Plaza Las Palmas Camion Campus III",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.792597,
+          18.653181
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-campus-stop-18",
+      "properties": {
+        "routeId": "camion-campus",
+        "kind": "stop",
+        "number": 18,
+        "name": "Parada Plaza Palmira Camion Campus III",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.789937,
+          18.654008
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-campus-stop-19",
+      "properties": {
+        "routeId": "camion-campus",
+        "kind": "stop",
+        "number": 19,
+        "name": "Parada Terminal Camion Campus III",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.786194,
+          18.655208
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-campus-stop-20",
+      "properties": {
+        "routeId": "camion-campus",
+        "kind": "stop",
+        "number": 20,
+        "name": "Segunda Parada principal Campus III",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.767402,
+          18.655954
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-manigua-stop-1",
+      "properties": {
+        "routeId": "camion-manigua",
+        "kind": "stop",
+        "number": 1,
+        "name": "Parada Principal Camión Manigua",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.835007,
+          18.63725
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-manigua-stop-2",
+      "properties": {
+        "routeId": "camion-manigua",
+        "kind": "stop",
+        "number": 2,
+        "name": "Parada Parque Manigua Camión Manigua",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.817872,
+          18.633367
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-manigua-stop-3",
+      "properties": {
+        "routeId": "camion-manigua",
+        "kind": "stop",
+        "number": 3,
+        "name": "Parada Vicente Guerrero Camión Manigua",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.818842,
+          18.630006
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-manigua-stop-4",
+      "properties": {
+        "routeId": "camion-manigua",
+        "kind": "stop",
+        "number": 4,
+        "name": "Parada del Restaurante El Portón(Av.Aviación)Camión Manigua",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.812072,
+          18.647765
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-manigua-stop-5",
+      "properties": {
+        "routeId": "camion-manigua",
+        "kind": "stop",
+        "number": 5,
+        "name": "Parada de la MEGA(Av.Aviación)Camión Manigua",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.814602,
+          18.646642
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-manigua-stop-6",
+      "properties": {
+        "routeId": "camion-manigua",
+        "kind": "stop",
+        "number": 6,
+        "name": "Parada de la UNACAR(Av.Aviación)Camión Manigua",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.817625,
+          18.645404
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-manigua-stop-7",
+      "properties": {
+        "routeId": "camion-manigua",
+        "kind": "stop",
+        "number": 7,
+        "name": "Parada de la Chevrolet(Av.Aviación)Camión Manigua",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.82591,
+          18.64132
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-manigua-stop-8",
+      "properties": {
+        "routeId": "camion-manigua",
+        "kind": "stop",
+        "number": 8,
+        "name": "Parada de Chedraui(Av.Aviación)Camión Manigua",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.821857,
+          18.643735
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-manigua-stop-9",
+      "properties": {
+        "routeId": "camion-manigua",
+        "kind": "stop",
+        "number": 9,
+        "name": "Parada de Computación del Golfo(Av.Aviación)Camión Manigua",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.829024,
+          18.640118
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-manigua-stop-10",
+      "properties": {
+        "routeId": "camion-manigua",
+        "kind": "stop",
+        "number": 10,
+        "name": "Parada de Mi Super(Av.Aviación)Camión Manigua",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.831275,
+          18.639338
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-playa-norte-stop-1",
+      "properties": {
+        "routeId": "camion-playa-norte",
+        "kind": "stop",
+        "number": 1,
+        "name": "Parada Panteón Camión Playa Norte",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.840236,
+          18.645045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-playa-norte-stop-2",
+      "properties": {
+        "routeId": "camion-playa-norte",
+        "kind": "stop",
+        "number": 2,
+        "name": "Parada Plaza Mirador Camión Playa Norte",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.83823,
+          18.646471
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-playa-norte-stop-3",
+      "properties": {
+        "routeId": "camion-playa-norte",
+        "kind": "stop",
+        "number": 3,
+        "name": "Parada Puerto Pesquero I Camión Playa Norte",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.839625,
+          18.650257
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-playa-norte-stop-4",
+      "properties": {
+        "routeId": "camion-playa-norte",
+        "kind": "stop",
+        "number": 4,
+        "name": "Parada Puerto Pesquero II Camión Playa Norte",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.842178,
+          18.656788
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-playa-norte-stop-5",
+      "properties": {
+        "routeId": "camion-playa-norte",
+        "kind": "stop",
+        "number": 5,
+        "name": "Parada Puerto Pesquero III Camión Playa Norte",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.839975,
+          18.65107
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-playa-norte-stop-6",
+      "properties": {
+        "routeId": "camion-playa-norte",
+        "kind": "stop",
+        "number": 6,
+        "name": "Parada Puerto Pesquero IV Camión Playa Norte",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.842645,
+          18.657977
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-playa-norte-stop-7",
+      "properties": {
+        "routeId": "camion-playa-norte",
+        "kind": "stop",
+        "number": 7,
+        "name": "Parada Zoologíco Camión Playa Norte",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.838763,
+          18.659355
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-playa-norte-stop-8",
+      "properties": {
+        "routeId": "camion-playa-norte",
+        "kind": "stop",
+        "number": 8,
+        "name": "Parada CECATI 50 Camión Playa Norte",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.834858,
+          18.660483
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-playa-norte-stop-9",
+      "properties": {
+        "routeId": "camion-playa-norte",
+        "kind": "stop",
+        "number": 9,
+        "name": "Parada Mi Super Camión Playa Norte",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.8315,
+          18.659472
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-playa-norte-stop-10",
+      "properties": {
+        "routeId": "camion-playa-norte",
+        "kind": "stop",
+        "number": 10,
+        "name": "Parada Boxito(Av.Periferica Norte) Camión Playa Norte",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.817303,
+          18.65761
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-playa-norte-stop-11",
+      "properties": {
+        "routeId": "camion-playa-norte",
+        "kind": "stop",
+        "number": 11,
+        "name": "Parada Mi super(Av.Periferica Norte) Camión Playa Norte",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.816864,
+          18.656293
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-playa-norte-stop-12",
+      "properties": {
+        "routeId": "camion-playa-norte",
+        "kind": "stop",
+        "number": 12,
+        "name": "Parada Instituto Mexicano del Petroleo(Av.Periferica Norte) Camión Playa Norte",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.816506,
+          18.65522
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-playa-norte-stop-13",
+      "properties": {
+        "routeId": "camion-playa-norte",
+        "kind": "stop",
+        "number": 13,
+        "name": "Parada Hotel Lossandes(Av.Periferica Norte) Camión Playa Norte",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.816073,
+          18.653849
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-playa-norte-stop-14",
+      "properties": {
+        "routeId": "camion-playa-norte",
+        "kind": "stop",
+        "number": 14,
+        "name": "Parada Plaza Real(Av.Periferica Norte) Camión Playa Norte",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.81353,
+          18.650161
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-playa-norte-stop-15",
+      "properties": {
+        "routeId": "camion-playa-norte",
+        "kind": "stop",
+        "number": 15,
+        "name": "Parada del Restaurante El Portón(Av.Aviación) Camión Playa Norte",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.812072,
+          18.647765
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-playa-norte-stop-16",
+      "properties": {
+        "routeId": "camion-playa-norte",
+        "kind": "stop",
+        "number": 16,
+        "name": "Parada de la MEGA(Av.Aviación) Camión Playa Norte",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.814602,
+          18.646642
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-playa-norte-stop-17",
+      "properties": {
+        "routeId": "camion-playa-norte",
+        "kind": "stop",
+        "number": 17,
+        "name": "Parada de la UNACAR(Av.Aviación)Camión Playa Norte",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.817625,
+          18.645404
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-playa-norte-stop-18",
+      "properties": {
+        "routeId": "camion-playa-norte",
+        "kind": "stop",
+        "number": 18,
+        "name": "Parada de la Chevrolet(Av.Aviación)Camión Playa Norte",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.82591,
+          18.64132
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-playa-norte-stop-19",
+      "properties": {
+        "routeId": "camion-playa-norte",
+        "kind": "stop",
+        "number": 19,
+        "name": "Parada de Chedraui(Av.Aviación) Camión Playa Norte",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.821857,
+          18.643735
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-playa-norte-stop-20",
+      "properties": {
+        "routeId": "camion-playa-norte",
+        "kind": "stop",
+        "number": 20,
+        "name": "Parada de Computación del Golfo(Av.Aviación) Camión Playa Norte",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.829024,
+          18.640118
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-playa-norte-stop-21",
+      "properties": {
+        "routeId": "camion-playa-norte",
+        "kind": "stop",
+        "number": 21,
+        "name": "Parada de Mi Super(Av.Aviación) Camión Playa Norte",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.831275,
+          18.639338
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-renovacion-stop-1",
+      "properties": {
+        "routeId": "camion-renovacion",
+        "kind": "stop",
+        "number": 1,
+        "name": "Parada Principal Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.836272,
+          18.637058
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-san-nicolas-stop-1",
+      "properties": {
+        "routeId": "camion-san-nicolas",
+        "kind": "stop",
+        "number": 1,
+        "name": "Parada Principal(Centro)Camión San Nicolas",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.837954,
+          18.640941
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-san-nicolas-stop-2",
+      "properties": {
+        "routeId": "camion-san-nicolas",
+        "kind": "stop",
+        "number": 2,
+        "name": "Parada de la sección 47(Av.Azucena)Camión San Nicolas",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.798127,
+          18.661108
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-san-nicolas-stop-3",
+      "properties": {
+        "routeId": "camion-san-nicolas",
+        "kind": "stop",
+        "number": 3,
+        "name": "Parada del IMSS Camión San Nicolas",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.839497,
+          18.643596
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-san-nicolas-stop-4",
+      "properties": {
+        "routeId": "camion-san-nicolas",
+        "kind": "stop",
+        "number": 4,
+        "name": "Parada Plaza Mirador (Calle 47) Camión San Nicolas",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.83809,
+          18.64626
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-san-nicolas-stop-5",
+      "properties": {
+        "routeId": "camion-san-nicolas",
+        "kind": "stop",
+        "number": 5,
+        "name": "Parada Esc. Benito Juarez(Calle 47)Camión San Nicolas",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.836078,
+          18.646904
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-san-nicolas-stop-6",
+      "properties": {
+        "routeId": "camion-san-nicolas",
+        "kind": "stop",
+        "number": 6,
+        "name": "Parada Mi Super(Calle 47)Camión San Nicolas",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.833227,
+          18.647863
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-san-nicolas-stop-7",
+      "properties": {
+        "routeId": "camion-san-nicolas",
+        "kind": "stop",
+        "number": 7,
+        "name": "Parada OXXON(Calle 47)Camión San Nicolas",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.830116,
+          18.648963
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-san-nicolas-stop-8",
+      "properties": {
+        "routeId": "camion-san-nicolas",
+        "kind": "stop",
+        "number": 8,
+        "name": "Parada(Calle 53)Camión San Nicolas",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.828682,
+          18.655129
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-san-nicolas-stop-9",
+      "properties": {
+        "routeId": "camion-san-nicolas",
+        "kind": "stop",
+        "number": 9,
+        "name": "Parada Ceramat(Av.Periferica Norte)Camión San Nicolas",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.828682,
+          18.655129
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-san-nicolas-stop-10",
+      "properties": {
+        "routeId": "camion-san-nicolas",
+        "kind": "stop",
+        "number": 10,
+        "name": "Parada Boxito(Av.Periferica Norte)Camión San Nicolas",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.817303,
+          18.65761
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-san-nicolas-stop-11",
+      "properties": {
+        "routeId": "camion-san-nicolas",
+        "kind": "stop",
+        "number": 11,
+        "name": "Parada Mi super(Av.Periferica Norte)Camión San Nicolas",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.816864,
+          18.656293
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-san-nicolas-stop-12",
+      "properties": {
+        "routeId": "camion-san-nicolas",
+        "kind": "stop",
+        "number": 12,
+        "name": "Parada Instituto Mexicano del Petroleo(Av.Periferica Norte)Camión San Nicolas",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.816506,
+          18.65522
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-san-nicolas-stop-13",
+      "properties": {
+        "routeId": "camion-san-nicolas",
+        "kind": "stop",
+        "number": 13,
+        "name": "Parada Hotel Lossandes(Av.Periferica Norte)Camión San Nicolas",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.816073,
+          18.653849
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-san-nicolas-stop-14",
+      "properties": {
+        "routeId": "camion-san-nicolas",
+        "kind": "stop",
+        "number": 14,
+        "name": "Parada Plaza Real(Av.Periferica Norte)Camión San Nicolas",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.81353,
+          18.650161
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-san-nicolas-stop-15",
+      "properties": {
+        "routeId": "camion-san-nicolas",
+        "kind": "stop",
+        "number": 15,
+        "name": "Parada del Restaurante El Portón(Av.Aviación)Camión San Nicolas",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.812072,
+          18.647765
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-san-nicolas-stop-16",
+      "properties": {
+        "routeId": "camion-san-nicolas",
+        "kind": "stop",
+        "number": 16,
+        "name": "Parada de la MEGA(Av.Aviación)Camión San Nicolas",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.814602,
+          18.646642
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-san-nicolas-stop-17",
+      "properties": {
+        "routeId": "camion-san-nicolas",
+        "kind": "stop",
+        "number": 17,
+        "name": "Parada de la UNACAR(Av.Aviación)Camión San Nicolas",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.817625,
+          18.645404
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-san-nicolas-stop-18",
+      "properties": {
+        "routeId": "camion-san-nicolas",
+        "kind": "stop",
+        "number": 18,
+        "name": "Parada de la Chevrolet(Av.Aviación)Camión San Nicolas",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.82591,
+          18.64132
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-san-nicolas-stop-19",
+      "properties": {
+        "routeId": "camion-san-nicolas",
+        "kind": "stop",
+        "number": 19,
+        "name": "Parada de Chedraui(Av.Aviación)Camión San Nicolas",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.821857,
+          18.643735
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-san-nicolas-stop-20",
+      "properties": {
+        "routeId": "camion-san-nicolas",
+        "kind": "stop",
+        "number": 20,
+        "name": "Parada de Computación del Golfo(Av.Aviación)Camión San Nicolas",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.829024,
+          18.640118
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-san-nicolas-stop-21",
+      "properties": {
+        "routeId": "camion-san-nicolas",
+        "kind": "stop",
+        "number": 21,
+        "name": "Parada de Mi Super(Av.Aviación)Camión San Nicolas",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.831275,
+          18.639338
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-1",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 1,
+        "name": "Parada Principal Combi(Malecon)Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.836272,
+          18.637058
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-2",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 2,
+        "name": "Parada Panteón Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.839974,
+          18.644473
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-3",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 3,
+        "name": "Parada Plaza Mirador Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.838252,
+          18.646502
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-4",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 4,
+        "name": "Parada Real Marín Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.838767,
+          18.647981
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-5",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 5,
+        "name": "Parada Hotel Los Cuates Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.828221,
+          18.654379
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-6",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 6,
+        "name": "Parada de la 53 Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.828653,
+          18.655165
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-7",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 7,
+        "name": "Parada CERAMAT Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.818301,
+          18.660423
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-8",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 8,
+        "name": "Parada Sindicato Num.47 Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.798121,
+          18.661193
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-9",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 9,
+        "name": "Parada Mi super Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.796755,
+          18.658962
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-10",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 10,
+        "name": "Parada Plaza Las Palmas Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.792597,
+          18.653181
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-11",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 11,
+        "name": "Parada Plaza Palmira Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.789937,
+          18.654008
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-12",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 12,
+        "name": "Parada Casa de Justicia Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.785663,
+          18.649307
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-13",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 13,
+        "name": "Parada Casa de Justicia Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.785663,
+          18.649307
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-14",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 14,
+        "name": "Parada IMSS Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.784167,
+          18.646641
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-15",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 15,
+        "name": "Segunda Parada Principal Parque Central Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.783376,
+          18.64536
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-16",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 16,
+        "name": "Parada San Nicolás Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.800453,
+          18.66041
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-17",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 17,
+        "name": "Parada Esc.Tec. Num.26 Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.802948,
+          18.660048
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-18",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 18,
+        "name": "Parada OXXO Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.814064,
+          18.662589
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-19",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 19,
+        "name": "Parada Pantean Nuevo Camión Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.818533,
+          18.66103
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-20",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 20,
+        "name": "Parada Hotel Fatima Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.827419,
+          18.656631
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-21",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 21,
+        "name": "Parada Centro Medico CESAT Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.835224,
+          18.652467
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-22",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 22,
+        "name": "Parada Puerto Pequero I Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.839745,
+          18.650218
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-23",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 23,
+        "name": "Parada Panteón Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.840328,
+          18.645247
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-24",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 24,
+        "name": "Parada IMSS Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.840653,
+          18.642274
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-santa-isabel-stop-25",
+      "properties": {
+        "routeId": "camion-santa-isabel",
+        "kind": "stop",
+        "number": 25,
+        "name": "Parada Mercado Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.837976,
+          18.639854
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-tierra-libertad-stop-1",
+      "properties": {
+        "routeId": "camion-tierra-libertad",
+        "kind": "stop",
+        "number": 1,
+        "name": "Parada (Centro)Camión Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.837954,
+          18.640941
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-tierra-libertad-stop-2",
+      "properties": {
+        "routeId": "camion-tierra-libertad",
+        "kind": "stop",
+        "number": 2,
+        "name": "Parada Principal(Centro)Camión Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.836967,
+          18.639256
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-tierra-libertad-stop-3",
+      "properties": {
+        "routeId": "camion-tierra-libertad",
+        "kind": "stop",
+        "number": 3,
+        "name": "Parada Esc.Benito Juarez Camión Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.836067,
+          18.646922
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-tierra-libertad-stop-4",
+      "properties": {
+        "routeId": "camion-tierra-libertad",
+        "kind": "stop",
+        "number": 4,
+        "name": "Parada Monte de los Olivos Camión Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.827322,
+          18.652403
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-tierra-libertad-stop-5",
+      "properties": {
+        "routeId": "camion-tierra-libertad",
+        "kind": "stop",
+        "number": 5,
+        "name": "Parada Calle 53 Camión Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.828676,
+          18.655072
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-tierra-libertad-stop-6",
+      "properties": {
+        "routeId": "camion-tierra-libertad",
+        "kind": "stop",
+        "number": 6,
+        "name": "Parada Panteón Camión Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.840328,
+          18.645247
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-tierra-libertad-stop-7",
+      "properties": {
+        "routeId": "camion-tierra-libertad",
+        "kind": "stop",
+        "number": 7,
+        "name": "Parada CERAMAT Camión Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.818301,
+          18.660423
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-tierra-libertad-stop-8",
+      "properties": {
+        "routeId": "camion-tierra-libertad",
+        "kind": "stop",
+        "number": 8,
+        "name": "Parada Parroquia San Nicolas Camión Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.800444,
+          18.660404
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-tierra-libertad-stop-9",
+      "properties": {
+        "routeId": "camion-tierra-libertad",
+        "kind": "stop",
+        "number": 9,
+        "name": "Parada Sindicato de la 47 Camión Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.798185,
+          18.661108
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-tierra-libertad-stop-10",
+      "properties": {
+        "routeId": "camion-tierra-libertad",
+        "kind": "stop",
+        "number": 10,
+        "name": "Parada Mi super Camión Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.796755,
+          18.658962
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-tierra-libertad-stop-11",
+      "properties": {
+        "routeId": "camion-tierra-libertad",
+        "kind": "stop",
+        "number": 11,
+        "name": "Parada Av. Palmeras Camión Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.794382,
+          18.659419
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-tierra-libertad-stop-12",
+      "properties": {
+        "routeId": "camion-tierra-libertad",
+        "kind": "stop",
+        "number": 12,
+        "name": "Parada Av. Constelación Camión Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.786006,
+          18.661979
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-tierra-libertad-stop-13",
+      "properties": {
+        "routeId": "camion-tierra-libertad",
+        "kind": "stop",
+        "number": 13,
+        "name": "Parada Calle Hidra Camión Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.787734,
+          18.665414
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-zoologico-stop-1",
+      "properties": {
+        "routeId": "camion-zoologico",
+        "kind": "stop",
+        "number": 1,
+        "name": "Primera Parada Principal Camión Zoológico",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.836092,
+          18.63676
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-zoologico-stop-2",
+      "properties": {
+        "routeId": "camion-zoologico",
+        "kind": "stop",
+        "number": 2,
+        "name": "Segunda Parada Principal Camión Zoológico",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.838587,
+          18.659506
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-zoologico-stop-3",
+      "properties": {
+        "routeId": "camion-zoologico",
+        "kind": "stop",
+        "number": 3,
+        "name": "Parada Av. Juarez Camión Zoológico",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.832458,
+          18.661045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-zoologico-stop-4",
+      "properties": {
+        "routeId": "camion-zoologico",
+        "kind": "stop",
+        "number": 4,
+        "name": "Parada IMSS CENTRO Camión Zoológico",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.840694,
+          18.642302
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-zoologico-stop-5",
+      "properties": {
+        "routeId": "camion-zoologico",
+        "kind": "stop",
+        "number": 5,
+        "name": "Parada Panteón Último Paseo Camión Zoológico",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.840317,
+          18.645257
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-zoologico-stop-6",
+      "properties": {
+        "routeId": "camion-zoologico",
+        "kind": "stop",
+        "number": 6,
+        "name": "Parada Puerto Pesquero I Camión Zoológico",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.839714,
+          18.650124
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-zoologico-stop-7",
+      "properties": {
+        "routeId": "camion-zoologico",
+        "kind": "stop",
+        "number": 7,
+        "name": "Parada Puerto Pesquero II Camión Zoológico",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.840062,
+          18.651014
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-zoologico-stop-8",
+      "properties": {
+        "routeId": "camion-zoologico",
+        "kind": "stop",
+        "number": 8,
+        "name": "Parada Puerto Pesquero III Camión Zoológico",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.842282,
+          18.656794
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-zoologico-stop-9",
+      "properties": {
+        "routeId": "camion-zoologico",
+        "kind": "stop",
+        "number": 9,
+        "name": "Parada Puerto Pesquero IV Camión Zoológico",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.842745,
+          18.657976
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-zoologico-stop-10",
+      "properties": {
+        "routeId": "camion-zoologico",
+        "kind": "stop",
+        "number": 10,
+        "name": "Parada Unacar Camión Zoológico",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.817206,
+          18.645472
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-zoologico-stop-11",
+      "properties": {
+        "routeId": "camion-zoologico",
+        "kind": "stop",
+        "number": 11,
+        "name": "Parada Pizza Hut Camión Zoológico",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.812141,
+          18.647606
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-zoologico-stop-12",
+      "properties": {
+        "routeId": "camion-zoologico",
+        "kind": "stop",
+        "number": 12,
+        "name": "Parada PLaza Real Camión Zoológico",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.813454,
+          18.650285
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-zoologico-stop-13",
+      "properties": {
+        "routeId": "camion-zoologico",
+        "kind": "stop",
+        "number": 13,
+        "name": "Parada Perforadora Mexico Camión Zoológico",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.811892,
+          18.648287
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-zoologico-stop-14",
+      "properties": {
+        "routeId": "camion-zoologico",
+        "kind": "stop",
+        "number": 14,
+        "name": "Parada Vips Camión Zoológico",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.813927,
+          18.650828
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-zoologico-stop-15",
+      "properties": {
+        "routeId": "camion-zoologico",
+        "kind": "stop",
+        "number": 15,
+        "name": "Parada Crown City Casino Camión Zoológico",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.815217,
+          18.652329
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-zoologico-stop-16",
+      "properties": {
+        "routeId": "camion-zoologico",
+        "kind": "stop",
+        "number": 16,
+        "name": "Parada Banco Santander Camión Zoológico",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.816029,
+          18.654341
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-zoologico-stop-17",
+      "properties": {
+        "routeId": "camion-zoologico",
+        "kind": "stop",
+        "number": 17,
+        "name": "Parada Grupo Modelo Agencia Camión Zoológico",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.816838,
+          18.656783
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-zoologico-stop-18",
+      "properties": {
+        "routeId": "camion-zoologico",
+        "kind": "stop",
+        "number": 18,
+        "name": "Parada de Chedraui  Camión Zoológico",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.82203,
+          18.643503
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "camion-zoologico-stop-19",
+      "properties": {
+        "routeId": "camion-zoologico",
+        "kind": "stop",
+        "number": 19,
+        "name": "Parada FedExCamión Zoológico",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.826415,
+          18.640602
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ac-campus3-stop-1",
+      "properties": {
+        "routeId": "ac-campus3",
+        "kind": "stop",
+        "number": 1,
+        "name": "Parada Campus Principal",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.817028,
+          18.645543
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ac-campus3-stop-2",
+      "properties": {
+        "routeId": "ac-campus3",
+        "kind": "stop",
+        "number": 2,
+        "name": "Parada Pizza Hut",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.812325,
+          18.647523
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ac-campus3-stop-3",
+      "properties": {
+        "routeId": "ac-campus3",
+        "kind": "stop",
+        "number": 3,
+        "name": "Parada Perforadora México",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.81206,
+          18.648448
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ac-campus3-stop-4",
+      "properties": {
+        "routeId": "ac-campus3",
+        "kind": "stop",
+        "number": 4,
+        "name": "Parada Plaza Real",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.813422,
+          18.650229
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ac-campus3-stop-5",
+      "properties": {
+        "routeId": "ac-campus3",
+        "kind": "stop",
+        "number": 5,
+        "name": "Parada Sams Club",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.814096,
+          18.650969
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ac-campus3-stop-6",
+      "properties": {
+        "routeId": "ac-campus3",
+        "kind": "stop",
+        "number": 6,
+        "name": "Parada El Señor de la Misericordia",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.816505,
+          18.655696
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ac-campus3-stop-7",
+      "properties": {
+        "routeId": "ac-campus3",
+        "kind": "stop",
+        "number": 7,
+        "name": "Parada Esc. Lucila Alayola",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.817613,
+          18.659088
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ac-campus3-stop-8",
+      "properties": {
+        "routeId": "ac-campus3",
+        "kind": "stop",
+        "number": 8,
+        "name": "Parada Super de Millan",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.783143,
+          18.644964
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ac-campus3-stop-9",
+      "properties": {
+        "routeId": "ac-campus3",
+        "kind": "stop",
+        "number": 9,
+        "name": "Parada Campus 3",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.765792,
+          18.656343
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ac-campus3-stop-10",
+      "properties": {
+        "routeId": "ac-campus3",
+        "kind": "stop",
+        "number": 10,
+        "name": "Parada de Retorno al Campus Principal",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.765949,
+          18.656529
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ac-costera-stop-1",
+      "properties": {
+        "routeId": "ac-costera",
+        "kind": "stop",
+        "number": 1,
+        "name": "Parada Principal",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.836685,
+          18.638707
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ac-costera-stop-2",
+      "properties": {
+        "routeId": "ac-costera",
+        "kind": "stop",
+        "number": 2,
+        "name": "Parada Nissan",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.841683,
+          18.65522
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ac-costera-stop-3",
+      "properties": {
+        "routeId": "ac-costera",
+        "kind": "stop",
+        "number": 3,
+        "name": "Parada Cotemar",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.840676,
+          18.652605
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ac-costera-stop-4",
+      "properties": {
+        "routeId": "ac-costera",
+        "kind": "stop",
+        "number": 4,
+        "name": "Parada IMSS",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.840592,
+          18.642231
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ac-costera-stop-5",
+      "properties": {
+        "routeId": "ac-costera",
+        "kind": "stop",
+        "number": 5,
+        "name": "Parada Mercado Alonso Felipe",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.838744,
+          18.640755
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ac-costera-stop-6",
+      "properties": {
+        "routeId": "ac-costera",
+        "kind": "stop",
+        "number": 6,
+        "name": "Parada del Malecon Centro",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.836986,
+          18.637248
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ac-laguna-terminos-stop-1",
+      "properties": {
+        "routeId": "ac-laguna-terminos",
+        "kind": "stop",
+        "number": 1,
+        "name": "Parada Mercado AFA",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.838303,
+          18.640309
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-1",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 1,
+        "name": "Parada Principal Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.836272,
+          18.637058
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-2",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 2,
+        "name": "Parada Perforadora Mexico Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.811439,
+          18.648011
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-3",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 3,
+        "name": "Parada Perforadora Mexico Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.811464,
+          18.64788
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-4",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 4,
+        "name": "Parada Telmex Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.803519,
+          18.647286
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-5",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 5,
+        "name": "Parada Wall Mart Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.802119,
+          18.645705
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-6",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 6,
+        "name": "Parada del Restaurante El Portón(Av.Aviación)Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.812072,
+          18.647765
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-7",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 7,
+        "name": "Parada de la MEGA(Av.Aviación)Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.814602,
+          18.646642
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-8",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 8,
+        "name": "Parada de la UNACAR(Av.Aviación)Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.817625,
+          18.645404
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-9",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 9,
+        "name": "Parada de la Chevrolet(Av.Aviación)Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.82591,
+          18.64132
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-10",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 10,
+        "name": "Parada de Chedraui(Av.Aviación)Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.821857,
+          18.643735
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-11",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 11,
+        "name": "Parada de Computación del Golfo(Av.Aviación)Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.829024,
+          18.640118
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-12",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 12,
+        "name": "Parada de Mi Super(Av.Aviación)Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.831275,
+          18.639338
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-13",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 13,
+        "name": "Parada de Chedraui  Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.82203,
+          18.643503
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-14",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 14,
+        "name": "Parada FedExCamión Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.826415,
+          18.640602
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-15",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 15,
+        "name": "Parada Unacar Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.817206,
+          18.645472
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-16",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 16,
+        "name": "Parada Pizza Hut Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.812141,
+          18.647606
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-17",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 17,
+        "name": "Parada Soriana Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.805915,
+          18.649168
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-18",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 18,
+        "name": "Parada 23 Julio Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.789381,
+          18.641606
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-19",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 19,
+        "name": "Parada Plaza Las Palmas Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.792597,
+          18.653181
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-20",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 20,
+        "name": "Parada Plaza Palmira Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.789937,
+          18.654008
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-21",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 21,
+        "name": "Parada Terminal ADO Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.786194,
+          18.655208
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-22",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 22,
+        "name": "Parada Bodega Ahurrera Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.782601,
+          18.656423
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-23",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 23,
+        "name": "Parada San Miguel Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.781038,
+          18.656976
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-24",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 24,
+        "name": "Parada Teotihuacan Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.778378,
+          18.657829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-reforma-stop-25",
+      "properties": {
+        "routeId": "combi-reforma",
+        "kind": "stop",
+        "number": 25,
+        "name": "Segunda Parada Principal Combi Reforma",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.775112,
+          18.647757
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-tierra-libertad-stop-1",
+      "properties": {
+        "routeId": "combi-tierra-libertad",
+        "kind": "stop",
+        "number": 1,
+        "name": "Segunda Parada Principal(Centro)Camión Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.837954,
+          18.640941
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-tierra-libertad-stop-2",
+      "properties": {
+        "routeId": "combi-tierra-libertad",
+        "kind": "stop",
+        "number": 2,
+        "name": "Parada Principal Combi(Malecon)Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.836272,
+          18.637058
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-tierra-libertad-stop-3",
+      "properties": {
+        "routeId": "combi-tierra-libertad",
+        "kind": "stop",
+        "number": 3,
+        "name": "Parada Esc.Benito Juarez Combi Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.836067,
+          18.646922
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-tierra-libertad-stop-4",
+      "properties": {
+        "routeId": "combi-tierra-libertad",
+        "kind": "stop",
+        "number": 4,
+        "name": "Parada Monte de los Olivos Combi Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.827322,
+          18.652403
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-tierra-libertad-stop-5",
+      "properties": {
+        "routeId": "combi-tierra-libertad",
+        "kind": "stop",
+        "number": 5,
+        "name": "Parada Calle 53 Combi Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.828676,
+          18.655072
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-tierra-libertad-stop-6",
+      "properties": {
+        "routeId": "combi-tierra-libertad",
+        "kind": "stop",
+        "number": 6,
+        "name": "Parada CERAMAT Combi Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.818301,
+          18.660423
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-tierra-libertad-stop-7",
+      "properties": {
+        "routeId": "combi-tierra-libertad",
+        "kind": "stop",
+        "number": 7,
+        "name": "Parada Parroquia San Nicolas Combi Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.800444,
+          18.660404
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-tierra-libertad-stop-8",
+      "properties": {
+        "routeId": "combi-tierra-libertad",
+        "kind": "stop",
+        "number": 8,
+        "name": "Parada Sindicato de la 47 Combi Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.798185,
+          18.661108
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-tierra-libertad-stop-9",
+      "properties": {
+        "routeId": "combi-tierra-libertad",
+        "kind": "stop",
+        "number": 9,
+        "name": "Parada Mi super Combi Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.796755,
+          18.658962
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-tierra-libertad-stop-10",
+      "properties": {
+        "routeId": "combi-tierra-libertad",
+        "kind": "stop",
+        "number": 10,
+        "name": "Parada Av. Palmeras Combi Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.794382,
+          18.659419
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-tierra-libertad-stop-11",
+      "properties": {
+        "routeId": "combi-tierra-libertad",
+        "kind": "stop",
+        "number": 11,
+        "name": "Parada Av. Constelación Combi Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.786006,
+          18.661979
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-tierra-libertad-stop-12",
+      "properties": {
+        "routeId": "combi-tierra-libertad",
+        "kind": "stop",
+        "number": 12,
+        "name": "Parada Calle Hidra Combi Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.787734,
+          18.665414
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-tierra-libertad-stop-13",
+      "properties": {
+        "routeId": "combi-tierra-libertad",
+        "kind": "stop",
+        "number": 13,
+        "name": "Parada Panteón Combi Tierra y Libertad",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.840328,
+          18.645247
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-1",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 1,
+        "name": "Parada Principal Combi(Malecon)Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.836272,
+          18.637058
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-2",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 2,
+        "name": "Parada Panteón Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.839974,
+          18.644473
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-3",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 3,
+        "name": "Parada Plaza Mirador Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.838252,
+          18.646502
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-4",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 4,
+        "name": "Parada Real Marín Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.838767,
+          18.647981
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-5",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 5,
+        "name": "Parada Hotel Los Cuates Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.828221,
+          18.654379
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-6",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 6,
+        "name": "Parada de la 53 Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.828653,
+          18.655165
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-7",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 7,
+        "name": "Parada CERAMAT Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.818301,
+          18.660423
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-8",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 8,
+        "name": "Parada Sindicato Num.47 Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.798121,
+          18.661193
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-9",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 9,
+        "name": "Parada Mi super Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.796755,
+          18.658962
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-10",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 10,
+        "name": "Parada Plaza Las Palmas Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.792597,
+          18.653181
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-11",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 11,
+        "name": "Parada Plaza Palmira Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.789937,
+          18.654008
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-12",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 12,
+        "name": "Parada Casa de Justicia Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.785663,
+          18.649307
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-13",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 13,
+        "name": "Parada Casa de Justicia Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.785663,
+          18.649307
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-14",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 14,
+        "name": "Parada IMSS Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.784167,
+          18.646641
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-15",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 15,
+        "name": "Segunda Parada Principal Parque Central Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.783376,
+          18.64536
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-16",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 16,
+        "name": "Parada San Nicolás Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.800453,
+          18.66041
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-17",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 17,
+        "name": "Parada Esc.Tec. Num.26 Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.802948,
+          18.660048
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-18",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 18,
+        "name": "Parada OXXO Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.814064,
+          18.662589
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-19",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 19,
+        "name": "Parada Pantean Nuevo Camión Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.818533,
+          18.66103
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-20",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 20,
+        "name": "Parada Hotel Fatima Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.827419,
+          18.656631
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-21",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 21,
+        "name": "Parada Centro Medico CESAT Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.835224,
+          18.652467
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-22",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 22,
+        "name": "Parada Puerto Pequero I Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.839745,
+          18.650218
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-23",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 23,
+        "name": "Parada Panteón Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.840328,
+          18.645247
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-24",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 24,
+        "name": "Parada IMSS Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.840653,
+          18.642274
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "combi-santa-isabel-stop-25",
+      "properties": {
+        "routeId": "combi-santa-isabel",
+        "kind": "stop",
+        "number": 25,
+        "name": "Parada Mercado Combi Santa Isabel",
+        "accuracy": "imported",
+        "source": "rea-go-carmen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.837976,
+          18.639854
+        ]
+      }
+    }
+  ]
+}

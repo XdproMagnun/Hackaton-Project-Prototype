@@ -3,7 +3,7 @@
 (() => {
   let catalog;
   let transit;
-  let selected = 'campus-3';
+  let selected = '';
   let visible = true;
   let general = true;
   let stopsVisible = true;
@@ -26,7 +26,7 @@
     return node;
   };
   const stops = () => transit.features.filter(f => f.properties.routeId === selected && f.properties.kind === 'stop');
-  const route = () => catalog.routes.find(item => item.id === selected);
+  const route = () => catalog.routes.find(item => item.id === selected) || catalog.routes[0];
   function button(text, action, className = 'primary wide') {
     const node = element('button', text, className);
     node.type = 'button'; node.addEventListener('click', action);
@@ -328,7 +328,13 @@
   chip.addEventListener('click',()=>showPanel('routes'));
   window.addEventListener('ubicarmen:account',()=>{if(catalog)render();});
   Promise.all([UbiData.getRoutes(),UbiData.getTransit()]).then(([data,geo])=>{
-    catalog=data; transit=geo; render();
+    catalog=data; transit=geo;
+    // El catalogo puede cambiar de fuente: la ruta elegida tiene que existir en el actual.
+    if(!catalog.routes.some(item=>item.id===selected)) selected=catalog.routes[0].id;
+    const select=document.querySelector('#stop-route');
+    select.replaceChildren(...catalog.routes.map(item=>{const option=document.createElement('option');option.value=item.id;option.textContent=item.name;return option;}));
+    select.value=selected;
+    render();
     if(map) {map.on('style.load',draw);map.on('moveend',draw);}
     draw();
     if(config.simulateVehicles) startSimulation();

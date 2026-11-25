@@ -11,3 +11,6 @@ firebase-debug.log
 
 # Runtime local (JRE para el emulador); no se versiona
 .tools/
+
+# Capturas y registros temporales de verificacion
+.tmp/

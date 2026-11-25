@@ -1,181 +1,94 @@
 {
-  "updated": "2026-10-15",
+  "updated": "2026-11-25",
+  "source": {
+    "id": "rea-go-carmen",
+    "title": "REA · Go Carmen (APK) · assets/routes.geojson"
+  },
   "routes": [
     {
-      "id": "campus-3",
-      "name": "Campus III",
-      "color": "#8b23c9",
+      "id": "ac-campus3",
+      "name": "Amor x Carmen | Campus III",
+      "nameList": "Amor X Carmen",
+      "color": "#FF00FF",
+      "type": "camion",
       "status": "reference",
-      "stopCount": 12,
-      "description": "Campus I (principal) · Campus III",
-      "note": "Recorrido y posiciones aproximados, reconstruidos desde las imágenes compartidas. No representan un servicio en tiempo real. La numeración identifica marcadores; no indica orden de paso. La captura no es un inventario completo de paradas.",
-      "streets": [
-        "Calle 31",
-        "Periférica Norte",
-        "Av. Concordia",
-        "Av. Corregidora",
-        "Calle 37",
-        "Boquerón del Palmar",
-        "Carretera Carmen–Puerto Real",
-        "Calle Escárcega",
-        "Av. Puerto de Campeche",
-        "Av. Abasolo",
-        "Av. Contadores",
-        "Av. Central",
-        "Campus III"
-      ],
+      "active": true,
+      "stopCount": 10,
+      "description": "Ruta Campus 3 | Bodega Ahurrera Contadores",
+      "note": "Trazado importado del APK de REA; no representa un servicio en tiempo real.",
+      "streets": [],
       "sources": [
         {
-          "id": "poster-user",
-          "title": "Cartel Ruta Campus III · compartido por el usuario",
-          "url": "assets/campus-3-recorrido.png"
-        },
-        {
-          "id": "screenshot-user",
-          "title": "Captura de paradas · compartida por el usuario",
-          "url": "assets/campus-3-paradas.png"
+          "id": "rea-go-carmen",
+          "title": "REA · Go Carmen (APK) · assets/routes.geojson",
+          "url": "hacer REA/Go Carmen.apk"
         }
-      ]
+      ],
+      "camera": [
+        -91.830556,
+        18.643056
+      ],
+      "pointCount": 218,
+      "segmentCount": 2
     },
     {
-      "id": "costera",
-      "name": "Costera",
-      "color": "#087f83",
+      "id": "ac-costera",
+      "name": "Amor x Carmen | Costera",
+      "nameList": "Amor X Carmen",
+      "color": "#00FF00",
+      "type": "camion",
       "status": "reference",
-      "stopCount": 29,
-      "description": "Calle 22 · Playa Norte · Malecón Costero",
-      "note": "Puntos 1–3 usan las coordenadas de sus marcadores en el Google My Maps compartido. Los demás puntos están estimados desde la captura y ajustados a calles del PBF; al acercar el mapa, los grupos se separan visualmente.",
-      "streets": [
-        "Calle 22",
-        "Calle 47",
-        "Calle 26",
-        "Playa Norte",
-        "Malecón Costero",
-        "P. del Mar",
-        "Av. Amado Nervo",
-        "Av. Nardos",
-        "Av. Constelación"
-      ],
+      "active": true,
+      "stopCount": 6,
+      "description": "Ruta Costera | Malecon Costero | Barco Pirata",
+      "note": "Trazado importado del APK de REA; no representa un servicio en tiempo real.",
+      "streets": [],
       "sources": [
         {
-          "id": "google-mymaps-user",
-          "title": "Google My Maps · ruta Costera compartida",
-          "url": "https://www.google.com/maps/d/u/0/viewer?mid=1DaSzhYCq9FK5rQ_Vx-gSYVdZzb6kfDU"
-        },
-        {
-          "id": "costera-poster-user",
-          "title": "Cartel Ruta Costera · compartido por el usuario",
-          "url": "assets/costera-recorrido.png"
-        },
-        {
-          "id": "costera-screenshot-user",
-          "title": "Captura de paradas Costera · compartida por el usuario",
-          "url": "assets/costera-paradas.png"
+          "id": "rea-go-carmen",
+          "title": "REA · Go Carmen (APK) · assets/routes.geojson",
+          "url": "hacer REA/Go Carmen.apk"
         }
-      ]
+      ],
+      "camera": [
+        -91.830556,
+        18.643056
+      ],
+      "pointCount": 241,
+      "segmentCount": 2
     },
     {
-      "id": "laguna-terminos",
-      "name": "Laguna de Términos",
-      "color": "#da8b20",
+      "id": "ac-laguna-terminos",
+      "name": "Amor x Carmen | Laguna de Terminos",
+      "nameList": "Amor X Carmen",
+      "color": "#00FFFF",
+      "type": "camion",
       "status": "reference",
-      "stopCount": 0,
-      "streets": [
-        "Malecón del Centro",
-        "Calle 25",
-        "Calle 24",
-        "Calle 28 × 17",
-        "Av. 10 de Julio",
-        "Calle 40",
-        "Calle Independencia",
-        "Calle Constitución",
-        "Vicente Guerrero",
-        "Balneario de la Manigua",
-        "Av. 16 de Septiembre",
-        "Calle Satélite",
-        "Francisco Javier Mina",
-        "Calle 17-D",
-        "Calle 19",
-        "Calle 42",
-        "Calle 31",
-        "Calle 22"
-      ],
-      "description": "Recorrido original del My Maps compartido",
-      "note": "Línea importada directamente del KML compartido, conservando sus conexiones y su orden. Es un trazado de referencia, no un registro GPS de los camiones.",
+      "active": true,
+      "stopCount": 1,
+      "description": "Ruta Laguna de Terminos | Malecon Centro | Manigua | Las Americas",
+      "note": "Trazado importado del APK de REA; no representa un servicio en tiempo real.",
+      "streets": [],
       "sources": [
         {
-          "id": "google-mymaps-laguna",
-          "title": "Google My Maps · trazado original de Laguna de Términos",
-          "url": "https://www.google.com/maps/d/u/0/viewer?mid=1S7tfEO4a6EizA1P0045_WfPYP7HCeYQ"
+          "id": "rea-go-carmen",
+          "title": "REA · Go Carmen (APK) · assets/routes.geojson",
+          "url": "hacer REA/Go Carmen.apk"
         }
-      ]
+      ],
+      "camera": [
+        -91.830556,
+        18.643056
+      ],
+      "pointCount": 118,
+      "segmentCount": 1
     }
   ],
   "method": {
-    "stopCalibration": {
-      "chedraui": {
-        "pixel": [
-          436,
-          362
-        ],
-        "coordinate": [
-          -91.82146474,
-          18.64246032
-        ]
-      },
-      "aurrera": {
-        "pixel": [
-          975,
-          175
-        ],
-        "coordinate": [
-          -91.7822696,
-          18.6553726
-        ]
-      }
-    },
-    "route": "Tramos OSM seleccionados según el cartel, más una conexión aproximada en Abasolo. Sin cálculo de sentidos ni horarios.",
-    "costera": {
-      "stopCalibration": {
-        "chedraui": {
-          "pixel": [
-            662,
-            389
-          ],
-          "coordinate": [
-            -91.82146474,
-            18.64246032
-          ]
-        },
-        "aurrera": {
-          "pixel": [
-            1114,
-            231
-          ],
-          "coordinate": [
-            -91.7822696,
-            18.6553726
-          ]
-        },
-        "exactMyMaps": [
-          [
-            -91.8357047,
-            18.6355567
-          ],
-          [
-            -91.8371088,
-            18.6373543
-          ],
-          [
-            -91.8369888,
-            18.6392968
-          ]
-        ]
-      },
-      "route": "Tramos del cartel encadenados sobre la red vial del PBF, del circuito del centro a Av. Constelación Pléyades. Sin sentidos de circulación confirmados."
-    },
-    "lagunaTerminos": {
-      "route": "Importación directa de data/laguna-source.kml, descargado del My Maps compartido. Vértices, conexiones y orden conservados sin recalcular caminos."
-    }
+    "import": "npm run import:rea",
+    "swap": "npm run use:rea -- --only ac-campus3,ac-costera,ac-laguna-terminos",
+    "restore": "npm run use:rea -- --restore",
+    "note": "Catalogo sustituido por rutas de REA (Go Carmen). El catalogo anterior quedo en data/legacy/.",
+    "source": "Importacion automatica de assets/routes.geojson (scripts/import-rea.cjs)."
   }
 }
