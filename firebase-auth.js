@@ -1,4 +1,4 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/13.04.0/firebase-app.js';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js';
 import {
   connectAuthEmulator,
   createUserWithEmailAndPassword,
